@@ -55,3 +55,7 @@ target/
 
 # Spyder Editor
 .spyderproject
+
+# Mac OS X files
+.DS_Store
+
