@@ -15,7 +15,7 @@ from e3monitor.config.__db__ import EEE_RUNDB2_CONF
 
 db = MySQLdb.connect(host=EEE_RUNDB2_CONF['host'],
                      user=EEE_RUNDB2_CONF['user'],
-                     passwd=EEE_RUNDB2_CONF['passwd'],
+                     passwd=EEE_RUNDB2_CONF['pwd'],
                      db=EEE_RUNDB2_CONF['dbname'])
 
 cur = db.cursor()
