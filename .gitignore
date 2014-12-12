@@ -61,3 +61,4 @@ target/
 
 # DB config
 config/__db__.py
+
