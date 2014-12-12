@@ -14,6 +14,7 @@ except ImportError:
 from e3monitor.config.__db__ import EEE_RUNDB2_CONF
 
 schoolNumber = '28'
+list = []
 
 db = MySQLdb.connect(host=EEE_RUNDB2_CONF['host'],
                      user=EEE_RUNDB2_CONF['user'],
@@ -23,9 +24,12 @@ db = MySQLdb.connect(host=EEE_RUNDB2_CONF['host'],
 cur = db.cursor()
 
 # cur.execute("SELECT TOP1 * FROM run_table ORDER BY run_start DESC")
-query = "SELECT * FROM run_table WHERE unique_run_id REGEXP '^"+schoolNumber+"' ORDER BY unique_run_id DESC LIMIT 1;"
+#query = "SELECT * FROM run_table WHERE unique_run_id REGEXP '^" + \
+#        schoolNumber + "' ORDER BY unique_run_id DESC LIMIT 1;"
+query = "SELECT * FROM run_table WHERE unique_run_id REGEXP '^" + \
+        schoolNumber + "[0-9]{9}$' ORDER BY unique_run_id DESC LIMIT 1;"
 cur.execute(query)
 
 # print all the first cell of all the rows
-for row in cur.fetchall():
-    print(row)
+list = cur.fetchone()
+print(list[0])
