@@ -28,17 +28,25 @@
 # Read info about runs, schools' elog, Dqm and Dqmreport and
 # make the main webpage index.html
 
+import sys
 import locale
+import logging
+import logging.config
 from e3monitor.config.__stations__ import EEE_ACTIVE_STATIONS
 from e3monitor.tasks.read_elog import read_schools_elog
 from e3monitor.tasks.read_dqm import read_dqm_summary
 from e3monitor.tasks.read_dqmreport import read_dqmreport
 from e3monitor.tasks.make_main_page import make_main_page
 from e3monitor.config.__files_server__ import \
-    pathDqm, pathDqmreport, elogCsvFile
+    pathDqm, pathDqmreport, elogCsvFile, logConfigFile
 
 
 if __name__ == '__main__':
+
+    # Set logging options
+    logging.config.fileConfig(logConfigFile)
+    logger = logging.getLogger('root')
+    logger.info(sys.argv[0]+' Started')
 
     # Set locale to Italian
     locale.setlocale(locale.LC_ALL, 'it_IT')
@@ -60,3 +68,6 @@ if __name__ == '__main__':
     # Make the HTML main page index.html
     make_main_page(lastEntryPerSchool, runSchoolsSummary, schoolsDqmList,
                    lastDqmreport, schoolsDqmreportList, EEE_ACTIVE_STATIONS)
+
+    # Final log message
+    logger.info(sys.argv[0]+' Finished')

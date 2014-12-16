@@ -5,19 +5,25 @@ Created on Tue Nov 18 18:38:15 2014
 @author: Fabrizio Coccetti
 """
 from datetime import datetime
+import logging
 from e3monitor.html.__html_headers__ import (HEADER_HTML,
                                             TABELLA1_HTML,
                                             FOOTER_HTML,
                                             BOTTOM_HTML)
 from e3monitor.tasks.update_time import compute_update
 from e3monitor.tasks.set_version import set_version
-from e3monitor.config.__files_server__ import lastDataFile, mainWebPageFile
+from e3monitor.config.__files_server__ import (lastDataFile,
+                                               mainWebPageFile,
+                                               logConfigFile)
 
 
 def make_main_page(lastEntryPerSchool, runSchoolsSummary, schoolsDqmList,
                    lastDqmreport, schoolsDqmreportList, schoolNamesList):
     '''Make the index.html webpage with the Online main monitoring table
     '''
+    logger = logging.getLogger('plain')
+
+    logger.info('Function make_main_page() started')
     f = open(lastDataFile, 'r')
     w = open(mainWebPageFile, 'w')
     now = datetime.today()
@@ -74,11 +80,11 @@ def make_main_page(lastEntryPerSchool, runSchoolsSummary, schoolsDqmList,
         else:
             dateDqmReport = datetime.strptime(lastDqmreport[schoolName],
                                               '%Y-%m-%d')
-            w.write('<a href=\"../dqmreport/')
+            w.write('<a href=\"dqmreport/')
             w.write(schoolName+'/'+lastDqmreport[schoolName])
             w.write('/index.html\">')
             w.write(dateDqmReport.strftime("%d/%m"))
-            w.write('</a><br /><a href =\"../dqmreport/' + schoolName + '/\">')
+            w.write('</a><br /><a href =\"dqmreport/' + schoolName + '/\">')
             w.write('[History]')
             w.write('</a>')
         w.write('</td><td>')
@@ -103,9 +109,9 @@ def make_main_page(lastEntryPerSchool, runSchoolsSummary, schoolsDqmList,
         if schoolName not in schoolsDqmList:
             w.write('')
         else:
-            w.write('<a href=\"../dqm/')
+            w.write('<a href=\"dqm/')
             w.write(schoolName)
-            w.write('\">')
+            w.write('/\">')
             w.write(schoolName)
             w.write('</a>')
         w.write('</td></tr>')
@@ -115,5 +121,5 @@ def make_main_page(lastEntryPerSchool, runSchoolsSummary, schoolsDqmList,
     w.write(BOTTOM_HTML)
     f.close()
     w.close()
-    print("Success")
+    logger.info('Function make_main_page() finished')
     return True

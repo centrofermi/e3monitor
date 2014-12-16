@@ -25,6 +25,9 @@ elogCsvFile = "/var/www/html/monitor/EEE_data.csv"
 mainWebPageFile = "/var/www/html/monitor/index.html"
 cnafWebPageFile = "/var/www/html/monitor/index_cnaf.html"
 
+# Config File for logging module
+logConfigFile = "/opt/eee/e3monitor/config/logConf.ini"
+
 # Path of Dqm and Dqmreport
 pathDqm = "/var/www/html/monitor/dqm"
 pathDqmreport = "/var/www/html/monitor/dqmreport"
