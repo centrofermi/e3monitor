@@ -28,7 +28,6 @@
 # Read info about runs, schools' elog, Dqm and Dqmreport and
 # make the main webpage index.html
 
-import sys
 import locale
 import logging
 import logging.config
@@ -45,8 +44,8 @@ if __name__ == '__main__':
 
     # Set logging options
     logging.config.fileConfig(logConfigFile)
-    logger = logging.getLogger('root')
-    logger.info(sys.argv[0]+' Started')
+    logger = logging.getLogger('full')
+    logger.info('Started')
 
     # Set locale to Italian
     locale.setlocale(locale.LC_ALL, 'it_IT')
@@ -70,4 +69,5 @@ if __name__ == '__main__':
                    lastDqmreport, schoolsDqmreportList, EEE_ACTIVE_STATIONS)
 
     # Final log message
-    logger.info(sys.argv[0]+' Finished')
+    logger.info('Finished')
+

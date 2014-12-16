@@ -32,7 +32,15 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from datetime import datetime
-from e3monitor.config.__files_server__ import lastTransferredFile, pathSaveFig
+import logging
+import logging.config
+from e3monitor.config.__files_server__ import (lastTransferredFile,
+                                               pathSaveFig,
+                                               logConfigFile)
+# Set logging
+logging.config.fileConfig(logConfigFile)
+logger = logging.getLogger('full')
+logger.info('Started')
 
 # Read input file from CNAF
 f = open(lastTransferredFile, 'r')
@@ -76,4 +84,5 @@ for line in lines:
             runInfo.clear()
             i = 0
 f.close()
-print("Success")
+logger.info('Finished')
+

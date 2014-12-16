@@ -21,9 +21,10 @@ def make_main_page(lastEntryPerSchool, runSchoolsSummary, schoolsDqmList,
                    lastDqmreport, schoolsDqmreportList, schoolNamesList):
     '''Make the index.html webpage with the Online main monitoring table
     '''
-    logger = logging.getLogger('plain')
 
+    logger = logging.getLogger('plain')
     logger.info('Function make_main_page() started')
+
     f = open(lastDataFile, 'r')
     w = open(mainWebPageFile, 'w')
     now = datetime.today()

@@ -5,6 +5,7 @@ Created on Tue Nov 18 23:18:29 2014
 @author: Fabrizio Coccetti
 """
 from datetime import datetime
+import logging
 from e3monitor.html.__html_headers__ import (HEADER_HTML,
                                             TABELLA2_HTML,
                                             FOOTER_HTML,
@@ -17,6 +18,10 @@ from e3monitor.config.__files_server__ import lastTestFile, cnafWebPageFile
 def make_cnaf_page():
     '''Make the index.html webpage with the Netstatus main table
     '''
+
+    logger = logging.getLogger('plain')
+    logger.info('Function make_cnaf_page() started')
+
     f = open(lastTestFile, 'r')
     w = open(cnafWebPageFile, 'w')
     now = datetime.today()
@@ -56,5 +61,5 @@ def make_cnaf_page():
     w.write(BOTTOM_HTML)
     f.close()
     w.close()
-    print("Success")
+    logger.info('Function make_main_page() finished')
     return True

@@ -21,11 +21,21 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
+import logging
+import logging.config
 import locale
 from e3monitor.tasks.make_cnaf_page import make_cnaf_page
+from e3monitor.config.__files_server__ import logConfigFile
 
 if __name__ == '__main__':
+    # Set logging options
+    logging.config.fileConfig(logConfigFile)
+    logger = logging.getLogger('full')
+    logger.info('Started')
     # Set locale to Italian
     locale.setlocale(locale.LC_ALL, 'it_IT')
     # Make the HTML index_cnaf.html
     make_cnaf_page()
+    # Final log
+    logger.info('Finished')
+
