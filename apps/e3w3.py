@@ -27,8 +27,6 @@
 #
 # Read info about runs, schools' elog, Dqm and Dqmreport and
 # make the main webpage index.html
-#
-# TODO: upload to github
 
 import locale
 from e3monitor.config.__stations__ import EEE_ACTIVE_STATIONS
