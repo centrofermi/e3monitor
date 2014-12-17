@@ -20,7 +20,7 @@ from e3monitor.db.E3SchoolsData import E3SchoolsData
 
 # List with the name of the Schools
 schoolNames = []
-param = []
+# Class with methods with last run in DQM from the database
 dqmData = E3SchoolsData()
 
 # Set up logging
