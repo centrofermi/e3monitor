@@ -60,6 +60,5 @@ target/
 .DS_Store
 
 # DB config
-config/__db__.py
-db/database.ini
+config/database.ini
 
