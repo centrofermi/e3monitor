@@ -35,9 +35,13 @@ from e3monitor.config.__stations__ import EEE_ACTIVE_STATIONS
 from e3monitor.tasks.read_elog import read_schools_elog
 from e3monitor.tasks.read_dqm import read_dqm_summary
 from e3monitor.tasks.read_dqmreport import read_dqmreport
+from e3monitor.tasks.read_pickle import read_pickle
+from e3monitor.db.E3SchoolsData import E3SchoolsData
 from e3monitor.tasks.make_main_page import make_main_page
-from e3monitor.config.__files_server__ import \
-    pathDqm, pathDqmreport, elogCsvFile, logConfigFile
+from e3monitor.config.__files_server__ import (pathDqm,
+                                               pathDqmreport,
+                                               elogCsvFile,
+                                               logConfigFile)
 
 
 if __name__ == '__main__':
@@ -62,6 +66,10 @@ if __name__ == '__main__':
     lastDqmreport, schoolsDqmreportList = \
         read_dqmreport(EEE_ACTIVE_STATIONS, pathDqmreport)
 
+    # Read the pickle file with RUN info from the database
+    dqmData = read_pickle()
+    dqmData.print_AllData()
+
     schoolNamesList = EEE_ACTIVE_STATIONS
 
     # Make the HTML main page index.html
@@ -70,4 +78,3 @@ if __name__ == '__main__':
 
     # Final log message
     logger.info('Finished')
-

@@ -7,14 +7,13 @@ Created on Tue Nov 18 18:38:15 2014
 from datetime import datetime
 import logging
 from e3monitor.html.__html_headers__ import (HEADER_HTML,
-                                            TABELLA1_HTML,
-                                            FOOTER_HTML,
-                                            BOTTOM_HTML)
+                                             TABELLA1_HTML,
+                                             FOOTER_HTML,
+                                             BOTTOM_HTML)
 from e3monitor.tasks.update_time import compute_update
 from e3monitor.tasks.set_version import set_version
 from e3monitor.config.__files_server__ import (lastDataFile,
-                                               mainWebPageFile,
-                                               logConfigFile)
+                                               mainWebPageFile)
 
 
 def make_main_page(lastEntryPerSchool, runSchoolsSummary, schoolsDqmList,
