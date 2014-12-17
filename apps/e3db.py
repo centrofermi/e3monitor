@@ -16,7 +16,7 @@ from e3monitor.db.E3SchoolsData import E3SchoolsData
 # List with the name of the Schools
 schoolNames = []
 param = []
-schoolsData = E3SchoolsData()
+dqmData = E3SchoolsData()
 
 # Set up logging
 logging.config.fileConfig(logConfigFile)
@@ -44,9 +44,6 @@ logger.info('About to query: ' + query)
 cur.execute(query)
 schoolNames = [item[0] for item in cur.fetchall()]
 sorted(schoolNames)
-for school in schoolNames:
-    schoolsData.addSchool(school)
-schoolsData.displaySchools()
 
 # Query for the last run data of each school
 query = ("SELECT * FROM run_table WHERE station_name = %s "
@@ -58,6 +55,8 @@ for _schoolName in schoolNames:
     if param is None:
         continue
     # Assign parameter to the class
+    dqmData.add_entry(_schoolName, param)
+print(dqmData.run_duration('ALTA-01'))
 
 cur.close()
 db.close()
