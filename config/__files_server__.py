@@ -28,6 +28,9 @@ cnafWebPageFile = "/var/www/html/monitor/index_cnaf.html"
 # Config File for logging module
 logConfigFile = "/opt/eee/e3monitor/config/logConf.ini"
 
+# Config File for database
+dbConfigFile = "/opt/eee/e3monitor/config/database.ini"
+
 # Path of Dqm and Dqmreport
 pathDqm = "/var/www/html/monitor/dqm"
 pathDqmreport = "/var/www/html/monitor/dqmreport"
@@ -37,4 +40,3 @@ pathSaveFig = '/var/www/html/monitor/plots/'
 
 # Path of the MIDAS elogbook .log files
 elogBookPath = "/usr/local/elog/logbooks/EEE e-log/"
-
