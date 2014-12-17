@@ -38,25 +38,24 @@ cur = db.cursor()
 
 # Connect to the School database and get the school name list
 query = "SELECT name FROM telescope_id_table;"
+logger.info('About to query: ' + query)
 cur.execute(query)
-schoolNames = cur.fetchall()
-schoolNames.sort()
-print(schoolNames)
+schoolNames = [item[0] for item in cur.fetchall()]
+sorted(schoolNames)
 
-# cur.execute("SELECT TOP1 * FROM run_table ORDER BY run_start DESC")
-# query = "SELECT * FROM run_table WHERE unique_run_id REGEXP '^" + \
-#        schoolNumber + "' ORDER BY unique_run_id DESC LIMIT 1;"
-# SELECT * FROM run_table WHERE station_name = 'ALTA-01'
-# ORDER BY unique_run_id DESC LIMIT 1;
-# query = "SELECT * FROM run_table WHERE unique_run_id REGEXP '^" + \
-#        schoolNumber + "[0-9]{9}$' ORDER BY unique_run_id DESC LIMIT 1;"
+# Query for the last run data of each school
+query = ("SELECT * FROM run_table WHERE station_name = %s "
+         "ORDER BY unique_run_id DESC LIMIT 1;")
+logger.info('About to query: ' + query)
 for _schoolName in schoolNames:
-    query = "SELECT * FROM run_table WHERE station_name = " + \
-        _schoolName + "ORDER BY unique_run_id DESC LIMIT 1;"
-    cur.execute(query)
-    # print all the first cell of all the rows
+    cur.execute(query, _schoolName)
     param = cur.fetchone()
-    print(param)
+    if param is None:
+        continue
+    # Assign parameter to the class
 
+cur.close()
+db.close()
 logger = logging.getLogger('full')
 logger.info('Finished')
+
