@@ -6,11 +6,16 @@ Created on Fri Dec 17 11:08:30 2014
 @author: Fabrizio Coccetti (fabrizio.coccetti@centrofermi.it) [www.fc8.net]
 """
 
+import os
 import MySQLdb
 import ConfigParser
+import pickle
 import logging
 import logging.config
-from e3monitor.config.__files_server__ import logConfigFile, dbConfigFile
+from e3monitor.config.__files_server__ import (logConfigFile,
+                                               dbConfigFile,
+                                               plkDataFile,
+                                               pathWorkDir)
 from e3monitor.db.E3SchoolsData import E3SchoolsData
 
 # List with the name of the Schools
@@ -51,12 +56,16 @@ query = ("SELECT * FROM run_table WHERE station_name = %s "
 logger.info('About to query: ' + query)
 for _schoolName in schoolNames:
     cur.execute(query, _schoolName)
-    param = cur.fetchone()
-    if param is None:
+    _entry = cur.fetchone()
+    if _entry is None:
         continue
     # Assign parameter to the class
-    dqmData.add_entry(_schoolName, param)
-print(dqmData.run_duration('ALTA-01'))
+    dqmData.add_entry(_schoolName, _entry)
+
+# Save the data extracted from the db
+output = open(os.path.join(pathWorkDir, plkDataFile), 'wb')
+pickle.dump(dqmData, output)
+output.close()
 
 cur.close()
 db.close()

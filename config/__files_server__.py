@@ -31,6 +31,12 @@ logConfigFile = "/opt/eee/e3monitor/config/logConf.ini"
 # Config File for database
 dbConfigFile = "/opt/eee/e3monitor/config/database.ini"
 
+# Name of the Data pickle File
+plkDataFile = "data.plk"
+
+# Path of the Working directory
+pathWorkDir = 'opt/eee/e3monitor_work'
+
 # Path of Dqm and Dqmreport
 pathDqm = "/var/www/html/monitor/dqm"
 pathDqmreport = "/var/www/html/monitor/dqmreport"
