@@ -11,10 +11,12 @@ import ConfigParser
 import logging
 import logging.config
 from e3monitor.config.__files_server__ import logConfigFile, dbConfigFile
+from e3monitor.db.E3SchoolsData import E3SchoolsData
 
 # List with the name of the Schools
 schoolNames = []
 param = []
+schoolsData = E3SchoolsData()
 
 # Set up logging
 logging.config.fileConfig(logConfigFile)
@@ -42,6 +44,9 @@ logger.info('About to query: ' + query)
 cur.execute(query)
 schoolNames = [item[0] for item in cur.fetchall()]
 sorted(schoolNames)
+for school in schoolNames:
+    schoolsData.addSchool(school)
+schoolsData.displaySchools()
 
 # Query for the last run data of each school
 query = ("SELECT * FROM run_table WHERE station_name = %s "
@@ -58,4 +63,3 @@ cur.close()
 db.close()
 logger = logging.getLogger('full')
 logger.info('Finished')
-
