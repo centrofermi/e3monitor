@@ -52,6 +52,7 @@ sorted(schoolNames)
 
 # Query for the last run data of each school
 query = ("SELECT * FROM run_table WHERE station_name = %s "
+         "AND run_start is not NULL AND run_stop is not NULL "
          "ORDER BY unique_run_id DESC LIMIT 1;")
 logger.info('About to query: ' + query)
 for _schoolName in schoolNames:
@@ -66,8 +67,9 @@ for _schoolName in schoolNames:
 output = open(os.path.join(pathWorkDir, plkDataFile), 'wb')
 pickle.dump(dqmData, output)
 output.close()
+logger = logging.getLogger('full')
+logger.info('Written ' + os.path.join(pathWorkDir, plkDataFile))
 
 cur.close()
 db.close()
-logger = logging.getLogger('full')
 logger.info('Finished')

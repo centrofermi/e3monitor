@@ -47,3 +47,13 @@ class E3SchoolsData(dict):
     def run_duration(self, schoolName):
         return(self._mydict[schoolName][6] - self._mydict[schoolName][5])
 
+    def triggers(self, schoolName):
+        try:
+            run_time = float(self._mydict[schoolName][6]) - float(self._mydict[schoolName][5])
+        except:
+            return -2
+        if run_time <= 0:
+            return -1
+        else:
+            return float(self._mydict[schoolName][9])/run_time
+

@@ -17,7 +17,7 @@ from e3monitor.config.__files_server__ import (lastDataFile,
 
 
 def make_main_page(lastEntryPerSchool, runSchoolsSummary, schoolsDqmList,
-                   lastDqmreport, schoolsDqmreportList, schoolNamesList):
+                   lastDqmreport, schoolsDqmreportList, dqmData, schoolNamesList):
     '''Make the index.html webpage with the Online main monitoring table
     '''
 
@@ -88,24 +88,37 @@ def make_main_page(lastEntryPerSchool, runSchoolsSummary, schoolsDqmList,
             w.write('[History]')
             w.write('</a>')
         w.write('</td><td>')
-        if schoolName not in schoolNamesList:
-            w.write('')
-        elif schoolName not in schoolsDqmList:
-            w.write('')
-        elif not runSchoolsSummary[schoolName][0]:
-            w.write('')
-        else:
-            w.write(str(round(runSchoolsSummary[schoolName][0], 1)))
+
+        #if schoolName not in schoolNamesList:
+        #    w.write('')
+        #elif schoolName not in schoolsDqmList:
+        #    w.write('')
+        #elif not runSchoolsSummary[schoolName][0]:
+        #    w.write('')
+        #else:
+        #    w.write(str(round(runSchoolsSummary[schoolName][0], 1)))
+ 
+        try:
+            w.write(str(round(dqmData.triggers(schoolName),1)))
+        except:
+            w.write('Check')
+
         w.write('</td><td>')
-        if schoolName not in schoolNamesList:
-            w.write('')
-        elif schoolName not in schoolsDqmList:
-            w.write('')
-        elif not runSchoolsSummary[schoolName][1]:
-            w.write('')
-        else:
-            w.write(str(round(runSchoolsSummary[schoolName][1], 1)))
+
+        #if schoolName not in schoolNamesList:
+        #    w.write('')
+        #elif schoolName not in schoolsDqmList:
+        #    w.write('')
+        #elif not runSchoolsSummary[schoolName][1]:
+        #    w.write('')
+        #else:
+        try:
+            w.write(str(round(dqmData.triggers(schoolName))))
+        except:
+            w.write('Check')
+
         w.write('</td><td>')
+
         if schoolName not in schoolsDqmList:
             w.write('')
         else:

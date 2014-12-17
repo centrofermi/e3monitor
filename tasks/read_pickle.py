@@ -8,7 +8,6 @@ Created on Wed Dec 17 19:53:55 2014
 import pickle
 import os
 from e3monitor.config.__files_server__ import pathWorkDir, plkDataFile
-from e3monitor.db.E3SchoolsData import E3SchoolsData
 
 
 def read_pickle():
