@@ -46,7 +46,7 @@ cur = db.cursor()
 
 # Connect to the School's table and get the school name list
 logger.info('Connect to the School\'s table and get the school name list')
-query = "SELECT name FROM telescope_id_table;"
+query = "SELECT name FROM telescope_ids;"
 logger.info('Get the School\'s name list: ' + query)
 cur.execute(query)
 schoolNames = [item[0] for item in cur.fetchall()]
@@ -54,7 +54,7 @@ sorted(schoolNames)
 
 # Query for the last run data of each school
 logger.info('Query for the last run data of each school')
-query = ("SELECT * FROM run_table WHERE station_name = %s "
+query = ("SELECT * FROM runs WHERE station_name = %s "
          "AND run_start is not NULL AND run_stop is not NULL "
          "ORDER BY unique_run_id DESC LIMIT 1;")
 logger.info('About to query: ' + query)
