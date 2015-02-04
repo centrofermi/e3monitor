@@ -17,7 +17,8 @@ from e3monitor.config.__files_server__ import (lastDataFile,
 
 
 def make_main_page(lastEntryPerSchool, runSchoolsSummary, schoolsDqmList,
-                   lastDqmreport, schoolsDqmreportList, dqmData, schoolNamesList):
+                   lastDqmreport, schoolsDqmreportList,
+                   dqmData, schoolNamesList):
     '''Make the index.html webpage with the Online main monitoring table
     '''
 
@@ -88,32 +89,16 @@ def make_main_page(lastEntryPerSchool, runSchoolsSummary, schoolsDqmList,
             w.write('[History]')
             w.write('</a>')
         w.write('</td><td>')
-
-        #if schoolName not in schoolNamesList:
-        #    w.write('')
-        #elif schoolName not in schoolsDqmList:
-        #    w.write('')
-        #elif not runSchoolsSummary[schoolName][0]:
-        #    w.write('')
-        #else:
-        #    w.write(str(round(runSchoolsSummary[schoolName][0], 1)))
- 
+        # Print triggers
         try:
-            w.write(str(round(dqmData.triggers(schoolName),1)))
+            w.write(str(round(dqmData.trigger_rate(schoolName), 1)))
         except:
             w.write('Check')
 
         w.write('</td><td>')
-
-        #if schoolName not in schoolNamesList:
-        #    w.write('')
-        #elif schoolName not in schoolsDqmList:
-        #    w.write('')
-        #elif not runSchoolsSummary[schoolName][1]:
-        #    w.write('')
-        #else:
+        # Print tracks (chi^2 < 10)
         try:
-            w.write(str(round(dqmData.triggers(schoolName))))
+            w.write(str(round(dqmData.track_rate(schoolName))))
         except:
             w.write('Check')
 

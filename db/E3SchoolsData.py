@@ -27,33 +27,44 @@ class E3SchoolsData(dict):
         return(self._mydict[schoolName][2])
 
     def transfer_timestamp(self, schoolName):
-        return(self._mydict[schoolName][3])
+        return(self._mydict[schoolName][4])
 
     def run_start(self, schoolName):
-        return(self._mydict[schoolName][5])
-
-    def run_stop(self, schoolName):
         return(self._mydict[schoolName][6])
 
-    def num_events(self, schoolName):
-        return(self._mydict[schoolName][9])
+    def run_stop(self, schoolName):
+        return(self._mydict[schoolName][7])
 
-    def num_hit_events(self, schoolName):
+    def num_events(self, schoolName):
         return(self._mydict[schoolName][10])
 
-    def num_track_events(self, schoolName):
+    def num_hit_events(self, schoolName):
         return(self._mydict[schoolName][11])
 
-    def run_duration(self, schoolName):
-        return(self._mydict[schoolName][6] - self._mydict[schoolName][5])
+    def num_track_events(self, schoolName):
+        return(self._mydict[schoolName][12])
 
-    def triggers(self, schoolName):
+    def run_duration(self, schoolName):
+        return(self._mydict[schoolName][7] - self._mydict[schoolName][6])
+
+    def trigger_rate(self, schoolName):
         try:
-            run_time = float(self._mydict[schoolName][6]) - float(self._mydict[schoolName][5])
+            run_time = (float(self._mydict[schoolName][7]) -
+                        float(self._mydict[schoolName][6]))
         except:
             return -2
         if run_time <= 0:
             return -1
         else:
-            return float(self._mydict[schoolName][9])/run_time
+            return float(self._mydict[schoolName][10])/run_time
 
+    def track_rate(self, schoolName):
+        try:
+            run_time = (float(self._mydict[schoolName][7]) -
+                        float(self._mydict[schoolName][6]))
+        except:
+            return -2
+        if run_time <= 0:
+            return -1
+        else:
+            return float(self._mydict[schoolName][12])/run_time
