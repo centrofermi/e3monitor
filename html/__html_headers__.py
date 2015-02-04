@@ -40,8 +40,8 @@ ELOGBOOK delle SCUOLE</a>
 <a href="http://www.centrofermi.it/elog/Shifter">
 ELOGBOOK dello SHIFTER</a>
 </td><td>
-<a href="index_cnaf.html">
-Stato trasmissione CNAF</a>
+<a href="http://eee.centrofermi.it/">
+Home Page EEE</a>
 </td></tr></table>
 </div>
 
