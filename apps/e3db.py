@@ -30,6 +30,7 @@ logger.info('Started')
 logger = logging.getLogger('plain')
 
 # Reading db ini file
+logger.info('Reading ' + dbConfigFile)
 parser = ConfigParser.ConfigParser()
 parser.read(dbConfigFile)
 host = parser.get('General', 'host')
@@ -43,14 +44,16 @@ db = MySQLdb.connect(host=host, user=user, passwd=passwd, db=dbname)
 
 cur = db.cursor()
 
-# Connect to the School database and get the school name list
+# Connect to the School's table and get the school name list
+logger.info('Connect to the School\'s table and get the school name list')
 query = "SELECT name FROM telescope_id_table;"
-logger.info('About to query: ' + query)
+logger.info('Get the School\'s name list: ' + query)
 cur.execute(query)
 schoolNames = [item[0] for item in cur.fetchall()]
 sorted(schoolNames)
 
 # Query for the last run data of each school
+logger.info('Query for the last run data of each school')
 query = ("SELECT * FROM run_table WHERE station_name = %s "
          "AND run_start is not NULL AND run_stop is not NULL "
          "ORDER BY unique_run_id DESC LIMIT 1;")
@@ -62,8 +65,11 @@ for _schoolName in schoolNames:
         continue
     # Assign parameter to the class
     dqmData.add_entry(_schoolName, _entry)
+    logger.info('Read School: ' + _schoolName)
+    logger.info(dqmData.print_schoolData(_schoolName))
 
 # Save the data extracted from the db
+logger.info('Writing data to file...')
 output = open(os.path.join(pathWorkDir, plkDataFile), 'wb')
 pickle.dump(dqmData, output)
 output.close()
