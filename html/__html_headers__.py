@@ -18,7 +18,7 @@ HEADER_HTML = """
 <title>EEE Monitor -
 Museo Storico della Fisica e Centro Studi e Ricerche Enrico Fermi</title>
 <link rel="stylesheet" type="text/css"
-href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+href="https://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
 <link href="e3monitor.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
