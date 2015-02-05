@@ -53,19 +53,31 @@ def make_main_page(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
         w.write('<tr class=\"')
         w.write(classColor)
         w.write('\"><td>')
+
+        # Print School Name in format: TEST-01
         w.write(schoolName)
         w.write('</td><td>')
+
+        # Print Day of the last transferred file at CNAF
         w.write(timeData.strftime("%a %d"))
         w.write('<br />')
         w.write(timeData.strftime("%B"))
         w.write('</td><td>')
+
+        # Print Time of the last transferred file at CNAF
         w.write(hourData)
         w.write('</td><td>')
+
+        # Print "Nome dell'ultimo File trasferito"
         w.write(fileNameData[:13]+'<br />'+fileNameData[13:])
         w.write('</td><td class=\"right\">')
+
+        # Print "Numero di file trasferiti oggi"
         w.write(transferedFileNumber)
         w.write('<br /><a href=\"plots/' + schoolName + '.png\">[History]</a>')
         w.write('</td><td>')
+
+        # Print "Ultima Entry nell'e-logbook delle Scuole"
         try:
             w.write(lastEntryPerSchool[schoolName].strftime("%H:%M"))
             w.write('<br />')
@@ -73,6 +85,13 @@ def make_main_page(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
         except:
             w.write('&nbsp;')
         w.write('</td><td>')
+
+        # Print "Nome dell'ultimo File analizzato dal DQM"
+        w.write(dqmData.run_name(schoolName))
+        # w.write(fileNameData[:13]+'<br />'+fileNameData[13:])
+        w.write('</td><td>')
+
+        # Print "Report giornaliero DQM"
         if schoolName not in schoolNamesList:
             w.write('')
         elif schoolName not in schoolsDqmreportList:
@@ -88,13 +107,14 @@ def make_main_page(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
             w.write('[History]')
             w.write('</a>')
         w.write('</td><td>')
+
         # Print triggers
         try:
             w.write(str(round(dqmData.trigger_rate(schoolName), 1)))
         except:
             w.write('Check')
-
         w.write('</td><td>')
+
         # Print tracks (chi^2 < 10)
         try:
             w.write(str(round(dqmData.track_rate(schoolName))))
@@ -102,6 +122,7 @@ def make_main_page(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
             w.write('Check')
 
         w.write('</td><td>')
+
         # Print link to DMQ directory
         if schoolName not in schoolNamesList:
             w.write('')
@@ -112,6 +133,7 @@ def make_main_page(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
             w.write(schoolName)
             w.write('</a>')
         w.write('</td></tr>')
+
     w.write('</table>')
     w.write(FOOTER_HTML)
     w.write(set_version())
