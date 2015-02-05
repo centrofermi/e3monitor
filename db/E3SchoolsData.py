@@ -5,6 +5,7 @@ Created on Wed Dec 17 16:06:54 2014
 @author: Fabrizio Coccetti (fabrizio.coccetti@centrofermi.it) [www.fc8.net]
 """
 
+
 class E3SchoolsData(dict):
 
     def __init__(self):

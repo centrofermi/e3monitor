@@ -16,8 +16,7 @@ from e3monitor.config.__files_server__ import (lastDataFile,
                                                mainWebPageFile)
 
 
-def make_main_page(lastEntryPerSchool, runSchoolsSummary, schoolsDqmList,
-                   lastDqmreport, schoolsDqmreportList,
+def make_main_page(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
                    dqmData, schoolNamesList):
     '''Make the index.html webpage with the Online main monitoring table
     '''
@@ -103,8 +102,8 @@ def make_main_page(lastEntryPerSchool, runSchoolsSummary, schoolsDqmList,
             w.write('Check')
 
         w.write('</td><td>')
-
-        if schoolName not in schoolsDqmList:
+        # Print link to DMQ directory
+        if schoolName not in schoolNamesList:
             w.write('')
         else:
             w.write('<a href=\"dqm/')

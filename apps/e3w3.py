@@ -33,12 +33,11 @@ import logging
 import logging.config
 from e3monitor.config.__stations__ import EEE_ACTIVE_STATIONS
 from e3monitor.tasks.read_elog import read_schools_elog
-from e3monitor.tasks.read_dqm import read_dqm_summary
+# from e3monitor.tasks.read_dqm import read_dqm_summary
 from e3monitor.tasks.read_dqmreport import read_dqmreport
 from e3monitor.tasks.read_pickle import read_pickle
 from e3monitor.tasks.make_main_page import make_main_page
-from e3monitor.config.__files_server__ import (pathDqm,
-                                               pathDqmreport,
+from e3monitor.config.__files_server__ import (pathDqmreport,
                                                elogCsvFile,
                                                logConfigFile)
 
@@ -58,8 +57,8 @@ if __name__ == '__main__':
 
     # Determine the content of DQM .summary files for each school
     # and the list of schools that actually have a DQM directory
-    runSchoolsSummary, schoolsDqmList = \
-        read_dqm_summary(EEE_ACTIVE_STATIONS, pathDqm)
+    # runSchoolsSummary, schoolsDqmList = \
+    #    read_dqm_summary(EEE_ACTIVE_STATIONS, pathDqm)
 
     # Find directory for the last daily dqmreport
     lastDqmreport, schoolsDqmreportList = \
@@ -67,13 +66,14 @@ if __name__ == '__main__':
 
     # Read the pickle file with RUN info from the database
     dqmData = read_pickle()
-    logger.info('pickle file extracted from the database imported: dqmData is loaded')
+    logger.info('pickle file extracted from the \
+                database imported: dqmData is loaded')
 
     schoolNamesList = EEE_ACTIVE_STATIONS
 
     # Make the HTML main page index.html
-    make_main_page(lastEntryPerSchool, runSchoolsSummary, schoolsDqmList,
-                   lastDqmreport, schoolsDqmreportList, dqmData, EEE_ACTIVE_STATIONS)
+    make_main_page(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
+                   dqmData, EEE_ACTIVE_STATIONS)
 
     # Final log message
     logger.info('Finished')
