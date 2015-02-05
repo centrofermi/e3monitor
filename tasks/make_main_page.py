@@ -88,9 +88,11 @@ def make_main_page(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
 
         # Print "Nome dell'ultimo File analizzato dal DQM"
         try:
-            _runNameInDqm = (schoolName + 
-                             dqmData.run_date(schoolName).strftime("-%Y-%m-%d-") +
-                             "{0:0>5}".format(int(dqmData.run_id(schoolName))))
+            _runNameInDqm = (schoolName +
+                             dqmData.run_date(
+                                 schoolName).strftime("-%Y-%m-%d-") +
+                             "{0:0>5}".format(int(
+                                 dqmData.run_id(schoolName))))
             w.write(_runNameInDqm[:13]+'<br />'+_runNameInDqm[13:])
         except:
             w.write('*')

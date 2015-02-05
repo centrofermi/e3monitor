@@ -1,4 +1,10 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Feb  5 17:10:55 2015
+
+@author: Fabrizio Coccetti (fabrizio.coccetti@centrofermi.it) [www.fc8.net]
+"""
 # *********************************************************************
 # * Copyright (C) 2014 Fabrizio Coccetti                              *
 # * fabrizio.coccetti@centrofermi.it  [www.fc8.net]                   *
@@ -21,12 +27,6 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
-# Many thanks to Luca.Baldini@pi.infn.it
-#
-# Creation: 15 oct 2014
-#
-# Read info about runs, schools' elog, Dqm and Dqmreport and
-# make the main webpage index.html
 
 import locale
 import logging
@@ -35,7 +35,7 @@ from e3monitor.config.__stations__ import EEE_ACTIVE_STATIONS
 from e3monitor.tasks.read_elog import read_schools_elog
 from e3monitor.tasks.read_dqmreport import read_dqmreport
 from e3monitor.tasks.read_pickle import read_pickle
-from e3monitor.tasks.make_main_page import make_main_page
+from e3monitor.tasks.make_xlsx_file import make_xlsx_file
 from e3monitor.config.__files_server__ import (pathDqmreport,
                                                elogCsvFile,
                                                logConfigFile)
@@ -69,7 +69,7 @@ if __name__ == '__main__':
                 "database imported: dqmData is loaded")
 
     # Make the HTML main page index.html
-    make_main_page(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
+    make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
                    dqmData, EEE_ACTIVE_STATIONS)
 
     # Final log message

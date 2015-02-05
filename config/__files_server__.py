@@ -25,6 +25,9 @@ elogCsvFile = "/var/www/html/monitor/EEE_data.csv"
 mainWebPageFile = "/var/www/html/monitor/index.html"
 cnafWebPageFile = "/var/www/html/monitor/index_cnaf.html"
 
+# xslx File to write
+xlsFile = "/var/www/html/monitor/shifter_report.xlsx"
+
 # Config File for logging module
 logConfigFile = "/opt/eee/e3monitor/config/logConf.ini"
 
