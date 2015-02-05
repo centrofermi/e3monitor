@@ -62,7 +62,7 @@ cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di un giorno.</p>
 <th class="small">Nome dell'ultimo<br />File trasferito</th>
 <th class="small">Numero Files<br />trasferiti oggi</th>
 <th class="small">Ultima Entry<br />nell'e-logbook<br />delle Scuole</th>
-<th class="small">Nome dell'ultimo<br />File analizzato dal DQM</th>
+<th class="small">Nome dell'ultimo<br />File analizzato<br />dal DQM</th>
 <th>Report<br />giornaliero<br />DQM</th>
 <th class="small">RATE of<br />Triggers</br />
 for the<br />last Run<br />in DQM</th>

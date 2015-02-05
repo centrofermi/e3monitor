@@ -14,11 +14,11 @@ class E3SchoolsData(dict):
     def add_entry(self, schoolName, schoolData):
         self._mydict[schoolName] = schoolData
 
-    def print_schoolData(self, schoolName):
-        print(self._mydict[schoolName])
+    def schoolData(self, schoolName):
+        return(self._mydict[schoolName])
 
-    def print_AllData(self):
-        print(self._mydict)
+    def AllData(self):
+        return(self._mydict)
 
     def run_date(self, schoolName):
         return(self._mydict[schoolName][1])
@@ -46,11 +46,6 @@ class E3SchoolsData(dict):
 
     def run_duration(self, schoolName):
         return(self._mydict[schoolName][7] - self._mydict[schoolName][6])
-
-    def run_name(self, schoolName):
-        return(str(schoolName +
-                   self._mydict[schoolName][1] +
-                   self._mydict[schoolName][2]))
 
     def trigger_rate(self, schoolName):
         try:

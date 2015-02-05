@@ -66,7 +66,7 @@ for _schoolName in schoolNames:
     # Assign parameter to the class
     dqmData.add_entry(_schoolName, _entry)
     logger.info('Read School: ' + _schoolName)
-    logger.info(dqmData.print_schoolData(_schoolName))
+    logger.info(dqmData.schoolData(_schoolName))
 
 # Save the data extracted from the db
 logger.info('Writing data to file...')

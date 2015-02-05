@@ -66,8 +66,8 @@ if __name__ == '__main__':
 
     # Read the pickle file with RUN info from the database
     dqmData = read_pickle()
-    logger.info('pickle file extracted from the \
-                database imported: dqmData is loaded')
+    logger.info("pickle file extracted from the"
+                "database imported: dqmData is loaded")
 
     schoolNamesList = EEE_ACTIVE_STATIONS
 
