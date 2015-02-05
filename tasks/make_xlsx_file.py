@@ -24,8 +24,9 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
     worksheet = workbook.add_worksheet('EEE')
 
     headers = ('Scuola',
-               'Giorno'
-               'Ora'
+               'NOTE dello SHIFTER',
+               'Giorno',
+               'Ora',
                'Nome ultimo File trasferito')
     row = 0
     col = 0
@@ -33,6 +34,10 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
     for _header in headers:
         worksheet.write(row, col, _header)
         col += 1
+
+    # Format column size
+    worksheet.set_column('B:B', 30)
+    worksheet.set_column('E:E', 30)
 
     workbook.close()
     logger.info('Function make_xlsx_file() finished')
