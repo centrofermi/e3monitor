@@ -52,11 +52,12 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
         col += 1
 
     # Define formats
-    bold_format = workbook.add_format({'bold': True})
-    wrap_format = workbook.add_format()
-    wrap_format.set_text_wrap()
+    text_bold = workbook.add_format({'bold': True})
+    # wrap_format = workbook.add_format()
+    # wrap_format.set_text_wrap()
+    text_wrap = workbook.add_format({'text_wrap': 1, 'valign': 'top'})
     # Format headers row
-    worksheet.set_row(row, 20, bold_format)
+    worksheet.set_row(row, 20, text_bold)
     # Format column size
     worksheet.set_column('A:A', 6)
     worksheet.set_column('B:B', 30)
@@ -86,7 +87,7 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
         col += 1
 
         # Print NOTE delle Shifter
-        worksheet.write(row, col, 'Inserisci le tue note', wrap_format)
+        worksheet.write(row, col, 'Inserisci le tue note', text_wrap)
         col += 1
 
         # Print Day of the last transferred file at CNAF
