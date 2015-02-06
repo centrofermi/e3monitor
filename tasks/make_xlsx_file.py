@@ -52,20 +52,21 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
         col += 1
 
     # Define formats
-    text_bold = workbook.add_format({'bold': True})
+    text_bold = workbook.add_format({'bold': True, 'valign': 'vcenter'})
     # wrap_format = workbook.add_format()
     # wrap_format.set_text_wrap()
     text_wrap = workbook.add_format({'text_wrap': 1, 'valign': 'top'})
     # Format headers row
-    worksheet.set_row(row, 20, text_bold)
+    worksheet.set_row(row, 50, text_bold)
     # Format column size
-    worksheet.set_column('A:A', 6)
+    worksheet.set_column('A:A', 10)
     worksheet.set_column('B:B', 30)
     worksheet.set_column('C:D', 10)
     worksheet.set_column('E:H', 30)
-    worksheet.set_column('I:J', 30)
+    worksheet.set_column('I:J', 15)
 
     row = 1
+
     # Read file from CNAF
     f = open(lastDataFile, 'r')
     lines = f.readlines()
@@ -78,9 +79,11 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
         except:
             timeData = now
 
+        # Start at the first Column for every row
         col = 0
+
         # Format Row Height
-        worksheet.set_row(row, 20)
+        worksheet.set_row(row, 50)
 
         # Print School Name
         worksheet.write(row, col, schoolName)
