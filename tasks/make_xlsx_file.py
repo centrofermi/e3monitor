@@ -66,7 +66,6 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
     worksheet.set_column('I:J', 30)
 
     row = 1
-    col = 0
     # Read file from CNAF
     f = open(lastDataFile, 'r')
     lines = f.readlines()
@@ -79,6 +78,7 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
         except:
             timeData = now
 
+        col = 0
         # Format Row Height
         worksheet.set_row(row, 20)
 
@@ -143,7 +143,7 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
             worksheet.write(row, col, '')
         col += 1
 
-    row += 1
+        row += 1
 
     workbook.close()
     logger.info('Function make_xlsx_file() finished')
