@@ -50,7 +50,7 @@ Download the Excel Sheet for the Shifter's Report
 
 <h2>EEE Main Monitoring Table</h2>
 
-<p style="font-color:#e00;">ATTENZIONE: sia il Monitoring che il DQM sono in fase di mantenzione,
+<p style="color:#e00;">ATTENZIONE: sia il Monitoring che il DQM sono in fase di mantenzione,
 i dati qui riportati potrebbero essere incompleti o non aggiornati.</p>
 
 <p>Questa tabella mostra la situazione dei telescopi in acquisizione<br />
