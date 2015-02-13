@@ -18,6 +18,7 @@ EEE_ACTIVE_STATIONS = [
     'CATA-01',
     'CATA-02',
     'CATZ-01',
+    'COSE-01',
     'FRAS-02',
     'FRAS-03',
     'GROS-01',
