@@ -48,7 +48,7 @@ Download the Excel Sheet for the Shifter's Report
 </td></tr></table>
 </div>
 
-<h2>EEE Main Monitoring Table</h2>
+<h2>EEE Monitor</h2>
 
 <p>Questa tabella mostra la situazione dei telescopi in acquisizione<br />
 In <span class="bold">verde</span> sono indicati i telescopi in
