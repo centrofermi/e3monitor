@@ -34,7 +34,7 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
 
     headers = ('Scuola',
                'NOTE dello SHIFTER',
-               'Giorno',
+               'Giorno ultimo file trasferimento',
                'Ora',
                'Nome ultimo File trasferito al CNAF',
                'Numero Files trasferiti oggi',
