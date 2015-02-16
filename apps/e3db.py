@@ -55,8 +55,8 @@ sorted(schoolNames)
 # Query for the last run data of each school
 logger.info('Query for the last run data of each school')
 query = ("SELECT * FROM runs WHERE station_name = %s "
-         "AND run_start is not NULL AND run_stop is not NULL "
-         "ORDER BY unique_run_id DESC LIMIT 1;")
+         "AND processing_status_code=0 "
+         "ORDER BY last_update DESC LIMIT 1;")
 logger.info('About to query: ' + query)
 for _schoolName in schoolNames:
     cur.execute(query, _schoolName)
