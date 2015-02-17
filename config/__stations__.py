@@ -5,6 +5,10 @@ Modified on 17 Nov 2014
 @author: fabrizio.coccetti@centrofermi.it
 """
 
+""" List of EEE Stations to exclude from Monitoring
+"""
+EEE_EXCLUDED_STATIONS = []
+
 """ List of EEE Active Stations
 """
 EEE_ACTIVE_STATIONS = [
