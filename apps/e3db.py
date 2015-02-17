@@ -15,13 +15,16 @@ import logging.config
 from e3monitor.config.__files_server__ import (logConfigFile,
                                                dbConfigFile,
                                                plkDqmFile,
+                                               plkTransferFile,
                                                pathWorkDir)
 from e3monitor.db.E3DbDqmSchools import E3DbDqmSchools
+from e3monitor.db.E3DbTransferSchools import E3DbTransferSchools
 
 # List with the name of the Schools
 schoolNames = []
 # Class with methods with last run in DQM from the database
 dqmData = E3DbDqmSchools()
+transferData = E3DbTransferSchools()
 
 # Set up logging
 logging.config.fileConfig(logConfigFile)
@@ -52,8 +55,33 @@ cur.execute(query)
 schoolNames = [item[0] for item in cur.fetchall()]
 sorted(schoolNames)
 
-# Query for the last run data of each school
-logger.info('Query for the last run data of each school')
+# Query for CNAF: the last transferred file
+logger.info('Query for the last run transferred at CNAF of each school')
+query = ("SELECT station_name, run_date, run_id, bin_file_size, "
+         "transfer_timestamp, last_update "
+         "FROM runs WHERE station_name = %s "
+         "ORDER BY last_update DESC LIMIT 1;")
+logger.info('About to query: ' + query)
+for _schoolName in schoolNames:
+    cur.execute(query, _schoolName)
+    _entry = cur.fetchone()
+    if _entry is None:
+        continue
+    # Assign parameter to the class
+    transferData.add_entry(_schoolName, _entry)
+    logger.info('Read School: ' + _schoolName)
+    logger.info(transferData.schoolData(_schoolName))
+
+# Save the Transfer data extracted from the db
+logger.info('Writing data to file...')
+output = open(os.path.join(pathWorkDir, plkTransferFile), 'wb')
+pickle.dump(transferData, output)
+output.close()
+logger = logging.getLogger('full')
+logger.info('Written ' + os.path.join(pathWorkDir, plkTransferFile))
+
+# Query for DQM: the last run data of each school
+logger.info('Query for the last run in DQM of each school')
 query = ("SELECT * FROM runs WHERE station_name = %s "
          "AND processing_status_code=0 "
          "ORDER BY last_update DESC LIMIT 1;")
@@ -68,7 +96,7 @@ for _schoolName in schoolNames:
     logger.info('Read School: ' + _schoolName)
     logger.info(dqmData.schoolData(_schoolName))
 
-# Save the data extracted from the db
+# Save the DQM data extracted from the db
 logger.info('Writing data to file...')
 output = open(os.path.join(pathWorkDir, plkDqmFile), 'wb')
 pickle.dump(dqmData, output)
