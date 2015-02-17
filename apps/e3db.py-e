@@ -16,12 +16,12 @@ from e3monitor.config.__files_server__ import (logConfigFile,
                                                dbConfigFile,
                                                plkDataFile,
                                                pathWorkDir)
-from e3monitor.db.E3DbDqmSchools import E3DbDqmSchools
+from e3monitor.db.E3SchoolsData import E3SchoolsData
 
 # List with the name of the Schools
 schoolNames = []
 # Class with methods with last run in DQM from the database
-dqmData = E3DbDqmSchools()
+dqmData = E3SchoolsData()
 
 # Set up logging
 logging.config.fileConfig(logConfigFile)
