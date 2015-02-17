@@ -14,7 +14,7 @@ import logging
 import logging.config
 from e3monitor.config.__files_server__ import (logConfigFile,
                                                dbConfigFile,
-                                               plkDataFile,
+                                               plkDqmFile,
                                                pathWorkDir)
 from e3monitor.db.E3DbDqmSchools import E3DbDqmSchools
 
@@ -70,11 +70,11 @@ for _schoolName in schoolNames:
 
 # Save the data extracted from the db
 logger.info('Writing data to file...')
-output = open(os.path.join(pathWorkDir, plkDataFile), 'wb')
+output = open(os.path.join(pathWorkDir, plkDqmFile), 'wb')
 pickle.dump(dqmData, output)
 output.close()
 logger = logging.getLogger('full')
-logger.info('Written ' + os.path.join(pathWorkDir, plkDataFile))
+logger.info('Written ' + os.path.join(pathWorkDir, plkDqmFile))
 
 cur.close()
 db.close()

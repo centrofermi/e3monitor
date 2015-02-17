@@ -35,7 +35,7 @@ logConfigFile = "/opt/eee/e3monitor/config/logConf.ini"
 dbConfigFile = "/opt/eee/e3monitor/config/database.ini"
 
 # Name of the Data pickle File
-plkDataFile = "data.pkl"
+plkDqmFile = "data.pkl"
 
 # Path of the Working directory
 pathWorkDir = '/opt/eee/e3monitor_work'
