@@ -35,13 +35,16 @@ def make_main_w3page(lastEntryPerSchool,
     w.write(compute_update())
     w.write(TABELLA1_HTML)
 
-    for schoolName in transferData:
+    for schoolName in transferData.AllData().iterkeys():
         if schoolName in EEE_EXCLUDED_STATIONS:
             continue
-        timeDiff = now - transferData.last_update(schoolName)
-        print(schoolName)
-        print(timeDiff.seconds)
-        print(timeDiff.days)
+        try:
+            timeDiff = now - transferData.transfer_timestamp(schoolName)
+            print(schoolName)
+            print(timeDiff.seconds)
+            print(timeDiff.days)
+        except:
+            print(schoolName + "  <-- Error")
         # Set the color of the row of the table
         
 
@@ -51,7 +54,6 @@ def make_main_w3page(lastEntryPerSchool,
     w.write(FOOTER_HTML)
     w.write(set_version())
     w.write(BOTTOM_HTML)
-    f.close()
     w.close()
     logger.info('Function make_main_w3page() finished')
     return True
