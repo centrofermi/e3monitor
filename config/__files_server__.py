@@ -37,6 +37,9 @@ dbConfigFile = "/opt/eee/e3monitor/config/database.ini"
 # Name of the Data pickle File storing Transfer entries from DB
 plkTransferFile = "transfer_db_data.pkl"
 
+# Name of the Data pickle File storing Transfer entries from DB
+plkDqmFile = "dqm_db_data.pkl"
+
 # Path of the Working directory
 pathWorkDir = '/opt/eee/e3monitor_work'
 
