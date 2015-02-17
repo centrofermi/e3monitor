@@ -14,8 +14,8 @@ import logging
 import logging.config
 from e3monitor.config.__files_server__ import (logConfigFile,
                                                dbConfigFile,
-                                               plkDqmFile,
-                                               plkTransferFile,
+                                               pklDqmFile,
+                                               pklTransferFile,
                                                pathWorkDir)
 from e3monitor.db.E3DbDqmSchools import E3DbDqmSchools
 from e3monitor.db.E3DbTransferSchools import E3DbTransferSchools
@@ -74,11 +74,11 @@ for _schoolName in schoolNames:
 
 # Save the Transfer data extracted from the db
 logger.info('Writing data to file...')
-output = open(os.path.join(pathWorkDir, plkTransferFile), 'wb')
+output = open(os.path.join(pathWorkDir, pklTransferFile), 'wb')
 pickle.dump(transferData, output)
 output.close()
 logger = logging.getLogger('full')
-logger.info('Written ' + os.path.join(pathWorkDir, plkTransferFile))
+logger.info('Written ' + os.path.join(pathWorkDir, pklTransferFile))
 
 # Query for DQM: the last run data of each school
 logger.info('Query for the last run in DQM of each school')
@@ -98,11 +98,11 @@ for _schoolName in schoolNames:
 
 # Save the DQM data extracted from the db
 logger.info('Writing data to file...')
-output = open(os.path.join(pathWorkDir, plkDqmFile), 'wb')
+output = open(os.path.join(pathWorkDir, pklDqmFile), 'wb')
 pickle.dump(dqmData, output)
 output.close()
 logger = logging.getLogger('full')
-logger.info('Written ' + os.path.join(pathWorkDir, plkDqmFile))
+logger.info('Written ' + os.path.join(pathWorkDir, pklDqmFile))
 
 cur.close()
 db.close()

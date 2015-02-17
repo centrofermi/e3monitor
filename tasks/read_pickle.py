@@ -7,13 +7,11 @@ Created on Wed Dec 17 19:53:55 2014
 
 import pickle
 import os
-from e3monitor.config.__files_server__ import pathWorkDir, plkDqmFile
 
 
-def read_pickle():
+def read_pickle(pathWorkDir, pklFile):
     '''Read the pickle file in the work directory
     '''
 
-    pkl_file = open(os.path.join(pathWorkDir, plkDqmFile), 'rb')
-    dqmData = pickle.load(pkl_file)
-    return dqmData
+    pkl_file = open(os.path.join(pathWorkDir, pklFile), 'rb')
+    return pickle.load(pkl_file)

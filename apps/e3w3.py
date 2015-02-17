@@ -38,7 +38,10 @@ from e3monitor.tasks.read_pickle import read_pickle
 from e3monitor.tasks.make_main_page import make_main_page
 from e3monitor.config.__files_server__ import (pathDqmreport,
                                                elogCsvFile,
-                                               logConfigFile)
+                                               logConfigFile,
+                                               pathWorkDir,
+                                               pklDqmFile,
+                                               pklTransferFile)
 
 
 if __name__ == '__main__':
@@ -63,8 +66,13 @@ if __name__ == '__main__':
     lastDqmreport, schoolsDqmreportList = \
         read_dqmreport(EEE_ACTIVE_STATIONS, pathDqmreport)
 
-    # Read the pickle file with RUN info from the database
-    dqmData = read_pickle()
+    # Read the pickle file with Transfer RUN info from the database
+    transferData = read_pickle(pathWorkDir, pklTransferFile)
+    logger.info("pickle file extracted from the"
+                "database imported: transferData is loaded")
+
+    # Read the pickle file with DQM RUN info from the database
+    dqmData = read_pickle(pathWorkDir, pklDqmFile)
     logger.info("pickle file extracted from the"
                 "database imported: dqmData is loaded")
 
