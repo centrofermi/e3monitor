@@ -11,9 +11,10 @@ body {
   margin: 0 auto;*/
 }
 p {
-  margin-left:50px;
-  margin-top:3px;
-  margin-bottom:6px;
+  margin: 0 auto;
+  margin-top: 3px;
+  margin-bottom: 6px;
+  width: 950px;
 }
 a {
  color: #06c;
@@ -62,7 +63,6 @@ table {
   width=100%
   table-layout:fixed;
   margin: 0 auto;
-  /*margin-left: 5px;*/
 }
 th {
   height: 50px;
