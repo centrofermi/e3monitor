@@ -13,7 +13,7 @@ class E3W3MonitorSchools(dict):
         self._mydict = {}
 
     def init_School(self, schoolName):
-        self._mydict[schoolName] = [''*10]
+        self._mydict[schoolName] = ['']*10
 
     def set_transferDelayDays(self, schoolName, date):
         self._mydict[schoolName][0] = date

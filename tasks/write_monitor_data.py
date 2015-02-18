@@ -35,7 +35,7 @@ def write_monitor_data(lastEntryPerSchool,
             continue
 
         # Initialize School List
-        monitorData.init_Schools(schoolName)
+        monitorData.init_School(schoolName)
 
         # Compute delay of the last transferred file at CNAF
         try:
@@ -44,7 +44,8 @@ def write_monitor_data(lastEntryPerSchool,
             monitorData.set_transferDelaySeconds(schoolName, timeDiff.seconds)
         except:
             print(schoolName + "  <-- Error")
-        print(monitorData[schoolName].transferDelayDays())
+        print(monitorData.get_transferDelayDays(schoolName))
+        print(monitorData.get_transferDelaySeconds(schoolName))
 
     logger.info('Function write_monitor_data() finished')
     return True
