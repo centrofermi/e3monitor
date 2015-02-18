@@ -40,6 +40,9 @@ pklTransferFile = "transfer_db_data.pkl"
 # Name of the Data pickle File storing Transfer entries from DB
 pklDqmFile = "dqm_db_data.pkl"
 
+# Name of the pickle File with all the Monitor data
+pklMonitorFile = "monitor_data.pkl"
+
 # Path of the Working directory
 pathWorkDir = '/opt/eee/e3monitor_work'
 

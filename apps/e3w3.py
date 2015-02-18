@@ -37,7 +37,7 @@ from e3monitor.tasks.read_elog import read_schools_elog
 from e3monitor.tasks.read_dqmreport import read_dqmreport
 from e3monitor.tasks.read_pickle import read_pickle
 from e3monitor.tasks.make_main_page import make_main_page
-from e3monitor.tasks.make_main_w3page import make_main_w3page
+from e3monitor.tasks.write_monitor_data import write_monitor_data
 from e3monitor.config.__files_server__ import (pathDqmreport,
                                                elogCsvFile,
                                                logConfigFile,
@@ -83,12 +83,12 @@ if __name__ == '__main__':
                    dqmData, EEE_ACTIVE_STATIONS)
 
     # test
-    make_main_w3page(lastEntryPerSchool,
-                     lastDqmreport,
-                     schoolsDqmreportList,
-                     transferData,
-                     dqmData,
-                     EEE_EXCLUDED_STATIONS)
+    write_monitor_data(lastEntryPerSchool,
+                       lastDqmreport,
+                       schoolsDqmreportList,
+                       transferData,
+                       dqmData,
+                       EEE_EXCLUDED_STATIONS)
 
     # Final log message
     logger.info('Finished')
