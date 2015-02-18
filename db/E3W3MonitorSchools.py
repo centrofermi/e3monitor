@@ -21,11 +21,17 @@ class E3W3MonitorSchools(dict):
     def set_transferDelaySeconds(self, schoolName, date):
         self._mydict[schoolName][1] = date
 
+    def set_transferFileName(self, schoolName, fileName):
+        self._mydict[schoolName][2] = fileName
+
     def get_transferDelayDays(self, schoolName):
         return(self._mydict[schoolName][0])
 
     def get_transferDelaySeconds(self, schoolName):
         return(self._mydict[schoolName][1])
+
+    def get_transferFileName(self, schoolName):
+        return(self._mydict[schoolName][2])
 
     def get_schoolData(self, schoolName):
         return(self._mydict[schoolName])

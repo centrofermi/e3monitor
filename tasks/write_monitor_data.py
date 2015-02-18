@@ -43,9 +43,19 @@ def write_monitor_data(lastEntryPerSchool,
             monitorData.set_transferDelayDays(schoolName, timeDiff.days)
             monitorData.set_transferDelaySeconds(schoolName, timeDiff.seconds)
         except:
-            print(schoolName + "  <-- Error")
-        print(monitorData.get_transferDelayDays(schoolName))
-        print(monitorData.get_transferDelaySeconds(schoolName))
+            logger.info(schoolName + " <-- No transfer_timestamp found")
 
+        # Name of last transferred file at CNAF
+        try:
+            _runNameInTranfer = (schoolName +
+                                 transferData.transfer_timestamp(
+                                     schoolName).strftime("-%Y-%m-%d-") +
+                                 "{0:0>5}".format(
+                                     int(transferData.run_id(schoolName))))
+            monitorData.set_transferFileName(schoolName, _runNameInTranfer)
+        except:
+            logger.info(schoolName + " <-- No filename for transferred file")
+
+        print(monitorData.get_transferFileName(schoolName))
     logger.info('Function write_monitor_data() finished')
     return True
