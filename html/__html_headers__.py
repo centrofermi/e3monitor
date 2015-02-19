@@ -34,7 +34,7 @@ TABELLA1_HTML = """
 <div id="menu">
 <table>
 <tr class='gray'>
-<td><a href="http://www.centrofermi.it/elog/EEE+e-log">
+<td><a href="http://www.centrofermi.it/elog/Run1">
 ELOGBOOK delle SCUOLE</a>
 </td><td>
 <a href="http://www.centrofermi.it/elog/Shifter">
