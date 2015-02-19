@@ -5,4 +5,4 @@ Created on Wed Nov 19 01:00:19 2014
 @author: Fabrizio Coccetti
 """
 
-TAG = '0.8.1'
+TAG = '0.9.5'
