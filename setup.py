@@ -45,7 +45,8 @@ _LICENSE = 'GNU General Public License v3 or later'
 _URL = 'https://bitbucket.org/centrofermi/e3monitor'
 
 _PACKAGES = ['e3monitor', 'e3monitor.config',
-             'e3monitor.html', 'e3monitor.tasks']
+             'e3monitor.html', 'e3monitor.tasks',
+             'e3monitor.db']
 
 _PACKAGE_DIR = {'e3monitor': '.'}
 
@@ -53,7 +54,8 @@ _PACKAGE_DATA = {
     'e3monitor': ['LICENSE', 'README', 'apps'],
     'e3monitor.config': [],
     'e3monitor.html': ['e3monitor.css'],
-    'e3monitor.tasks': []
+    'e3monitor.tasks': [],
+    'e3monitor.db':[]
     }
 
 _SCRIPTS = glob.glob('apps/*.py')
