@@ -6,8 +6,8 @@ Created on Tue Feb 17 19:55:46 2015
 """
 from datetime import datetime
 import logging
-from e3monitor.tasks.update_time import compute_update
-from e3monitor.tasks.set_version import set_version
+import os
+import pickle
 from e3monitor.db.E3W3MonitorSchools import E3W3MonitorSchools
 from e3monitor.config.__files_server__ import pklMonitorFile, pathWorkDir
 
@@ -45,7 +45,7 @@ def write_monitor_data(lastEntryPerSchool,
         except:
             logger.info(schoolName + " <-- No transfer_timestamp found")
 
-        # Name of last transferred file at CNAF
+        # Name of last file transferred at CNAF
         try:
             _runNameInTranfer = (schoolName +
                                  transferData.transfer_timestamp(
@@ -56,6 +56,64 @@ def write_monitor_data(lastEntryPerSchool,
         except:
             logger.info(schoolName + " <-- No filename for transferred file")
 
-        print(monitorData.get_transferFileName(schoolName))
+        # Timestamp of the last transferred file ad CNAF
+        try:
+            monitorData.set_transferTs(
+                schoolName,
+                transferData.transfer_timestamp(schoolName))
+        except:
+            logger.info(schoolName + " <-- No transfer timestamp")
+
+        # Number of files transfered today
+        # TODO
+
+        # Ultima Entry nell'e-logbook delle Scuole
+        try:
+            monitorData.set_elogEntryTs(
+                schoolName,
+                lastEntryPerSchool[schoolName])
+        except:
+            logger.info(schoolName + " <-- Error in last Elog Entry")
+
+        # Name of last file analyzed by DQM
+        try:
+            _runNameInDqm = (schoolName +
+                             dqmData.run_date(
+                                 schoolName).strftime("-%Y-%m-%d-") +
+                             "{0:0>5}".format(int(
+                                 dqmData.run_id(schoolName))))
+            monitorData.set_DqmFileName(schoolName, _runNameInDqm)
+        except:
+            logger.info(schoolName + " <-- No filename for last DQM file")
+
+        # Daily report folder by DQM
+        # TODO
+
+        # Triggers of last Run
+        try:
+            monitorData.set_triggerRate(
+                schoolName,
+                dqmData.trigger_rate(schoolName))
+        except:
+            logger.info(schoolName + " <-- Error in trigger rate")
+
+        # tracks (chi^2 < 10) last Run
+        try:
+            monitorData.set_trackRate(
+                schoolName,
+                dqmData.track_rate(schoolName))
+        except:
+            logger.info(schoolName + " <-- Error in track rate")
+
+    # End loop for schoolName
+
+    # Save the monitorData
+    logger.info('Writing data to file...')
+    output = open(os.path.join(pathWorkDir, pklMonitorFile), 'wb')
+    pickle.dump(monitorData, output)
+    output.close()
+    logger = logging.getLogger('full')
+    logger.info('Written ' + os.path.join(pathWorkDir, pklMonitorFile))
+
     logger.info('Function write_monitor_data() finished')
     return True
