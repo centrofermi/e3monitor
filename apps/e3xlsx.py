@@ -38,7 +38,9 @@ from e3monitor.tasks.read_pickle import read_pickle
 from e3monitor.tasks.make_xlsx_file import make_xlsx_file
 from e3monitor.config.__files_server__ import (pathDqmreport,
                                                elogCsvFile,
-                                               logConfigFile)
+                                               logConfigFile,
+                                               pathWorkDir,
+                                               pklDqmFile)
 
 
 if __name__ == '__main__':
@@ -64,7 +66,7 @@ if __name__ == '__main__':
         read_dqmreport(EEE_ACTIVE_STATIONS, pathDqmreport)
 
     # Read the pickle file with RUN info from the database
-    dqmData = read_pickle()
+    dqmData = read_pickle(pathWorkDir, pklDqmFile)
     logger.info("pickle file extracted from the"
                 "database imported: dqmData is loaded")
 
