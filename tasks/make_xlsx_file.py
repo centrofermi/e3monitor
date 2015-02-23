@@ -34,12 +34,11 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
 
     headers = ('Scuola',
                'NOTE dello SHIFTER',
-               'Giorno ultimo file trasferito',
-               'Ora',
-               'Nome ultimo File trasferito al CNAF',
+               'Data ultimo File\ntrasferito al CNAF',
+               'Nome ultimo File\n trasferito al CNAF',
                'Numero Files trasferiti oggi',
                'Ultima Entry e-logbook',
-               'Nome ultimo File analizzato dal DQM',
+               'Nome ultimo File\n analizzato dal DQM',
                'RATE of Triggers',
                'RATE of Tracks')
 
@@ -47,16 +46,33 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
     fHeaders = workbook.add_format({'bold': True,
                                     'text_wrap': 1,
                                     'valign': 'vcenter',
-                                    'align': 'center'})
+                                    'align': 'center',
+                                    'border': True})
     fNotes = workbook.add_format({'text_wrap': 1,
-                                  'valign': 'top'})
-    fVcenter = workbook.add_format({'valign': 'vcenter'})
+                                  'valign': 'vcenter',
+                                  'border': True})
+    fVcenter = workbook.add_format({'valign': 'vcenter',
+                                    'align': 'center',
+                                    'border': True})
+    fNumInt = workbook.add_format({'valign': 'vcenter',
+                                   'align': 'center',
+                                   'border': True,
+                                   'num_format': '0'})
+    fNumDec = workbook.add_format({'valign': 'vcenter',
+                                   'align': 'center',
+                                   'border': True,
+                                   'num_format': '0.#'})
     fBigFonts = workbook.add_format({'bold': True,
                                      'font_size': '14'})
     fTimeStamp = workbook.add_format({'text_wrap': 1,
-                                      'num_format': 'ddd dd mmmm'})
+                                      'valign': 'vcenter',
+                                      'align': 'center',
+                                      'border': True,
+                                      'num_format': 'hh:mm dd/mm/yyyy'})
 
     # Write initial data
+    worksheet.set_row(0, 30)
+    worksheet.set_row(1, 30)
     worksheet.write(0,
                     0,
                     "Shifter Report: " + now.strftime("%a %d %B %Y"),
@@ -72,21 +88,20 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
     # Write headers
     # worksheet.write_row(row, col, headers)
     for _header in headers:
-        worksheet.write(row, col, _header)
+        worksheet.write(row, col, _header, fHeaders)
         col += 1
 
     # Format headers row
-    worksheet.set_row(row, 60, fHeaders)
+    worksheet.set_row(row, 60)
     # Format column size
     worksheet.set_column('A:A', 10)
     worksheet.set_column('B:B', 30)
-    worksheet.set_column('C:C', 20)
-    worksheet.set_column('C:D', 10)
-    worksheet.set_column('E:E', 30)
-    worksheet.set_column('F:F', 20)
+    worksheet.set_column('C:C', 25)
+    worksheet.set_column('D:D', 25)
+    worksheet.set_column('E:E', 10)
+    worksheet.set_column('F:F', 25)
     worksheet.set_column('G:G', 25)
-    worksheet.set_column('H:H', 30)
-    worksheet.set_column('I:J', 15)
+    worksheet.set_column('H:I', 15)
 
     row = 3
 
@@ -123,16 +138,19 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
                                  fTimeStamp)
         col += 1
 
-        # Print Time of the last transferred file at CNAF
-        worksheet.write(row, col, hourData, fVcenter)
-        col += 1
+        # # Print Time of the last transferred file at CNAF
+        # worksheet.write(row, col, hourData, fVcenter)
+        # col += 1
 
         # Print "Nome dell'ultimo File trasferito"
         worksheet.write(row, col, fileNameData, fVcenter)
         col += 1
 
         # Print "Numero di file trasferiti oggi"
-        worksheet.write_number(row, col, transferedFileNumber, fVcenter)
+        worksheet.write_number(row,
+                               col,
+                               int(transferedFileNumber),
+                               fNumInt)
         col += 1
 
         # Print "Ultima Entry nell'e-logbook delle Scuole"
@@ -160,9 +178,8 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
         try:
             worksheet.write_number(row,
                                    col,
-                                   str(round(dqmData.trigger_rate(schoolName),
-                                             1)),
-                                   fVcenter)
+                                   float(dqmData.trigger_rate(schoolName)),
+                                   fNumDec)
         except:
             worksheet.write(row, col, '')
         col += 1
@@ -171,9 +188,8 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
         try:
             worksheet.write_number(row,
                                    col,
-                                   str(round(dqmData.track_rate(schoolName),
-                                             1)),
-                                   fVcenter)
+                                   dqmData.track_rate(schoolName),
+                                   fNumDec)
         except:
             worksheet.write(row, col, '')
         col += 1
