@@ -42,7 +42,17 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
                'Nome ultimo File analizzato dal DQM',
                'RATE of Triggers',
                'RATE of Tracks')
-    row = 0
+
+    # Define formats
+    text_bold = workbook.add_format({'bold': True, 'valign': 'vcenter'})
+    text_wrap = workbook.add_format({'text_wrap': 1, 'valign': 'top'})
+    text_vcenter =  workbook.add_format({'valign': 'vcenter'})
+
+    # Write initial data
+    worksheet.write(0, 0, "Shifter Report: " + now.strftime("%a %d %B %Y"))
+    worksheet.write(1, 0, "Shifter Report: " + now.strftime("%a %d %B %Y"))
+
+    row = 2
     col = 0
 
     # Write headers
@@ -51,11 +61,6 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
         worksheet.write(row, col, _header)
         col += 1
 
-    # Define formats
-    text_bold = workbook.add_format({'bold': True, 'valign': 'vcenter'})
-    # wrap_format = workbook.add_format()
-    # wrap_format.set_text_wrap()
-    text_wrap = workbook.add_format({'text_wrap': 1, 'valign': 'top'})
     # Format headers row
     worksheet.set_row(row, 50, text_bold)
     # Format column size
@@ -65,7 +70,7 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
     worksheet.set_column('E:H', 30)
     worksheet.set_column('I:J', 15)
 
-    row = 1
+    row = 3
 
     # Read file from CNAF
     f = open(lastDataFile, 'r')
@@ -94,26 +99,26 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
         col += 1
 
         # Print Day of the last transferred file at CNAF
-        worksheet.write(row, col, timeData.strftime("%a %d %B"))
+        worksheet.write(row, col, timeData.strftime("%a %d %B"), text_vcenter)
         col += 1
 
         # Print Time of the last transferred file at CNAF
-        worksheet.write(row, col, hourData)
+        worksheet.write(row, col, hourData, text_vcenter)
         col += 1
 
         # Print "Nome dell'ultimo File trasferito"
-        worksheet.write(row, col, fileNameData)
+        worksheet.write(row, col, fileNameData, text_vcenter)
         col += 1
 
         # Print "Numero di file trasferiti oggi"
-        worksheet.write(row, col, transferedFileNumber)
+        worksheet.write(row, col, transferedFileNumber, text_vcenter)
         col += 1
 
         # Print "Ultima Entry nell'e-logbook delle Scuole"
         try:
             worksheet.write(row, col,
                             lastEntryPerSchool[schoolName].strftime(
-                                "%H:%M %d/%m/%Y"))
+                                "%H:%M %d/%m/%Y"), text_vcenter)
         except:
             worksheet.write(row, col, '')
         col += 1
@@ -125,7 +130,7 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
                                  schoolName).strftime("-%Y-%m-%d-") +
                              "{0:0>5}".format(int(
                                  dqmData.run_id(schoolName))))
-            worksheet.write(row, col, _runNameInDqm)
+            worksheet.write(row, col, _runNameInDqm, text_vcenter)
         except:
             worksheet.write(row, col, '')
         col += 1
@@ -133,7 +138,8 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
         # Print triggers
         try:
             worksheet.write(row, col,
-                            str(round(dqmData.trigger_rate(schoolName), 1)))
+                            str(round(dqmData.trigger_rate(schoolName), 1)),
+                            text_vcenter)
         except:
             worksheet.write(row, col, '')
         col += 1
@@ -141,7 +147,8 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
         # Print tracks (chi^2 < 10)
         try:
             worksheet.write(row, col,
-                            str(round(dqmData.track_rate(schoolName))))
+                            str(round(dqmData.track_rate(schoolName))),
+                            text_vcenter)
         except:
             worksheet.write(row, col, '')
         col += 1
