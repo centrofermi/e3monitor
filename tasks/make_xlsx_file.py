@@ -34,7 +34,7 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
 
     headers = ('Scuola',
                'NOTE dello SHIFTER',
-               'Giorno ultimo file trasferimento',
+               'Giorno ultimo file trasferito',
                'Ora',
                'Nome ultimo File trasferito al CNAF',
                'Numero Files trasferiti oggi',
@@ -44,13 +44,13 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
                'RATE of Tracks')
 
     # Define formats
-    text_bold = workbook.add_format({'bold': True, 'valign': 'vcenter'})
+    text_bold = workbook.add_format({'bold': True, 'text_wrap': 1, 'valign': 'vcenter'})
     text_wrap = workbook.add_format({'text_wrap': 1, 'valign': 'top'})
     text_vcenter =  workbook.add_format({'valign': 'vcenter'})
 
     # Write initial data
     worksheet.write(0, 0, "Shifter Report: " + now.strftime("%a %d %B %Y"))
-    worksheet.write(1, 0, "Shifter Report: " + now.strftime("%a %d %B %Y"))
+    worksheet.write(1, 0, "Situazione alle ore: " + now.strftime("%H:%M"))
 
     row = 2
     col = 0
@@ -67,7 +67,10 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
     worksheet.set_column('A:A', 10)
     worksheet.set_column('B:B', 30)
     worksheet.set_column('C:D', 10)
-    worksheet.set_column('E:H', 30)
+    worksheet.set_column('E:E', 30)
+    worksheet.set_column('F:F', 25)
+    worksheet.set_column('G:G', 25)
+    worksheet.set_column('H:H', 30)
     worksheet.set_column('I:J', 15)
 
     row = 3
@@ -91,11 +94,11 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
         worksheet.set_row(row, 50)
 
         # Print School Name
-        worksheet.write(row, col, schoolName)
+        worksheet.write(row, col, schoolName, text_wrap)
         col += 1
 
         # Print NOTE delle Shifter
-        worksheet.write(row, col, 'Inserisci le tue note', text_wrap)
+        worksheet.write(row, col, 'Inserisci_le_tue_note', text_wrap)
         col += 1
 
         # Print Day of the last transferred file at CNAF
