@@ -74,16 +74,16 @@ for _schoolName in schoolNames:
     logger.info(transferData.schoolData(_schoolName))
 
 # Query for the number of files transferred today
+_beginTime = datetime.today().strftime("%Y-%m-%d") + " 00:00:00"
+_endTime = datetime.today().strftime("%Y-%m-%d") + " 23:59:59"
 logger.info('Query for the number of files transferred today')
 query = ("SELECT COUNT(*) FROM runs "
          "WHERE station_name = %s "
-         "AND transfer_timestamp BETWEEN %s AND %s;")
+         "AND (transfer_timestamp BETWEEN %s AND %s);")
 logger.info('About to query: ' + query)
 for _schoolName in schoolNames:
-    cur.execute(query,
-                _schoolName,
-                datetime.today().strftime("%Y-%m-%d") + ' 00:00:00',
-                datetime.today().strftime("%Y-%m-%d") + ' 23:59:59')
+    queryParam = (_schoolName, _beginTime, _endTime)
+    cur.execute(query, queryParam)
     _entry = cur.fetchone()
     if _entry is None:
         continue
