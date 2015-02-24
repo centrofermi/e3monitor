@@ -43,7 +43,7 @@ ELOGBOOK dello SHIFTER</a>
 <a href="http://eee.centrofermi.it/">
 Home Page EEE</a>
 </td><td>
-<a href="https://www.cnaf.infn.it/eee/monitor/shifter_report.xlsx">
+<a href="https://www.cnaf.infn.it/eee/monitor/shifter_report.xlsx" download>
 Download the Excel Sheet for the Shifter's Report
 </td></tr></table>
 </div>
