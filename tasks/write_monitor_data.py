@@ -87,7 +87,10 @@ def write_monitor_data(lastEntryPerSchool,
             logger.info(schoolName + " <-- No filename for last DQM file")
 
         # Daily report folder by DQM
-        # TODO
+        try:
+            monitorData.set_dqmreportTs(schoolName, lastDqmreport[schoolName])
+        except:
+            logger.info(schoolName + " <-- No daily dqmreport")
 
         # Triggers of last Run
         try:

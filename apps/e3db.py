@@ -8,6 +8,7 @@ Created on Fri Dec 17 11:08:30 2014
 
 import os
 import MySQLdb
+from datetime import datetime
 import ConfigParser
 import pickle
 import logging
@@ -55,7 +56,7 @@ cur.execute(query)
 schoolNames = [item[0] for item in cur.fetchall()]
 sorted(schoolNames)
 
-# Query for CNAF: the last transferred file
+# Query for the last transferred file at CNAF
 logger.info('Query for the last run transferred at CNAF of each school')
 query = ("SELECT station_name, run_date, run_id, bin_file_size, "
          "transfer_timestamp, last_update "
@@ -71,6 +72,25 @@ for _schoolName in schoolNames:
     transferData.add_entry(_schoolName, _entry)
     logger.info('Read School: ' + _schoolName)
     logger.info(transferData.schoolData(_schoolName))
+
+# Query for the number of files transferred today
+logger.info('Query for the number of files transferred today')
+query = ("SELECT COUNT(*) FROM runs "
+         "WHERE station_name = %s "
+         "AND transfer_timestamp BETWEEN %s AND %s;")
+logger.info('About to query: ' + query)
+for _schoolName in schoolNames:
+    cur.execute(query,
+                _schoolName,
+                datetime.today().strftime("%Y-%m-%d") + ' 00:00:00',
+                datetime.today().strftime("%Y-%m-%d") + ' 23:59:59')
+    _entry = cur.fetchone()
+    if _entry is None:
+        continue
+    # Assign parameter to the class
+    # transferData.set_transferredFiles(_schoolName, _entry)
+    logger.info('Read School: ' + _schoolName)
+    logger.info(_entry)
 
 # Save the Transfer data extracted from the db
 logger.info('Writing data to file...')

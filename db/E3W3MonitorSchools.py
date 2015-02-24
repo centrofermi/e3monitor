@@ -39,6 +39,9 @@ class E3W3MonitorSchools(dict):
     def set_trackRate(self, schoolName, rate):
         self._mydict[schoolName][7] = rate
 
+    def set_dqmreportTs(self, schoolName, date):
+        self._mydict[schoolName][8] = date
+
     def get_transferDelayDays(self, schoolName):
         return(self._mydict[schoolName][0])
 
@@ -48,20 +51,23 @@ class E3W3MonitorSchools(dict):
     def get_transferFileName(self, schoolName):
         return(self._mydict[schoolName][2])
 
-    def get_transferTs(self, schoolName, date):
+    def get_transferTs(self, schoolName):
         return(self._mydict[schoolName][3])
 
-    def get_elogEntryTs(self, schoolName, date):
+    def get_elogEntryTs(self, schoolName):
         return(self._mydict[schoolName][4])
 
-    def get_DqmFileName(self, schoolName, fileName):
+    def get_DqmFileName(self, schoolName):
         return(self._mydict[schoolName][5])
 
-    def get_triggerRate(self, schoolName, rate):
+    def get_triggerRate(self, schoolName):
         return(self._mydict[schoolName][6])
 
-    def get_trackRate(self, schoolName, rate):
+    def get_trackRate(self, schoolName):
         return(self._mydict[schoolName][7])
+
+    def get_dqmreportTs(self, schoolName):
+        return(self._mydict[schoolName][8])
 
     def get_schoolData(self, schoolName):
         return(self._mydict[schoolName])
