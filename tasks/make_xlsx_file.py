@@ -44,6 +44,7 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
 
     # Define formats
     fHeaders = workbook.add_format({'bold': True,
+                                    'bg_color': '#F0F0F0',
                                     'text_wrap': 1,
                                     'valign': 'vcenter',
                                     'align': 'center',
@@ -51,6 +52,10 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
     fNotes = workbook.add_format({'text_wrap': 1,
                                   'valign': 'vcenter',
                                   'border': True})
+    fVcenterBold = workbook.add_format({'bold': True,
+                                        'valign': 'vcenter',
+                                        'align': 'center',
+                                        'border': True})
     fVcenter = workbook.add_format({'valign': 'vcenter',
                                     'align': 'center',
                                     'border': True})
@@ -63,6 +68,7 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
                                    'border': True,
                                    'num_format': '0.#'})
     fBigFonts = workbook.add_format({'bold': True,
+                                     'font_color': '#0088CC',
                                      'font_size': '14'})
     fTimeStamp = workbook.add_format({'text_wrap': 1,
                                       'valign': 'vcenter',
@@ -124,7 +130,7 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
         worksheet.set_row(row, 60)
 
         # Print School Name
-        worksheet.write(row, col, schoolName, fVcenter)
+        worksheet.write(row, col, schoolName, fVcenterBold)
         col += 1
 
         # Print NOTE delle Shifter

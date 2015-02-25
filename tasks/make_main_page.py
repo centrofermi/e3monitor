@@ -124,7 +124,15 @@ def make_main_page(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
 
         # Print tracks (chi^2 < 10)
         try:
-            w.write(str(round(dqmData.track_rate(schoolName))))
+            _tracks = round(dqmData.track_rate(schoolName))
+            if _tracks < 5:
+                w.write('<span style=\"color:#C00\">' + str(_tracks) + '</span>')
+            elif _tracks < 10:
+                w.write('<span style=\"color:#F90\">' + str(_tracks) + '</span>')
+            elif _tracks > 80:
+                w.write('<span style=\"color:#C00\">' + str(_tracks) + '</span>')
+            else:
+                w.write(str(_tracks))
         except:
             w.write('Check')
 
