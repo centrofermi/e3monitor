@@ -52,7 +52,7 @@ Download the Excel Sheet for the Shifter's Report
 
 <p>Questa tabella mostra la situazione dei telescopi in acquisizione<br />
 In <span class="bold">verde</span> sono indicati i telescopi in
-presa dati e trasferimento nelle ultime 4 ore.<br />
+presa dati e trasferimento nelle ultime 2 ore.<br />
 In <span class="bold">giallo</span> sono indicati i telescopi in
 cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di 4 ore.<br />
 In <span class="bold">rosso</span> sono indicati i telescopi in

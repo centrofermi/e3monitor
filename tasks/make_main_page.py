@@ -42,7 +42,7 @@ def make_main_page(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
             timeData = now
         timeDiff = now - timeData
         if timeDiff.days == 0:
-            if timeDiff.seconds < 14400:
+            if timeDiff.seconds < 7200:
                 classColor = 'green'
             else:
                 classColor = 'yellow'
