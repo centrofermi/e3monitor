@@ -4,12 +4,12 @@ Created on Wed Feb 17 16:52:54 2015
 
 @author: Fabrizio Coccetti (fabrizio.coccetti@centrofermi.it) [www.fc8.net]
 
-station_name,
-run_date,
-run_id,
-bin_file_size,
-transfer_timestamp,
-last_update
+[0] station_name,
+[1] run_date,
+[2] run_id,
+[3] bin_file_size,
+[4] transfer_timestamp,
+[5] last_update
 
 """
 
