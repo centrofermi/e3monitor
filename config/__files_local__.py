@@ -3,6 +3,8 @@
 Created on Tue Nov 18 14:25:07 2014
 
 @author: Fabrizio Coccetti
+
+This file is not in use anymore
 """
 # Files to open on derceto
 
