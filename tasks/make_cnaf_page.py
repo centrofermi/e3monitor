@@ -3,6 +3,8 @@
 Created on Tue Nov 18 23:18:29 2014
 
 @author: Fabrizio Coccetti
+This software is not in use anymore (since Feb 2015)
+Replaced when switching from Virtual Machine to BTSync
 """
 from datetime import datetime
 import logging
