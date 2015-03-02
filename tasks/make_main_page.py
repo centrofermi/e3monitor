@@ -42,34 +42,80 @@ def make_main_page(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
             timeData = now
         timeDiff = now - timeData
         if timeDiff.days == 0:
-            if timeDiff.seconds < 7200:
+            if timeDiff.seconds < 10800:
                 classColor = 'green'
+                text_color = '#090'
+                try:
+                    _tracks = round(dqmData.track_rate(schoolName))
+                    if _tracks < 5:
+                        classColor = 'red'
+                    elif _tracks < 10:
+                        classColor = 'yellow'
+                    elif _tracks > 80:
+                        classColor = 'red'
+                    else:
+                        classColor = 'green'
+                except:
+                    continue
             else:
                 classColor = 'yellow'
+                text_color = '#F90'
+                try:
+                    _tracks = round(dqmData.track_rate(schoolName))
+                    if _tracks < 5:
+                        classColor = 'red'
+                    elif _tracks > 80:
+                        classColor = 'red'
+                    else:
+                        classColor = 'yellow'
+                except:
+                    continue
+
         elif timeDiff.days == 1:
             classColor = 'yellow'
+            text_color = '#F90'
+            try:
+                _tracks = round(dqmData.track_rate(schoolName))
+                if _tracks < 5:
+                    classColor = 'red'
+                elif _tracks > 80:
+                    classColor = 'red'
+                else:
+                    classColor = 'yellow'
+            except:
+                continue
+
         else:
             classColor = 'red'
+            text_color = '#C00'
         w.write('<tr class=\"')
         w.write(classColor)
         w.write('\"><td>')
 
         # Print School Name in format: TEST-01
+        w.write('<span style=\"font-weight: bold;\">')
         w.write(schoolName)
+        w.write('</span>')
         w.write('</td><td>')
 
         # Print Day of the last transferred file at CNAF
+        w.write('<span style=\"color:' + text_color + '\">')
         w.write(timeData.strftime("%a %d"))
         w.write('<br />')
         w.write(timeData.strftime("%B"))
+        w.write('</span>')
         w.write('</td><td>')
 
         # Print Time of the last transferred file at CNAF
+        w.write('<span style=\"color:' + text_color + '\">')
         w.write(hourData)
+        w.write('</span>')
         w.write('</td><td>')
 
         # Print "Nome dell'ultimo File trasferito"
+        w.write('<span style=\"color:' + text_color + '\">')
         w.write(fileNameData[:13]+'<br />'+fileNameData[13:])
+        w.write('</span>')
         w.write('</td><td class=\"right\">')
 
         # Print "Numero di file trasferiti oggi"
@@ -117,9 +163,18 @@ def make_main_page(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
 
         # Print triggers
         try:
-            w.write(str(round(dqmData.trigger_rate(schoolName), 1)))
+            _triggers = round(dqmData.trigger_rate(schoolName))
+            if _triggers < 5:
+                w.write('<span style=\"color:#C00\">' + str(_triggers) + '</span>')
+            elif _triggers < 10:
+                w.write('<span style=\"color:#F90\">' + str(_triggers) + '</span>')
+            elif _triggers > 80:
+                w.write('<span style=\"color:#C00\">' + str(_triggers) + '</span>')
+            else:
+                w.write(str(_triggers))
         except:
             w.write('Check')
+
         w.write('</td><td>')
 
         # Print tracks (chi^2 < 10)

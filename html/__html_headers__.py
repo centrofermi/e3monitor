@@ -50,13 +50,19 @@ Download the Excel Sheet for the Shifter's Report
 
 <h2>EEE Monitor</h2>
 
-<p>Questa tabella mostra la situazione dei telescopi in acquisizione<br />
+<p>Questa tabella mostra la situazione dei telescopi in acquisizione:<br />
+
 In <span class="bold">verde</span> sono indicati i telescopi in
-presa dati e trasferimento nelle ultime 2 ore.<br />
+presa dati e trasferimento nelle ultime 3 ore<br />
+e con parametri di acquisizione ragionevoli nell'ultimo run analizzato.<br />
+
 In <span class="bold">giallo</span> sono indicati i telescopi in
-cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di 4 ore.<br />
+cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di 3 ore<br />
+o con tracce (X^2<10) minori di 10 Hz nell'ultimo run analizzato.<br />
+
 In <span class="bold">rosso</span> sono indicati i telescopi in
-cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di un giorno.</p>
+cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di un giorno<br />
+o con tracce (X^2<10) minori di 5Hz nell'ultimo run analizzato.</p>
 
 <table>
 <tr><th>Scuola</th>
