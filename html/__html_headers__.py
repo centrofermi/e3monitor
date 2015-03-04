@@ -20,6 +20,16 @@ Museo Storico della Fisica e Centro Studi e Ricerche Enrico Fermi</title>
 <link rel="stylesheet" type="text/css"
 href="https://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
 <link href="e3monitor.css" rel="stylesheet" type="text/css" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-60373730-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </head>
 <body>
 <div id="page-wrap">
