@@ -5,7 +5,7 @@ Created on Tue Nov 18 14:24:40 2014
 @author: Fabrizio Coccetti
 """
 #
-# File to open on www.centrofermi.it
+# File to open on vm193 at CNAF
 #
 
 # Last file with run transfer data
