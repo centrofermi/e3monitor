@@ -4,6 +4,7 @@
 Created on Fri Dec 17 11:08:30 2014
 
 @author: Fabrizio Coccetti (fabrizio.coccetti@centrofermi.it) [www.fc8.net]
+Query Run Db and extract Transfer and DQM data
 """
 
 import os
