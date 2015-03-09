@@ -10,7 +10,7 @@ Created on Wed Feb 17 16:52:54 2015
 [3] bin_file_size,
 [4] transfer_timestamp,
 [5] last_update
-
+[6] number_of_files_transferred_since_midnight
 """
 
 
@@ -21,6 +21,9 @@ class E3Transfer(dict):
 
     def add_entry(self, schoolName, schoolData):
         self._mydict[schoolName] = schoolData
+
+    def set_numFiles(self, schoolName, numFiles):
+        self._mydict[schoolName][6] = numFiles
 
     def schoolData(self, schoolName):
         return(self._mydict[schoolName])
@@ -42,3 +45,6 @@ class E3Transfer(dict):
 
     def last_update(self, schoolName):
         return(self._mydict[schoolName][5])
+
+    def get_numFiles(self, schoolName):
+        return(self._mydict[schoolName][6])

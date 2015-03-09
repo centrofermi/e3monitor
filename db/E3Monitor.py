@@ -42,6 +42,9 @@ class E3Monitor(dict):
     def set_dqmreportTs(self, schoolName, date):
         self._mydict[schoolName][8] = date
 
+    def set_transferFileNum(self, schoolName, fileNum):
+        self._mydict[schoolName][9] = fileNum
+
     def get_transferDelayDays(self, schoolName):
         return(self._mydict[schoolName][0])
 
@@ -68,6 +71,9 @@ class E3Monitor(dict):
 
     def get_dqmreportTs(self, schoolName):
         return(self._mydict[schoolName][8])
+
+    def get_transferFileNum(self, schoolName):
+        return(self._mydict[schoolName][9])
 
     def get_schoolData(self, schoolName):
         return(self._mydict[schoolName])

@@ -89,9 +89,9 @@ for _schoolName in schoolNames:
     if _entry is None:
         continue
     # Assign parameter to the class
-    # transferData.set_transferredFiles(_schoolName, _entry)
+    transferData.set_numFiles(_schoolName, _entry)
     logger.info('Read School: ' + _schoolName)
-    logger.info(_entry)
+    logger.info(transferData.get_numFiles)
 
 # Save the Transfer data extracted from the db
 logger.info('Writing data to file...')

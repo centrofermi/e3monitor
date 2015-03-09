@@ -18,7 +18,7 @@ def write_monitor_data(lastEntryPerSchool,
                        transferData,
                        dqmData,
                        EEE_EXCLUDED_STATIONS):
-    '''Write a dictionary with the All the monitor data
+    '''Write a class (dict) with the All the monitor data
     '''
 
     logger = logging.getLogger('plain')
@@ -65,7 +65,12 @@ def write_monitor_data(lastEntryPerSchool,
             logger.info(schoolName + " <-- No transfer timestamp")
 
         # Number of files transfered today
-        # TODO
+        try:
+            monitorData.set_transferFileNum(
+                schoolName,
+                transferData.get_numFiles(schoolName))
+        except:
+            logger.info(schoolName + " <-- Error in transferred file num")
 
         # Ultima Entry nell'e-logbook delle Scuole
         try:
