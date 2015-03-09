@@ -17,4 +17,5 @@ def compute_update():
     return (PAGE_TITLE_HTML +
             '<div class=\"time\">Ultimo aggiornamento: ore ' +
             updateTime +
-            '</div>')
+            ' by <a href=\"https://github.com/centrofermi/e3monitor\">'
+            'e3monitor</a></div>')
