@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 # *********************************************************************
 # * Copyright (C) 2014 Fabrizio Coccetti                              *
 # * fabrizio.coccetti@centrofermi.it  [www.fc8.net]                   *
@@ -20,29 +21,27 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-#
-# Many thanks to Luca.Baldini@pi.infn.it
-#
-# Creation: 15 oct 2014
-#
-# Read info about runs, schools' elog, Dqm and Dqmreport and
-# make the main webpage index.html
 
-import locale
+"""
+Created on Mon Mar  9 20:17:29 2015
+
+@author: Fabrizio Coccetti (fabrizio.coccetti@centrofermi.it) [www.fc8.net]
+"""
+
 import logging
 import logging.config
-from e3monitor.config.__stations__ import EEE_ACTIVE_STATIONS
 from e3monitor.tasks.read_elog import read_schools_elog
 from e3monitor.tasks.read_dqmreport import read_dqmreport
 from e3monitor.tasks.read_pickle import read_pickle
-from e3monitor.tasks.make_main_page import make_main_page
-from e3monitor.config.__files_server__ import (pathDqmreport,
+from e3monitor.tasks.write_monitor_data import write_monitor_data
+from e3monitor.config.__stations__ import (EEE_EXCLUDED_STATIONS,
+                                           EEE_ACTIVE_STATIONS)
+from e3monitor.config.__files_server__ import (logConfigFile,
                                                elogCsvFile,
-                                               logConfigFile,
+                                               pathDqmreport,
                                                pathWorkDir,
-                                               pklDqmFile,
-                                               pklTransferFile)
-
+                                               pklTransferFile,
+                                               pklDqmFile)
 
 if __name__ == '__main__':
 
@@ -51,16 +50,8 @@ if __name__ == '__main__':
     logger = logging.getLogger('full')
     logger.info('Started')
 
-    # Set locale to Italian
-    locale.setlocale(locale.LC_ALL, 'it_IT')
-
     # Determine the time and date of the last entry in the School's elogbook
     lastEntryPerSchool = read_schools_elog(elogCsvFile)
-
-    # Determine the content of DQM .summary files for each school
-    # and the list of schools that actually have a DQM directory
-    # runSchoolsSummary, schoolsDqmList = \
-    #    read_dqm_summary(EEE_ACTIVE_STATIONS, pathDqm)
 
     # Find directory for the last daily dqmreport
     lastDqmreport, schoolsDqmreportList = \
@@ -76,9 +67,13 @@ if __name__ == '__main__':
     logger.info("pickle file extracted from the"
                 "database imported: dqmData is loaded")
 
-    # Make the HTML main page index.html
-    make_main_page(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
-                   dqmData, EEE_ACTIVE_STATIONS)
+    # Combine data into E3Monitor class and write pickle file
+    write_monitor_data(lastEntryPerSchool,
+                       lastDqmreport,
+                       schoolsDqmreportList,
+                       transferData,
+                       dqmData,
+                       EEE_EXCLUDED_STATIONS)
 
     # Final log message
     logger.info('Finished')
