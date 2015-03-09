@@ -128,6 +128,8 @@ FOOTER_HTML = """
 <div id="footer">
 <p>Webpage made by&nbsp;
 <a href="https://github.com/centrofermi/e3monitor">e3monitor</a>&nbsp;
+[<a href="https://github.com/centrofermi/e3monitor/wiki/Architecture">architecture</a>]
+&nbsp;[<a href="https://github.com/centrofermi/e3monitor/wiki">wiki</a>]
 """
 
 BOTTOM_HTML = """
