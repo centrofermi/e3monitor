@@ -19,11 +19,14 @@ class E3Transfer(dict):
     def __init__(self):
         self._mydict = {}
 
+    def init_School(self, schoolName):
+        self._mydict[schoolName] = ['']*2
+
     def add_entry(self, schoolName, schoolData):
-        self._mydict[schoolName] = schoolData
+        self._mydict[schoolName][0] = schoolData
 
     def set_numFiles(self, schoolName, numFiles):
-        self._mydict[schoolName][6] = numFiles
+        self._mydict[schoolName][1] = numFiles
 
     def schoolData(self, schoolName):
         return(self._mydict[schoolName])
@@ -32,19 +35,19 @@ class E3Transfer(dict):
         return(self._mydict)
 
     def run_date(self, schoolName):
-        return(self._mydict[schoolName][1])
+        return(self._mydict[schoolName][0][1])
 
     def run_id(self, schoolName):
-        return(self._mydict[schoolName][2])
+        return(self._mydict[schoolName][0][2])
 
     def bin_file_size(self, schoolName):
-        return(self._mydict[schoolName][3])
+        return(self._mydict[schoolName][0][3])
 
     def transfer_timestamp(self, schoolName):
-        return(self._mydict[schoolName][4])
+        return(self._mydict[schoolName][0][4])
 
     def last_update(self, schoolName):
-        return(self._mydict[schoolName][5])
+        return(self._mydict[schoolName][0][5])
 
     def get_numFiles(self, schoolName):
-        return(self._mydict[schoolName][6])
+        return(self._mydict[schoolName][1])

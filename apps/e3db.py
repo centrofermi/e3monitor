@@ -57,6 +57,11 @@ cur.execute(query)
 schoolNames = [item[0] for item in cur.fetchall()]
 sorted(schoolNames)
 
+# Initialize Transfer Data
+for _schoolName in schoolNames:
+    transferData.init_School(_schoolName)
+    print(transferData.schoolData(_schoolName))
+
 # Query for the last transferred file at CNAF
 logger.info('Query for the last run transferred at CNAF of each school')
 query = ("SELECT station_name, run_date, run_id, bin_file_size, "
@@ -90,8 +95,10 @@ for _schoolName in schoolNames:
         continue
     # Assign parameter to the class
     transferData.set_numFiles(_schoolName, _entry)
+    # transferData.add_entry(_schoolName, _entry)
     logger.info('Read School: ' + _schoolName)
-    logger.info(transferData.get_numFiles)
+    logger.info(transferData.schoolData(_schoolName))
+    logger.info(transferData.get_numFiles(_schoolName))
 
 # Save the Transfer data extracted from the db
 logger.info('Writing data to file...')
