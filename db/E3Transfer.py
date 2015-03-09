@@ -14,7 +14,7 @@ Created on Wed Feb 17 16:52:54 2015
 """
 
 
-class E3DbTransferSchools(dict):
+class E3Transfer(dict):
 
     def __init__(self):
         self._mydict = {}

@@ -6,7 +6,7 @@ Created on Wed Dec 17 16:06:54 2014
 """
 
 
-class E3DbDqmSchools(dict):
+class E3Dqm(dict):
 
     def __init__(self):
         self._mydict = {}

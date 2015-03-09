@@ -8,7 +8,7 @@ from datetime import datetime
 import logging
 import os
 import pickle
-from e3monitor.db.E3W3MonitorSchools import E3W3MonitorSchools
+from e3monitor.db.E3Monitor import E3Monitor
 from e3monitor.config.__files_server__ import pklMonitorFile, pathWorkDir
 
 
@@ -25,7 +25,7 @@ def write_monitor_data(lastEntryPerSchool,
     logger.info('Function write_monitor_data() started')
 
     # Define class for saving all monitor data
-    monitorData = E3W3MonitorSchools()
+    monitorData = E3Monitor()
 
     # Define now
     now = datetime.today()

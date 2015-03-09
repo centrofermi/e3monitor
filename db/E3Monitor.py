@@ -7,7 +7,7 @@ Created on Wed Feb 18 16:52:54 2015
 """
 
 
-class E3W3MonitorSchools(dict):
+class E3Monitor(dict):
 
     def __init__(self):
         self._mydict = {}
