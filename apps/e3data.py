@@ -26,6 +26,8 @@
 Created on Mon Mar  9 20:17:29 2015
 
 @author: Fabrizio Coccetti (fabrizio.coccetti@centrofermi.it) [www.fc8.net]
+
+This app writes the file with the E3Monitor class data
 """
 
 import logging
