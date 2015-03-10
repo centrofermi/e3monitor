@@ -10,6 +10,7 @@ Make the index.html webpage with the main Monitor table
 import logging
 from e3monitor.tasks.update_time import compute_update
 from e3monitor.tasks.set_version import set_version
+from e3monitor.config.__limits__ import SEC_TRANSFER_LIMIT
 from e3monitor.html.__html_headers__ import (HEADER_HTML,
                                              TABELLA1_HTML,
                                              FOOTER_HTML,
@@ -21,7 +22,7 @@ def make_webpage_index(monitorData, mainWebPageFileBeta):
     '''
 
     logger = logging.getLogger('plain')
-    logger.info('Function make_main_page() started')
+    logger.info('Function make_webpage_index() started')
 
     # Open index.html
     w = open(mainWebPageFileBeta, 'w')
@@ -32,20 +33,53 @@ def make_webpage_index(monitorData, mainWebPageFileBeta):
     w.write(TABELLA1_HTML)
 
     # Start loop for school names (sorted)
-    _monitorData = sorted(monitorData.items(), key=lambda t: t[1])
-    for schoolName in _monitorData:
+    for schoolName in sorted(monitorData.get_allData()):
 
         # Set <tr> class color
-        w.write('</tr>')
+        if monitorData.get_transferDelayDays(schoolName) == 0:
+            if monitorData.get_transferDelaySeconds(schoolName) < SEC_TRANSFER_LIMIT:
+                rowColor = 'green'
+                transfer_time_txt = 'green'
+            else:
+                rowColor = 'yellow'
+                transfer_time_txt = 'yellow'
+        elif monitorData.get_transferDelayDays(schoolName) == 1:
+            rowColor = 'yellow'
+            transfer_time_txt = 'yellow'
+        else:
+            rowColor = 'red'
+            transfer_time_txt = 'red'
+        w.write('<tr class=\"' + rowColor + '\">')
 
         # Print School Name in format: TEST-01
-        w.write('<span style=\"font-weight: bold;\">')
+        w.write('<td>')
+        w.write('<span class=\"bold\">')
         w.write(schoolName)
         w.write('</span>')
         w.write('</td>')
 
+        # Print Day of the last transferred file at CNAF
+        w.write('<td>')
+        w.write('<span class=\"' + transfer_time_txt  + '">')
+        try:
+            w.write(monitorData.get_transferTs(schoolName).strftime("%a %d"))
+            w.write('<br />')
+            w.write(monitorData.get_transferTs(schoolName).strftime("%B"))
+        except:
+            w.write('*')
+        w.write('</td>')
+
+        # Print Hour of the last transferred file at CNAF
+        w.write('<td>')
+        w.write('<span class=\"' + transfer_time_txt  + '">')
+        try:
+            w.write(monitorData.get_transferTs(schoolName).strftime("%H:%M"))
+        except:
+            w.write('*')
+        w.write('</td>')
+
         # End loop for school names
-        w.write('</tr>')
+        w.write('</tr>\n')
 
     w.write('</table>')
     w.write(FOOTER_HTML)
