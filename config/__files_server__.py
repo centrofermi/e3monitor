@@ -23,6 +23,7 @@ elogCsvFile = "/var/www/html/monitor/EEE_data.csv"
 
 # Web pages to write
 mainWebPageFile = "/var/www/html/monitor/index.html"
+mainWebPageFileBeta = "/var/www/html/monitor/index2.html"
 cnafWebPageFile = "/var/www/html/monitor/index_cnaf.html"
 
 # xslx File to write
