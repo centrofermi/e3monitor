@@ -103,6 +103,15 @@ tr.yellow {
 span.bold {
   font-weight: bold;
 }
+span.green {
+    color: #333;
+}
+span.yellow {
+    color: #F90;
+}
+span.red {
+    color: #C00;
+}
 #menu a {
   font-weight: bold;
 }

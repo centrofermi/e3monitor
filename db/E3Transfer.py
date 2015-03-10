@@ -50,4 +50,4 @@ class E3Transfer(dict):
         return(self._mydict[schoolName][0][5])
 
     def get_numFiles(self, schoolName):
-        return(self._mydict[schoolName][1])
+        return(self._mydict[schoolName][1][0])

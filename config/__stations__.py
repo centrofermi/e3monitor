@@ -5,7 +5,7 @@ Modified on 17 Nov 2014
 @author: fabrizio.coccetti@centrofermi.it
 """
 
-""" List of EEE Stations to exclude from Monitoring
+""" List of EEE Stations to exclude from Writing files in Monitoring
 """
 EEE_EXCLUDED_STATIONS = []
 
@@ -31,7 +31,6 @@ EEE_ACTIVE_STATIONS = [
     'LAQU-01',
     'LAQU-02',
     'LECC-01',
-    'LECC-02',
     'LODI-01',
     'PISA-01',
     'REGG-01',

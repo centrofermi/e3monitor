@@ -35,6 +35,7 @@ import logging
 import logging.config
 from e3monitor.tasks.read_pickle import read_pickle
 from e3monitor.tasks.make_webpage_index import make_webpage_index
+from e3monitor.config.__stations__ import EEE_ACTIVE_STATIONS
 from e3monitor.config.__files_server__ import (logConfigFile,
                                                pathWorkDir,
                                                pklMonitorFile,
@@ -56,7 +57,9 @@ if __name__ == '__main__':
                 "database imported: E3Monitor class is loaded "
                 "as monitorData")
 
-    make_webpage_index(monitorData, mainWebPageFileBeta)
+    make_webpage_index(monitorData,
+                       EEE_ACTIVE_STATIONS,
+                       mainWebPageFileBeta)
 
     # Final log message
     logger.info('Finished')

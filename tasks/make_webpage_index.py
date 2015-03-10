@@ -6,7 +6,6 @@ Created on Tue Mar 10 12:17:38 2015
 
 Make the index.html webpage with the main Monitor table
 """
-
 import logging
 from datetime import datetime
 from e3monitor.tasks.update_time import compute_update
@@ -28,7 +27,9 @@ from e3monitor.html.__html_headers__ import (
     )
 
 
-def make_webpage_index(monitorData, mainWebPageFileBeta):
+def make_webpage_index(monitorData,
+                       EEE_ACTIVE_STATIONS,
+                       mainWebPageFileBeta):
     '''Make the index.html webpage with the main Monitor table
     '''
 
@@ -49,6 +50,10 @@ def make_webpage_index(monitorData, mainWebPageFileBeta):
     # Start loop for school names (sorted)
     for schoolName in sorted(monitorData.get_allData()):
 
+        # Skip schools with no data
+        if schoolName not in EEE_ACTIVE_STATIONS:
+            continue
+
         # Get Transfer timestamp and set <tr> class color
         try:
             transferDelay = now - monitorData.get_transferTs(schoolName)
@@ -57,18 +62,48 @@ def make_webpage_index(monitorData, mainWebPageFileBeta):
 
         # Set <tr> class color
         if transferDelay == -1:
-            rowColor = 'gray'
+            rowColor = 'red'
             transfer_time_txt = 'red'
         elif transferDelay.days == 0:
             if transferDelay.seconds < TRANSFER_SEC_LIMIT:
-                rowColor = 'green'
                 transfer_time_txt = 'green'
+                try:
+                    _tracks = round(monitorData.get_trackRate(schoolName))
+                    if (_tracks < TRACKS_ERROR_LOW or
+                                _tracks > TRACKS_ERROR_HIGH):
+                        rowColor = 'red'
+                    elif (_tracks < TRACKS_WARNING_LOW or
+                                _tracks > TRACKS_WARNING_HIGH):
+                        rowColor = 'yellow'
+                    else:
+                        rowColor = 'green'
+                except:
+                    rowColor = 'red'
+                    continue
             else:
-                rowColor = 'yellow'
                 transfer_time_txt = 'yellow'
+                try:
+                    _tracks = round(monitorData.get_trackRate(schoolName))
+                    if (_tracks < TRACKS_ERROR_LOW or
+                                _tracks > TRACKS_ERROR_HIGH):
+                        rowColor = 'red'
+                    else:
+                        rowColor = 'yellow'
+                except:
+                    rowColor = 'red'
+                    continue
         elif transferDelay.days == 1:
-            rowColor = 'yellow'
             transfer_time_txt = 'yellow'
+            try:
+                _tracks = round(monitorData.get_trackRate(schoolName))
+                if (_tracks < TRACKS_ERROR_LOW or
+                            _tracks > TRACKS_ERROR_HIGH):
+                    rowColor = 'red'
+                else:
+                    rowColor = 'yellow'
+            except:
+                rowColor = 'yellow'
+                continue
         else:
             rowColor = 'red'
             transfer_time_txt = 'red'
@@ -89,7 +124,7 @@ def make_webpage_index(monitorData, mainWebPageFileBeta):
             w.write('<br />')
             w.write(monitorData.get_transferTs(schoolName).strftime("%B"))
         except:
-            w.write('*')
+            w.write('')
         w.write('</span>')
         w.write('</td>')
 
@@ -99,15 +134,30 @@ def make_webpage_index(monitorData, mainWebPageFileBeta):
         try:
             w.write(monitorData.get_transferTs(schoolName).strftime("%H:%M"))
         except:
-            w.write('*')
+            w.write('')
         w.write('</span>')
         w.write('</td>')
 
         # Print "Nome dell'ultimo File trasferito"
         w.write('<td>')
         w.write('<span class=\"' + transfer_time_txt + '">')
-        w.write(monitorData.get_transferFileName(schoolName))
+        try:
+            w.write(monitorData.get_transferFileName(schoolName)[:13] + '<br />' +
+                    monitorData.get_transferFileName(schoolName)[13:])
+            if (monitorData.get_transferFileName(schoolName) is not ''):
+                w.write('.bin')
+        except:
+            w.write('')
         w.write('</span>')
+        w.write('</td>')
+
+        # Print 'numero di files trasferiti oggi'
+        w.write('<td>')
+        try:
+            w.write(str(monitorData.get_transferFileNum(schoolName)))
+        except:
+            w.write('*')
+        w.write('<br /><a href=\"plots/' + schoolName + '.png\">[History]</a>')
         w.write('</td>')
 
         # Print "Ultima Entry nell'e-logbook delle Scuole"
@@ -120,8 +170,10 @@ def make_webpage_index(monitorData, mainWebPageFileBeta):
                 elog_time_txt = 'yellow'
             else:
                 elog_time_txt = 'red'
-            w.write('<span class=\"' + elog_time_txt + '">')
-            w.write(monitorData.get_elogEntryTs(schoolName))
+            w.write('<span class=\"' + elog_time_txt + '\">')
+            w.write(monitorData.get_elogEntryTs(schoolName).strftime("%H:%M"))
+            w.write('<br />')
+            w.write(monitorData.get_elogEntryTs(schoolName).strftime("%d/%m/%Y"))
             w.write('</span>')
         except:
             w.write('*')
@@ -130,7 +182,10 @@ def make_webpage_index(monitorData, mainWebPageFileBeta):
         # Print "Nome dell'ultimo File analizzato dal DQM"
         w.write('<td>')
         try:
-            w.write(monitorData.get_DqmFileName(schoolName))
+            w.write(monitorData.get_DqmFileName(schoolName)[:13] + '<br />' +
+                    monitorData.get_DqmFileName(schoolName)[13:])
+            if (monitorData.get_DqmFileName(schoolName) is not ''):
+                w.write('.bin')
         except:
             w.write('*')
         w.write('</td>')
@@ -138,7 +193,16 @@ def make_webpage_index(monitorData, mainWebPageFileBeta):
         # Print "Report giornaliero DQM"
         w.write('<td>')
         try:
-            w.write('todo')
+            _dqmreportTs = datetime.strptime(
+                monitorData.get_dqmreportTs(schoolName), '%Y-%m-%d')
+            w.write('<a href=\"dqmreport/' + schoolName + '/')
+            w.write(monitorData.get_dqmreportTs(schoolName))
+            w.write('/index.html\">')
+            w.write(_dqmreportTs.strftime("%d/%m"))
+            w.write('</a> <br />')
+            w.write('<a href =\"dqmreport/' + schoolName + '/?C=M;O=D\">')
+            w.write('[History]')
+            w.write('</a>')
         except:
             w.write('*')
         w.write('</td>')
@@ -146,7 +210,7 @@ def make_webpage_index(monitorData, mainWebPageFileBeta):
         # Print triggers
         w.write('<td>')
         try:
-            _triggers = round(w.write(monitorData.get_triggerRate(schoolName)))
+            _triggers = round(monitorData.get_triggerRate(schoolName))
             if (_triggers < TRACKS_ERROR_LOW or
                     _triggers > TRACKS_ERROR_HIGH):
                 triggers_txt = 'red'
@@ -155,17 +219,18 @@ def make_webpage_index(monitorData, mainWebPageFileBeta):
                 triggers_txt = 'yellow'
             else:
                 triggers_txt = 'green'
-            w.write('<span class=\"' + triggers_txt + '">')
-            w.write(monitorData.get_triggerRate(schoolName))
+            w.write('<span class=\"' + triggers_txt + '\">')
+            w.write(str(_triggers))
             w.write('</span>')
         except:
+            print(sys.exc_info())
             w.write('*')
         w.write('</td>')
 
         # Print tracks (chi^2 < 10)
         w.write('<td>')
         try:
-            _tracks = round(w.write(monitorData.get_trackRate(schoolName)))
+            _tracks = round(monitorData.get_trackRate(schoolName))
             if (_tracks < TRACKS_ERROR_LOW or
                     _tracks > TRACKS_ERROR_HIGH):
                 tracks_txt = 'red'
@@ -174,8 +239,8 @@ def make_webpage_index(monitorData, mainWebPageFileBeta):
                 tracks_txt = 'yellow'
             else:
                 tracks_txt = 'green'
-            w.write('<span class=\"' + tracks_txt + '">')
-            w.write(monitorData.get_trackRate(schoolName))
+            w.write('<span class=\"' + tracks_txt + '\">')
+            w.write(str(_tracks))
             w.write('</span>')
         except:
             w.write('*')
