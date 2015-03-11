@@ -48,7 +48,7 @@ def write_monitor_data(lastEntryPerSchool,
         # Name of last file transferred at CNAF
         try:
             _runNameInTranfer = (schoolName +
-                                 transferData.transfer_timestamp(
+                                 transferData.run_date(
                                      schoolName).strftime("-%Y-%m-%d-") +
                                  "{0:0>5}".format(
                                      int(transferData.run_id(schoolName))))

@@ -67,7 +67,7 @@ logger.info('Query for the last run transferred at CNAF of each school')
 query = ("SELECT station_name, run_date, run_id, bin_file_size, "
          "transfer_timestamp, last_update "
          "FROM runs WHERE station_name = %s "
-         "ORDER BY last_update DESC LIMIT 1;")
+         "ORDER BY transfer_timestamp DESC LIMIT 1;")
 logger.info('About to query: ' + query)
 for _schoolName in schoolNames:
     cur.execute(query, _schoolName)

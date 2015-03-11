@@ -103,8 +103,11 @@ tr.yellow {
 span.bold {
   font-weight: bold;
 }
-span.green {
+span.gray {
     color: #333;
+}
+span.green {
+    color: #090;
 }
 span.yellow {
     color: #F90;

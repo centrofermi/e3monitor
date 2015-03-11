@@ -165,7 +165,7 @@ def make_webpage_index(monitorData,
         try:
             elogDelay = now - monitorData.get_elogEntryTs(schoolName)
             if elogDelay.days <= ELOG_WARNING:
-                elog_time_txt = 'green'
+                elog_time_txt = 'gray'
             elif elogDelay.days <= ELOG_ERROR:
                 elog_time_txt = 'yellow'
             else:
@@ -218,7 +218,7 @@ def make_webpage_index(monitorData,
                     _triggers > TRACKS_WARNING_HIGH):
                 triggers_txt = 'yellow'
             else:
-                triggers_txt = 'green'
+                triggers_txt = 'gray'
             w.write('<span class=\"' + triggers_txt + '\">')
             w.write(str(_triggers))
             w.write('</span>')
@@ -238,7 +238,7 @@ def make_webpage_index(monitorData,
                     _tracks > TRACKS_WARNING_HIGH):
                 tracks_txt = 'yellow'
             else:
-                tracks_txt = 'green'
+                tracks_txt = 'gray'
             w.write('<span class=\"' + tracks_txt + '\">')
             w.write(str(_tracks))
             w.write('</span>')
