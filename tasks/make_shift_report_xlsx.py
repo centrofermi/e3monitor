@@ -140,7 +140,8 @@ def make_shift_report_xlsx(monitorData,
                 row,
                 col,
                 monitorData.get_transferTs(schoolName),
-                fTimeStamp)
+                fTimeStamp
+                )
         except:
             logger.info('Error for get_transferTs(' + schoolName + ')')
         col += 1
@@ -165,15 +166,15 @@ def make_shift_report_xlsx(monitorData,
 
         # Print "Ultima Entry nell'e-logbook delle Scuole"
         try:
-            worksheet.write(
+            worksheet.write_datetime(
                 row,
                 col,
                 monitorData.get_elogEntryTs(schoolName),
-                fVcenter
+                fTimeStamp
                 )
         except:
             logger.info('Error for get_elogEntryTs(' + schoolName + ')')
-            col += 1
+        col += 1
 
         # Print "Nome dell'ultimo File analizzato dal DQM"
         try:
