@@ -29,7 +29,7 @@ from e3monitor.html.__html_headers__ import (
 
 def make_webpage_index(monitorData,
                        EEE_ACTIVE_STATIONS,
-                       mainWebPageFileBeta):
+                       mainWebPageFile):
     '''Make the index.html webpage with the main Monitor table
     '''
 
@@ -40,7 +40,7 @@ def make_webpage_index(monitorData,
     now = datetime.today()
 
     # Open index.html
-    w = open(mainWebPageFileBeta, 'w')
+    w = open(mainWebPageFile, 'w')
 
     # Write html headers and titles of the table
     w.write(HEADER_HTML)

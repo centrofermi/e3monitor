@@ -13,7 +13,7 @@ from e3monitor.html.__html_headers__ import (HEADER_HTML,
 from e3monitor.tasks.update_time import compute_update
 from e3monitor.tasks.set_version import set_version
 from e3monitor.config.__files_server__ import (lastDataFile,
-                                               mainWebPageFile)
+                                               mainWebPageFileBeta)
 
 
 def make_main_page(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
@@ -25,7 +25,7 @@ def make_main_page(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
     logger.info('Function make_main_page() started')
 
     f = open(lastDataFile, 'r')
-    w = open(mainWebPageFile, 'w')
+    w = open(mainWebPageFileBeta, 'w')
     now = datetime.today()
     w.write(HEADER_HTML)
     w.write(compute_update())
