@@ -5,6 +5,7 @@ Created on Tue Mar 10 12:17:38 2015
 @author: Fabrizio Coccetti (fabrizio.coccetti@centrofermi.it) [www.fc8.net]
 
 Make the index.html webpage with the main Monitor table
+Code in use since the Database is in place
 """
 import logging
 from datetime import datetime
@@ -33,6 +34,7 @@ def make_webpage_index(monitorData,
     '''Make the index.html webpage with the main Monitor table
     '''
 
+    # Start logger
     logger = logging.getLogger('plain')
     logger.info('Function make_webpage_index() started')
 
@@ -70,10 +72,10 @@ def make_webpage_index(monitorData,
                 try:
                     _tracks = round(monitorData.get_trackRate(schoolName))
                     if (_tracks < TRACKS_ERROR_LOW or
-                                _tracks > TRACKS_ERROR_HIGH):
+                            _tracks > TRACKS_ERROR_HIGH):
                         rowColor = 'red'
                     elif (_tracks < TRACKS_WARNING_LOW or
-                                _tracks > TRACKS_WARNING_HIGH):
+                            _tracks > TRACKS_WARNING_HIGH):
                         rowColor = 'yellow'
                     else:
                         rowColor = 'green'
@@ -85,7 +87,7 @@ def make_webpage_index(monitorData,
                 try:
                     _tracks = round(monitorData.get_trackRate(schoolName))
                     if (_tracks < TRACKS_ERROR_LOW or
-                                _tracks > TRACKS_ERROR_HIGH):
+                            _tracks > TRACKS_ERROR_HIGH):
                         rowColor = 'red'
                     else:
                         rowColor = 'yellow'
@@ -97,7 +99,7 @@ def make_webpage_index(monitorData,
             try:
                 _tracks = round(monitorData.get_trackRate(schoolName))
                 if (_tracks < TRACKS_ERROR_LOW or
-                            _tracks > TRACKS_ERROR_HIGH):
+                        _tracks > TRACKS_ERROR_HIGH):
                     rowColor = 'red'
                 else:
                     rowColor = 'yellow'
@@ -142,7 +144,8 @@ def make_webpage_index(monitorData,
         w.write('<td>')
         w.write('<span class=\"' + transfer_time_txt + '">')
         try:
-            w.write(monitorData.get_transferFileName(schoolName)[:13] + '<br />' +
+            w.write(monitorData.get_transferFileName(schoolName)[:13] +
+                    '<br />' +
                     monitorData.get_transferFileName(schoolName)[13:])
             if (monitorData.get_transferFileName(schoolName) is not ''):
                 w.write('.bin')
@@ -171,9 +174,11 @@ def make_webpage_index(monitorData,
             else:
                 elog_time_txt = 'red'
             w.write('<span class=\"' + elog_time_txt + '\">')
-            w.write(monitorData.get_elogEntryTs(schoolName).strftime("%H:%M"))
+            w.write(monitorData.get_elogEntryTs(
+                schoolName).strftime("%H:%M"))
             w.write('<br />')
-            w.write(monitorData.get_elogEntryTs(schoolName).strftime("%d/%m/%Y"))
+            w.write(monitorData.get_elogEntryTs(
+                schoolName).strftime("%d/%m/%Y"))
             w.write('</span>')
         except:
             w.write('*')
@@ -223,7 +228,6 @@ def make_webpage_index(monitorData,
             w.write(str(_triggers))
             w.write('</span>')
         except:
-            print(sys.exc_info())
             w.write('*')
         w.write('</td>')
 

@@ -1,26 +1,26 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Feb  5 17:19:41 2015
+Created on Thu Mar 12 16:12:07 2015
 
 @author: Fabrizio Coccetti (fabrizio.coccetti@centrofermi.it) [www.fc8.net]
 
-OLD code. Used before the Database was in place
+Make the Shift Report xlsx file
+Code in use since the Database is in place
 """
 
 import xlsxwriter
 from datetime import datetime
 import logging
-from e3monitor.config.__files_server__ import (lastDataFile,
-                                               xlsxFile)
 
 
-def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
-                   dqmData, schoolNamesList):
-    '''Make the xlsx file with the Online main monitoring table
+def make_shift_report_xlsx(monitorData,
+                           EEE_ACTIVE_STATIONS,
+                           xlsxFile):
+    '''Make the Shift Report xlsx file
     '''
-
+    # Start logger
     logger = logging.getLogger('plain')
-    logger.info('Function make_xlsx_file() started')
+    logger.info('Function make_shift_report_xlsx() started')
 
     # Define NOW
     now = datetime.today()
@@ -113,17 +113,12 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
 
     row = 3
 
-    # Read file from CNAF
-    f = open(lastDataFile, 'r')
-    lines = f.readlines()
-    for line in lines:
-        (schoolName, timeTempData, hourData,
-         fileNameData, transferedFileNumber) = line.split()
-        timeTempData = timeTempData+hourData
-        try:
-            timeData = datetime.strptime(timeTempData, '%Y-%m-%d%H:%M')
-        except:
-            timeData = now
+    # Start loop for school names (sorted)
+    for schoolName in sorted(monitorData.get_allData()):
+
+        # Skip schools with no data
+        if schoolName not in EEE_ACTIVE_STATIONS:
+            continue
 
         # Start at the first Column for every row
         col = 0
@@ -140,70 +135,85 @@ def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
         col += 1
 
         # Print Day of the last transferred file at CNAF
-        worksheet.write_datetime(row,
-                                 col,
-                                 timeData,
-                                 fTimeStamp)
+        try:
+            worksheet.write_datetime(
+                row,
+                col,
+                monitorData.get_transferTs(schoolName),
+                fTimeStamp)
+        except:
+            logger.info('Error for get_transferTs(' + schoolName + ')')
         col += 1
 
-        # # Print Time of the last transferred file at CNAF
-        # worksheet.write(row, col, hourData, fVcenter)
-        # col += 1
-
         # Print "Nome dell'ultimo File trasferito"
-        worksheet.write(row, col, fileNameData, fVcenter)
+        worksheet.write(
+            row,
+            col,
+            monitorData.get_transferFileName(schoolName),
+            fVcenter
+            )
         col += 1
 
         # Print "Numero di file trasferiti oggi"
-        worksheet.write_number(row,
-                               col,
-                               int(transferedFileNumber),
-                               fNumInt)
+        worksheet.write_number(
+            row,
+            col,
+            int(monitorData.get_transferFileNum(schoolName)),
+            fNumInt
+            )
         col += 1
 
         # Print "Ultima Entry nell'e-logbook delle Scuole"
         try:
-            worksheet.write(row, col,
-                            lastEntryPerSchool[schoolName].strftime(
-                                "%H:%M %d/%m/%Y"), fVcenter)
+            worksheet.write(
+                row,
+                col,
+                monitorData.get_elogEntryTs(schoolName),
+                fVcenter
+                )
         except:
-            worksheet.write(row, col, '')
-        col += 1
+            logger.info('Error for get_elogEntryTs(' + schoolName + ')')
+            col += 1
 
         # Print "Nome dell'ultimo File analizzato dal DQM"
         try:
-            _runNameInDqm = (schoolName +
-                             dqmData.run_date(
-                                 schoolName).strftime("-%Y-%m-%d-") +
-                             "{0:0>5}".format(int(
-                                 dqmData.run_id(schoolName))))
-            worksheet.write(row, col, _runNameInDqm, fVcenter)
+            worksheet.write(
+                row,
+                col,
+                monitorData.get_DqmFileName(schoolName),
+                fVcenter
+                )
         except:
-            worksheet.write(row, col, '')
+            logger.info('Error for get_DqmFileName(' + schoolName + ')')
         col += 1
 
         # Print triggers
         try:
-            worksheet.write_number(row,
-                                   col,
-                                   float(dqmData.trigger_rate(schoolName)),
-                                   fNumDec)
+            worksheet.write_number(
+                row,
+                col,
+                float(monitorData.get_triggerRate(schoolName)),
+                fNumDec
+                )
         except:
-            worksheet.write(row, col, '')
+            logger.info('Error for get_DqmFileName(' + schoolName + ')')
         col += 1
 
         # Print tracks (chi^2 < 10)
         try:
-            worksheet.write_number(row,
-                                   col,
-                                   dqmData.track_rate(schoolName),
-                                   fNumDec)
+            worksheet.write_number(
+                row,
+                col,
+                float(monitorData.get_trackRate(schoolName)),
+                fNumDec
+                )
         except:
-            worksheet.write(row, col, '')
+            logger.info('Error for get_DqmFileName(' + schoolName + ')')
         col += 1
 
+        # End of loop for schoolName. Now move to the next line
         row += 1
 
     workbook.close()
-    logger.info('Function make_xlsx_file() finished')
+    logger.info('Function make_shift_report_xlsx() finished')
     return True
