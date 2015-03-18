@@ -24,6 +24,7 @@ EEE_ACTIVE_STATIONS = [
     'CATA-02',
     'CATZ-01',
     'CERN-01',
+    'CERN-02',
     'COSE-01',
     'FRAS-02',
     'FRAS-03',
