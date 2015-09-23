@@ -13,6 +13,7 @@ EEE_EXCLUDED_STATIONS = []
 """
 EEE_ACTIVE_STATIONS = [
     'ALTA-01',
+    'AREZ-01',
     'BARI-01',
     'BOLO-01',
     'BOLO-03',
