@@ -53,25 +53,25 @@ ELOGBOOK dello SHIFTER</a>
 <a href="http://eee.centrofermi.it/">
 Home Page EEE</a>
 </td><td>
-<a href="https://www.cnaf.infn.it/eee/monitor/shifter_report.xlsx" download>
+<a href="https://www1.cnaf.infn.it/eee/monitor/shifter_report.xlsx">
 Download the Excel Sheet for the Shifter's Report
 </td></tr></table>
 </div>
 
 <h2>EEE Monitor</h2>
 
-<p>Questa tabella mostra la situazione dei telescopi in acquisizione:<br />
+<p style="font-size:80%;">Questa tabella mostra la situazione dei telescopi in acquisizione:<br />
 
 In <span class="bold">verde</span> sono indicati i telescopi in
-presa dati e trasferimento nelle ultime 3 ore<br />
+presa dati e trasferimento nelle ultime 3 ore 
 e con parametri di acquisizione ragionevoli nell'ultimo run analizzato.<br />
 
 In <span class="bold">giallo</span> sono indicati i telescopi in
-cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di 3 ore<br />
+cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di 3 ore
 o con tracce (X^2<10) minori di 10 Hz nell'ultimo run analizzato.<br />
 
 In <span class="bold">rosso</span> sono indicati i telescopi in
-cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di un giorno<br />
+cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di un giorno
 o con tracce (X^2<10) minori di 5Hz nell'ultimo run analizzato.</p>
 
 <table>
