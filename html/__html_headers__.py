@@ -58,7 +58,7 @@ Download the Excel Sheet for the Shifter's Report
 </td></tr></table>
 </div>
 
-<h2>EEE Monitor</h2>
+<h2>EEE Monitor: RUN 2</h2>
 
 <p style="font-size:80%;">Questa tabella mostra la situazione dei telescopi in acquisizione:<br />
 
