@@ -71,7 +71,7 @@ cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di 3 ore
 o con tracce (X^2<10) minori di 10 Hz nell'ultimo run analizzato.<br />
 
 In <span class="bold">rosso</span> sono indicati i telescopi in
-cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di un giorno
+cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di due giorni
 o con tracce (X^2<10) minori di 5Hz nell'ultimo run analizzato.</p>
 
 <table>
