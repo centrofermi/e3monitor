@@ -16,6 +16,7 @@ EEE_ACTIVE_STATIONS = [
     'AREZ-01',
     'BARI-01',
     'BOLO-01',
+    'BOLO-02',
     'BOLO-03',
     'BOLO-04',
     'CAGL-01',
