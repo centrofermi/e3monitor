@@ -9,8 +9,7 @@ Code in use since the Database is in place
 """
 import logging
 from datetime import datetime
-from e3monitor.tasks.update_time import (compute_update,
-        day_of_run)
+from e3monitor.tasks.update_time import compute_update
 from e3monitor.tasks.set_version import set_version
 from e3monitor.config.__limits__ import (
     TRANSFER_SEC_LIMIT,
@@ -24,13 +23,12 @@ from e3monitor.config.__limits__ import (
 from e3monitor.html.__html_headers__ import (
     HEADER_HTML,
     TABELLA1_HTML,
-    TABELLA1_P2_HTML,
     FOOTER_HTML,
     BOTTOM_HTML
     )
 
 
-def make_webpage_index(monitorData,
+def make_webpage_ib(monitorData,
                        EEE_ACTIVE_STATIONS,
                        mainWebPageFile):
     '''Make the index.html webpage with the main Monitor table
@@ -50,8 +48,6 @@ def make_webpage_index(monitorData,
     w.write(HEADER_HTML)
     w.write(compute_update())
     w.write(TABELLA1_HTML)
-    w.write(day_of_run())
-    w.write(TABELLA1_P2_HTML)
 
     # Start loop for school names (sorted)
     for schoolName in sorted(monitorData.get_allData()):
@@ -114,8 +110,8 @@ def make_webpage_index(monitorData,
             rowColor = 'red'
             transfer_time_txt = 'red'
         # Print only green telescopes :-)    
-        #if rowColor != 'green':
-        #    continue
+        if rowColor != 'green':
+            continue
         w.write('<tr class=\"' + rowColor + '\">')
 
         # Print School Name in format: TEST-01

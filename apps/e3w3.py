@@ -35,11 +35,13 @@ import logging
 import logging.config
 from e3monitor.tasks.read_pickle import read_pickle
 from e3monitor.tasks.make_webpage_index import make_webpage_index
+from e3monitor.tasks.make_webpage_ib import make_webpage_ib
 from e3monitor.config.__stations__ import EEE_ACTIVE_STATIONS
 from e3monitor.config.__files_server__ import (logConfigFile,
                                                pathWorkDir,
                                                pklMonitorFile,
-                                               mainWebPageFile)
+                                               mainWebPageFile,
+                                               ibWebPageFile)
 
 if __name__ == '__main__':
 
@@ -60,6 +62,10 @@ if __name__ == '__main__':
     make_webpage_index(monitorData,
                        EEE_ACTIVE_STATIONS,
                        mainWebPageFile)
+
+    make_webpage_ib(monitorData,
+                    EEE_ACTIVE_STATIONS,
+                    ibWebPageFile)
 
     # Final log message
     logger.info('Finished')

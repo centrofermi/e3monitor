@@ -6,7 +6,9 @@ Created on Wed Nov 19 16:59:30 2014
 """
 
 from datetime import datetime
-from e3monitor.html.__html_headers__ import PAGE_TITLE_HTML
+from datetime import date
+from e3monitor.html.__html_headers__ import (PAGE_TITLE_HTML,
+                                             PAGE_SUBTILE_HTML)
 
 
 def compute_update():
@@ -19,3 +21,13 @@ def compute_update():
             updateTime +
             ' [by <a href=\"https://github.com/centrofermi/e3monitor\">'
             'e3monitor</a>]</div>')
+
+
+def day_of_run():
+    """Compute the day of the run
+    """
+    today = date.today()
+    startRun = date(2015, 11, 7-1)
+    daysOfRun = today - startRun
+    return(PAGE_SUBTILE_HTML + str(daysOfRun.days) + '</i></h2>')
+

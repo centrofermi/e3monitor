@@ -34,7 +34,7 @@ href="https://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
 <body>
 <div id="page-wrap">
     <p style="margin-bottom:6px;">
-    <img src="http://www.centrofermi.it/docs/images/banner_centro_fermi.jpg"
+    <img src="img/banner_centro_fermi.jpg"
     alt="banner CF" width="800" /></p>
 """
 
@@ -57,9 +57,11 @@ Home Page EEE</a>
 Download the Excel Sheet for the Shifter's Report
 </td></tr></table>
 </div>
+"""
 
-<h2>EEE Monitor: RUN 2</h2>
+PAGE_SUBTILE_HTML = '<h2>[EEE Monitor info] <i>RUN 2 - Data taking - Day number '
 
+TABELLA1_P2_HTML = """
 <p style="font-size:80%;">Questa tabella mostra la situazione dei telescopi in acquisizione:<br />
 
 In <span class="bold">verde</span> sono indicati i telescopi in
