@@ -37,6 +37,7 @@ EEE_ACTIVE_STATIONS = [
     'LECC-02',
     'LODI-01',
     'PARM-01',
+    'PATE-01',
     'PISA-01',
     'REGG-01',
     'SALE-01',
