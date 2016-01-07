@@ -7,7 +7,7 @@ Modified on 17 Nov 2014
 
 """ List of EEE Stations to exclude from Writing files in Monitoring
 """
-EEE_EXCLUDED_STATIONS = ['LECC-01']
+EEE_EXCLUDED_STATIONS = ['TORI-02']
 
 """ List of EEE Active Stations
 """
@@ -28,6 +28,7 @@ EEE_ACTIVE_STATIONS = [
     'CERN-01',
     'CERN-02',
     'COSE-01',
+    'FRAS-01',
     'FRAS-02',
     'FRAS-03',
     'GROS-01',
@@ -45,6 +46,7 @@ EEE_ACTIVE_STATIONS = [
     'SAVO-02',
     'SAVO-03',
     'TERA-01',
+    'TORI-02',
     'TORI-03',
     'TORI-04',
     'TRAP-01',
