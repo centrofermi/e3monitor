@@ -7,7 +7,7 @@ Modified on 17 Nov 2014
 
 """ List of EEE Stations to exclude from Writing files in Monitoring
 """
-EEE_EXCLUDED_STATIONS = ['TORI-02']
+EEE_EXCLUDED_STATIONS = []
 
 """ List of EEE Active Stations
 """
