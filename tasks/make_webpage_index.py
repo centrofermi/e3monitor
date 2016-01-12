@@ -209,7 +209,7 @@ def make_webpage_index(monitorData,
                 monitorData.get_dqmreportTs(schoolName), '%Y-%m-%d')
             w.write('<a href=\"dqmreport/' + schoolName + '/')
             w.write(monitorData.get_dqmreportTs(schoolName))
-            w.write('/index.html\">')
+            w.write('/\">')
             w.write(_dqmreportTs.strftime("%d/%m"))
             w.write('</a> <br />')
             w.write('<a href =\"dqmreport/' + schoolName + '/?C=M;O=D\">')
