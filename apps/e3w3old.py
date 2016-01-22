@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# DISMISSED 22/01/2016
 # *********************************************************************
 # * Copyright (C) 2014 Fabrizio Coccetti                              *
 # * fabrizio.coccetti@centrofermi.it  [www.fc8.net]                   *
