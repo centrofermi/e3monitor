@@ -50,6 +50,13 @@ ELOGBOOK delle SCUOLE</a>
 <a href="http://www.centrofermi.it/elog/Shifter">
 ELOGBOOK dello SHIFTER</a>
 </td><td>
+<a href="https://www1.cnaf.infn.it/eee/e3rundb/">
+New DB Interface (BETA)
+</a>
+</td></tr></table>
+<table>
+<tr class='gray'>
+<td>
 <a href="http://eee.centrofermi.it/">
 Home Page EEE</a>
 </td><td>
