@@ -31,6 +31,7 @@ from e3monitor.html.__html_headers__ import (
 
 
 def make_webpage_index(monitorData,
+                       totalTracks,
                        EEE_ACTIVE_STATIONS,
                        mainWebPageFile):
     '''Make the index.html webpage with the main Monitor table
@@ -51,6 +52,8 @@ def make_webpage_index(monitorData,
     w.write(compute_update())
     w.write(TABELLA1_HTML)
     w.write(day_of_run())
+    w.write("<h3>Total Number of Candidate Tracks (X^2<10) in the Database: ")
+    w.write(str(totalTracks) + "</h3>")
     w.write(TABELLA1_P2_HTML)
 
     # Start loop for school names (sorted)

@@ -18,6 +18,7 @@ from e3monitor.config.__files_server__ import (logConfigFile,
                                                dbConfigFile,
                                                pklDqmFile,
                                                pklTransferFile,
+                                               pklTracksFile,
                                                pathWorkDir)
 from e3monitor.db.E3Dqm import E3Dqm
 from e3monitor.db.E3Transfer import E3Transfer
@@ -27,6 +28,11 @@ schoolNames = []
 # Class with methods with last run in DQM from the database
 dqmData = E3Dqm()
 transferData = E3Transfer()
+# Define dates
+startRun = datetime(2014, 9, 1)
+startRunStr = startRun.strftime("%Y-%m-%d")
+today = datetime.today()
+todayStr = today.strftime("%Y-%m-%d")
 
 # Set up logging
 logging.config.fileConfig(logConfigFile)
@@ -124,6 +130,18 @@ for _schoolName in schoolNames:
     logger.info('Read School: ' + _schoolName)
     logger.info(dqmData.schoolData(_schoolName))
 
+# Query for Statistics
+logger.info('Query for statistics:')
+logger.info('1. Query of the total number of Tracks')
+query = ("SELECT SUM(num_track_events) from runs WHERE (run_date >= %s AND run_date <= %s);")
+queryParam = (startRunStr, todayStr)
+cur.execute(query, queryParam)
+try:
+    totalTracks = int(cur.fetchone()[0])
+except:
+    totalTracks = 0
+logger.info('Total Tracks: ' + str(totalTracks))
+
 # Save the DQM data extracted from the db
 logger.info('Writing data to file...')
 output = open(os.path.join(pathWorkDir, pklDqmFile), 'wb')
@@ -131,6 +149,14 @@ pickle.dump(dqmData, output)
 output.close()
 logger = logging.getLogger('full')
 logger.info('Written ' + os.path.join(pathWorkDir, pklDqmFile))
+
+# Save the total number of tracks
+logger.info('Writing totalTracks number to file...')
+output = open(os.path.join(pathWorkDir, pklTracksFile), 'wb')
+pickle.dump(totalTracks, output)
+output.close()
+logger = logging.getLogger('full')
+logger.info('Written ' + os.path.join(pathWorkDir, pklTracksFile))
 
 cur.close()
 db.close()

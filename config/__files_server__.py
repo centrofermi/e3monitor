@@ -46,6 +46,9 @@ pklDqmFile = "dqm_db_data.pkl"
 # Name of the pickle File with all the Monitor data
 pklMonitorFile = "monitor_data.pkl"
 
+# Name of the pickle File with the totalTracks number
+pklTracksFile = 'total_tracks.pkl'
+
 # Name of the pickle File with the stats data
 pklStatFile = "stat_data.pkl"
 

@@ -40,6 +40,7 @@ from e3monitor.config.__stations__ import EEE_ACTIVE_STATIONS
 from e3monitor.config.__files_server__ import (logConfigFile,
                                                pathWorkDir,
                                                pklMonitorFile,
+                                               pklTracksFile,
                                                mainWebPageFile,
                                                ibWebPageFile)
 
@@ -59,7 +60,12 @@ if __name__ == '__main__':
                 "database imported: E3Monitor class is loaded "
                 "as monitorData")
 
+    # Read the totalTracks
+    totalTracks = read_pickle(pathWorkDir, pklTracksFile)
+    logger.info("totalTracks number read")
+
     make_webpage_index(monitorData,
+                       totalTracks,
                        EEE_ACTIVE_STATIONS,
                        mainWebPageFile)
 
