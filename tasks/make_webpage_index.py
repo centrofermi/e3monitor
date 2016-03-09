@@ -52,7 +52,7 @@ def make_webpage_index(monitorData,
     w.write(compute_update())
     w.write(TABELLA1_HTML)
     w.write(day_of_run())
-    w.write("<h3>Total Number of Candidate Tracks (X^2<10) in the Database: ")
+    w.write("<h3>Total number of candidate tracks (X^2<10) in the database: ")
     w.write(str(totalTracks) + "</h3>")
     w.write(TABELLA1_P2_HTML)
 

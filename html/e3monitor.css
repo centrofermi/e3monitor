@@ -39,8 +39,10 @@ h2 {
   margin-bottom:3px;
 }
 h3 {
-  font-size: 16px;
+  font-size: 20px;
   color: #333;
+  color: #08c; 
+  text-align: center;
   margin:0px;
   padding:0px;
   border:0px;
