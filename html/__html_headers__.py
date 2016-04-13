@@ -60,6 +60,9 @@ New DB Interface (BETA)
 <a href="http://eee.centrofermi.it/">
 Home Page EEE</a>
 </td><td>
+<a href="https://www1.cnaf.infn.it/eee/monitor/masterclass/">
+Masterclass</a>
+</td><td>
 <a href="https://www1.cnaf.infn.it/eee/monitor/shifter_report.xlsx">
 Download the Excel Sheet for the Shifter's Report
 </td></tr></table>
