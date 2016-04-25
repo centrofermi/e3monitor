@@ -136,8 +136,8 @@ cui il link con il CNAF non funziona da pi&ugrave; di 3 ore.</p>
 """
 
 FOOTER_HTML = """
-<h2>Today's plot of the total number of canditate tracks vs
-months of data acquistion</h2>
+<h2>Today's plot of the total number of candidate tracks vs
+months of data acquisition</h2>
 <p style="text-align:center;">
 <a href="plots/tracks.png">
 <img src="plots/tracks.png" alt="Tracks" width="800">

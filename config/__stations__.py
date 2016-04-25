@@ -32,6 +32,7 @@ EEE_ACTIVE_STATIONS = [
     'FRAS-02',
     'FRAS-03',
     'GROS-01',
+    'GROS-02',
     'LAQU-01',
     'LAQU-02',
     'LECC-01',
