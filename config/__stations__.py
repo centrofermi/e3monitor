@@ -43,6 +43,7 @@ EEE_ACTIVE_STATIONS = [
     'PATE-01',
     'PISA-01',
     'REGG-01',
+    'ROMA-01',
     'SALE-01',
     'SAVO-01',
     'SAVO-02',
@@ -52,6 +53,7 @@ EEE_ACTIVE_STATIONS = [
     'TORI-03',
     'TORI-04',
     'TRAP-01',
+    'TREV-01',
     'TRIN-01',
     'VIAR-01',
     'VIAR-02'
