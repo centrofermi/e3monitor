@@ -17,6 +17,7 @@ HEADER_HTML = """
 <meta http-equiv="PRAGMA" content="NO-CACHE"/>
 <title>EEE Monitor -
 Museo Storico della Fisica e Centro Studi e Ricerche Enrico Fermi</title>
+<link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
 <link rel="stylesheet" type="text/css"
 href="https://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
 <link href="e3monitor.css" rel="stylesheet" type="text/css" />
@@ -38,7 +39,10 @@ href="https://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
     alt="banner CF" width="800" /></p>
 """
 
-PAGE_TITLE_HTML = '<h1>Extreme Energy Events Monitor</h1>'
+PAGE_TITLE_HTML = """
+<h2><i>Progetto Extreme Energy Events - La Scienza nelle Scuole</i></h2>
+<h1>EEE Monitor</h1>
+"""
 
 TABELLA1_HTML = """
 <div id="menu">

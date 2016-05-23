@@ -51,7 +51,12 @@ def make_webpage_index(monitorData,
     w.write(HEADER_HTML)
     w.write(compute_update())
     w.write(TABELLA1_HTML)
-    w.write(day_of_run())
+    ### Day of run 
+    ### w.write(day_of_run())
+    ### Generic message
+    #w.write('<h2 style="margin:0;">[EEE Monitor info] <i>RUN 2 ended on May 20, 2016.</i></h2>')
+    #w.write('<h2 style="margin:0;">[EEE Monitor info] <i>RUN 3 will start in autumn.</i></h2>')
+    w.write('<h3 style="margin-top:3px;"><i>RUN 2 ended on May 20, 2016. RUN 3 will start in autumn.</i></h3>')
     w.write("<h3>Total number of candidate tracks (X^2<10) in the database: ")
     w.write(str(totalTracks) + "</h3>")
     w.write(TABELLA1_P2_HTML)
