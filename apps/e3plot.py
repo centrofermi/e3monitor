@@ -53,7 +53,7 @@ for line in lines:
     if line.startswith('day'):
         schoolName = line[-7:]
     elif line.startswith('20'):
-        if not line.startswith('2015'):
+        if not line.startswith('2016'):
             continue
         runDateTemp, runNumbers = line.split()
         runDate = datetime.strptime(runDateTemp[:10], '%Y-%m-%d')
