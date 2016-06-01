@@ -59,6 +59,56 @@ EEE_ACTIVE_STATIONS = [
     'VIAR-02'
 ]
 
+""" List of EEE Stations for statistics
+"""
+EEE_STATISTIC_STATIONS = [
+    'ALTA-01',
+    'AREZ-01',
+    'BARI-01',
+    'BOLO-01',
+    'BOLO-02',
+    'BOLO-03',
+    'BOLO-04',
+    'CAGL-01',
+    'CAGL-02',
+    'CAGL-03',
+    'CATA-01',
+    'CATA-02',
+    'CATZ-01',
+    'CERN-01',
+    'CERN-02',
+    'COSE-01',
+    'FRAS-01',
+    'FRAS-02',
+    'FRAS-03',
+    'GROS-01',
+    'GROS-02',
+    'LAQU-01',
+    'LAQU-02',
+    'LECC-01',
+    'LECC-02',
+    'LECC-03',
+    'LODI-01',
+    'PARM-01',
+    'PATE-01',
+    'PISA-01',
+    'REGG-01',
+    'ROMA-01',
+    'SALE-01',
+    'SAVO-01',
+    'SAVO-02',
+    'SAVO-03',
+    'TERA-01',
+    'TORI-02',
+    'TORI-03',
+    'TORI-04',
+    'TRAP-01',
+    'TREV-01',
+    'TRIN-01',
+    'VIAR-01',
+    'VIAR-02'
+]
+
 """ Unique ID assigned to each station.
 """
 EEE_STATION_DICT = {
