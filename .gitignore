@@ -62,3 +62,6 @@ target/
 # DB config
 config/database.ini
 
+# Email config
+config/email.ini
+
