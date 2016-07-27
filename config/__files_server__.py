@@ -23,13 +23,13 @@ elogCsvFile = "/var/www/html/monitor/EEE_data.csv"
 
 # Web pages to write
 mainWebPageFile = "/var/www/html/monitor/index.html"
-mainWebPageFile2 = "/var/www/html/monitor/index2.html"
-# mainWebPageFileBeta = "/var/www/html/monitor/index2.html"
-cnafWebPageFile = "/var/www/html/monitor/index_cnaf.html"
 ibWebPageFile = "/var/www/html/monitor/ib.html"
 
 # xslx File to write
 xlsxFile = "/var/www/html/monitor/shifter_report.xlsx"
+
+# Config File for email report
+emailConfigFile = "/opt/eee/e3monitor/config/email.ini"
 
 # Config File for logging module
 logConfigFile = "/opt/eee/e3monitor/config/logConf.ini"
