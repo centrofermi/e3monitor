@@ -5,7 +5,7 @@ Created on Tue Mar 10 12:17:38 2015
 @author: Fabrizio Coccetti (fabrizio.coccetti@centrofermi.it) [www.fc8.net]
 
 Make the index.html webpage with the main Monitor table
-Code in use since the Database is in place
+This code in use since the Database is in place
 """
 import logging
 from datetime import datetime
