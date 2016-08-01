@@ -23,26 +23,24 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 """
-Created on Tue Mar 10 11:51:59 2015
+Created on Wed Jul 27 16:55:00 2016
 
 @author: Fabrizio Coccetti (fabrizio.coccetti@centrofermi.it) [www.fc8.net]
 
-This app writes the main monitor page
+This app analyze monitorData and writes a class to write the report
 """
 
 import locale
 import logging
 import logging.config
 from e3monitor.tasks.read_pickle import read_pickle
-from e3monitor.tasks.make_webpage_index import make_webpage_index
-# from e3monitor.tasks.make_webpage_ib import make_webpage_ib
+from e3monitor.tasks.report_analyze import report_analyze
 from e3monitor.config.__stations__ import EEE_ACTIVE_STATIONS
 from e3monitor.config.__files_server__ import (logConfigFile,
                                                pathWorkDir,
                                                pklMonitorFile,
                                                pklTracksFile,
-                                               mainWebPageFile,
-                                               ibWebPageFile)
+                                               pklReportFile)
 
 if __name__ == '__main__':
 
@@ -60,18 +58,10 @@ if __name__ == '__main__':
                 "database imported: E3Monitor class is loaded "
                 "as monitorData")
 
-    # Read the totalTracks
-    totalTracks = read_pickle(pathWorkDir, pklTracksFile)
-    logger.info("totalTracks number read")
-
-    make_webpage_index(monitorData,
-                       totalTracks,
-                       EEE_ACTIVE_STATIONS,
-                       mainWebPageFile)
-
-#    make_webpage_ib(monitorData,
-#                    EEE_ACTIVE_STATIONS,
-#                    ibWebPageFile)
+    report_analyze(monitorData,
+                   EEE_ACTIVE_STATIONS,
+                   pklReportFile)
 
     # Final log message
     logger.info('Finished')
+
