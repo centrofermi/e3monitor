@@ -101,9 +101,9 @@ def report_analyze(monitorData,
         # Section on Trigger Rate
         ################################################
         try:
-            reportData.get_triggerRate(
+            reportData.gst_triggerRate(
                 schoolName, monitorData.get_triggerRate(schoolName))
-            _triggers = round(monitorData.get_trackRate(schoolName))
+            _triggers = round(reportData.get_triggerRate(schoolName))
             if (_triggers < TRACKS_ERROR_LOW):
                 reportData.set_triggerStatus(schoolName, -2)
             elif (_triggers < TRACKS_WARNING_LOW):
