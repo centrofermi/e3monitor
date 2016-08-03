@@ -10,7 +10,7 @@ This code in use since the Database is in place
 import logging
 from datetime import datetime
 from e3monitor.tasks.update_time import (compute_update,
-        day_of_run)
+                                         day_of_run)
 from e3monitor.tasks.set_version import set_version
 from e3monitor.config.__limits__ import (
     TRANSFER_SEC_LIMIT,
@@ -121,8 +121,8 @@ def make_webpage_index(monitorData,
         else:
             rowColor = 'red'
             transfer_time_txt = 'red'
-        # Print only green telescopes :-)    
-        #if rowColor != 'green':
+        # Print only green telescopes :-)
+        # if rowColor != 'green':
         #    continue
         w.write('<tr class=\"' + rowColor + '\">')
 

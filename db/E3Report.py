@@ -8,7 +8,7 @@ Written by apps/e3reportAnalyze.py
 """
 
 
-class E3Monitor(dict):
+class E3Report(dict):
 
     def __init__(self):
         self._mydict = {}

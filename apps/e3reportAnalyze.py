@@ -39,7 +39,6 @@ from e3monitor.config.__stations__ import EEE_ACTIVE_STATIONS
 from e3monitor.config.__files_server__ import (logConfigFile,
                                                pathWorkDir,
                                                pklMonitorFile,
-                                               pklTracksFile,
                                                pklReportFile)
 
 if __name__ == '__main__':
@@ -64,4 +63,3 @@ if __name__ == '__main__':
 
     # Final log message
     logger.info('Finished')
-

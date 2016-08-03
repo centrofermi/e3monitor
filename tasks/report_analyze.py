@@ -42,8 +42,16 @@ def report_analyze(monitorData,
     # Define now
     now = datetime.today()
 
+    # Start loop for school names (sorted)
+    for schoolName in sorted(monitorData.get_allData()):
+
+        # Skip schools with no data
+        if schoolName not in EEE_ACTIVE_STATIONS:
+            continue
+
+        print(monitorData.get_transferDelayDays(schoolName))
+        print(monitorData.get_transferDelaySeconds(schoolName))
 
     # End
     logger.info('Function report_analyze() finished.')
     return True
-

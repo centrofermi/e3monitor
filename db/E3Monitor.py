@@ -4,7 +4,7 @@ Created on Wed Feb 18 16:52:54 2015
 
 @author: Fabrizio Coccetti (fabrizio.coccetti@centrofermi.it) [www.fc8.net]
 
-Written by apps/e3data.py
+Written by apps/e3data.py  through  tasks/write_monitor_data/py
 """
 
 
