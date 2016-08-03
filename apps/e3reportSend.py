@@ -31,11 +31,11 @@ locale.setlocale(locale.LC_ALL, 'it_IT')
 logger.info('Reading ' + emailConfigFile)
 parser = ConfigParser.ConfigParser()
 parser.read(emailConfigFile)
-smtpServer = parser.get('gmail','smtpServer')
-smtpPort = parser.get('gmail','smtpPort')
-emailFrom = parser.get('gmail','emailFrom')
-emailTo = parser.get('gmail','emailTo')
-passwd = parser.get('gmail','passwd')
+smtpServer = parser.get('gmail', 'smtpServer')
+smtpPort = parser.get('gmail', 'smtpPort')
+emailFrom = parser.get('gmail', 'emailFrom')
+emailTo = parser.get('gmail', 'emailTo')
+passwd = parser.get('gmail', 'passwd')
 
 # Create message container - the correct MIME type is multipart/alternative.
 today = datetime.today()
@@ -47,19 +47,20 @@ msg['To'] = emailTo
 
 # Create the body of the message (a plain-text and an HTML version).
 text = "The message is in html format. It looks like your client does not support it"
-html = """\
+html = """
 <html>
-  <head></head>
-  <body>
-Shift Report di """ + todayStr + \
-"""
+<head></head>
+<body>
+Shift Report di """ + \
+        todayStr + \
+        """
 <br />
 ***************************<br />
 <B>NEVER REPLY</B> TO THIS LIST!!<br />
 Please reply only to the sender and runcoord@centrofermi.it<br />
 ****************************<br />
 
-  </body>
+</body>
 </html>
 """
 
@@ -82,4 +83,3 @@ s.sendmail(emailFrom, emailTo, msg.as_string())
 s.quit()
 
 logger.info('Finished')
-

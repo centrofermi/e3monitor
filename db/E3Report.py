@@ -4,6 +4,7 @@ Created on Wed Jul 27 18:32:00 2016
 
 @author: Fabrizio Coccetti (fabrizio.coccetti@centrofermi.it) [www.fc8.net]
 
+Written by apps/e3reportAnalyze.py
 """
 
 
@@ -15,10 +16,16 @@ class E3Monitor(dict):
     def init_School(self, schoolName):
         self._mydict[schoolName] = ['']*10
 
-    def set_transferDelay(self, schoolName, date):
+    def set_transferDelayDays(self, schoolName, date):
+        self._mydict[schoolName][0] = date
+
+    def set_transferDelaySeconds(self, schoolName, date):
         self._mydict[schoolName][1] = date
 
-    def get_transferDelay(self, schoolName):
+    def get_transferDelayDays(self, schoolName):
+        return(self._mydict[schoolName][0])
+
+    def get_transferDelaySeconds(self, schoolName):
         return(self._mydict[schoolName][1])
 
     def get_allData(self):
