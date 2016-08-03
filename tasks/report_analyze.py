@@ -48,9 +48,10 @@ def report_analyze(monitorData,
         # Skip schools with no data
         if schoolName not in EEE_ACTIVE_STATIONS:
             continue
-
-        print(schoolName + monitorData.get_transferDelayDays(schoolName))
-        print(schoolName + monitorData.get_transferDelaySeconds(schoolName))
+        print (schoolName)
+        print(monitorData.get_transferDelayDays(schoolName))
+        print(monitorData.get_transferDelaySeconds(schoolName))
+        print("")
 
     # End
     logger.info('Function report_analyze() finished.')
