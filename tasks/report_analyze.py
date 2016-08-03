@@ -85,9 +85,9 @@ def report_analyze(monitorData,
         # Section on Elog
         ################################################
         try:
-            elogDelay = now - monitorData.get_elogEntryTs(schoolName)
             reportData.set_elogEntryTs(
                 schoolName, monitorData.get_elogEntryTs(schoolName))
+            elogDelay = now - monitorData.get_elogEntryTs(schoolName)
             if elogDelay.days <= ELOG_WARNING:
                     reportData.set_elogEntryStatus(schoolName, 0)
             elif elogDelay.days <= ELOG_ERROR:
@@ -97,7 +97,29 @@ def report_analyze(monitorData,
         except:
             reportData.set_elogEntryStatus(schoolName, 2)
 
+        ################################################
+        # Section on Trigger Rate
+        ################################################
+        try:
+            reportData.get_triggerRate(
+                schoolName, monitorData.get_triggerRate(schoolName))
+            _triggers = round(monitorData.get_trackRate(schoolName))
+            if (_triggers < TRACKS_ERROR_LOW):
+                reportData.set_triggerStatus(schoolName, -2)
+            elif (_triggers < TRACKS_WARNING_LOW):
+                reportData.set_triggerStatus(schoolName, -1)
+            elif (_triggers < TRACKS_WARNING_HIGH):
+                reportData.set_triggerStatus(schoolName, 0)
+            elif (_triggers < TRACKS_ERROR_HIGH):
+                reportData.set_triggerStatus(schoolName, 1)
+            else:
+                reportData.set_triggerStatus(schoolName, 2)
+        except:
+            reportData.set_triggerStatus(schoolName, 3)
+
+        ################################################
         # Final check
+        ################################################
         print(reportData.get_schoolData(schoolName))
 
     # End

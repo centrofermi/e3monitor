@@ -36,6 +36,12 @@ class E3Report(dict):
     def set_elogEntryStatus(self, schoolName, status):
         self._mydict[schoolName][5] = status
 
+    def set_triggerRate(self, schoolName, rate):
+        self._mydict[schoolName][6] = rate
+
+    def set_triggerStatus(self, schoolName, status):
+        self._mydict[schoolName][7] = status
+
     # Get methods
 
     def get_transferDelayDays(self, schoolName):
@@ -55,6 +61,12 @@ class E3Report(dict):
 
     def get_elogEntryStatus(self, schoolName):
         return(self._mydict[schoolName][5])
+
+    def get_triggerRate(self, schoolName):
+        return(self._mydict[schoolName][6])
+
+    def get_triggerStatus(self, schoolName):
+        return(self._mydict[schoolName][7])
 
     def get_schoolData(self, schoolName):
         return(self._mydict[schoolName])
