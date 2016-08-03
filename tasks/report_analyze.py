@@ -56,17 +56,20 @@ def report_analyze(monitorData,
 
         # Initialize School List
         reportData.init_School(schoolName)
+        logger.info('Generating report data for: ' + str(schoolName))
 
         ########################################
         # Section on file transfer delay at CNAF
         # Yellow after 3 hours
         # Red after 2 days
         ########################################
-        print(schoolName)
+
         reportData.set_transferDelayDays(
             schoolName, monitorData.get_transferDelayDays(schoolName))
         reportData.set_transferDelaySeconds(
             schoolName, monitorData.get_transferDelaySeconds(schoolName))
+        reportData.set_transferTs(
+            schoolName, monitorData.get_transferTs(schoolName))
 
         if monitorData.get_transferDelayDays(schoolName) == 0:
             if monitorData.get_transferDelaySeconds(schoolName) < TRANSFER_SEC_LIMIT:
@@ -77,7 +80,22 @@ def report_analyze(monitorData,
             reportData.set_transferDelayStatus(schoolName, 1)
         else:
             reportData.set_transferDelayStatus(schoolName, 2)
-        print(reportData.get_transferDelayStatus(schoolName))
+
+        ################################################
+        # Section on Elog
+        ################################################
+        try:
+            elogDelay = now - monitorData.get_elogEntryTs(schoolName)
+            reportData.set_elogEntryTs(
+                schoolName, monitorData.get_elogEntryTs(schoolName))
+            if elogDelay.days <= ELOG_WARNING:
+                    reportData.set_elogStatus(schoolName, 0)
+            elif elogDelay.days <= ELOG_ERROR:
+                    reportData.set_elogStatus(schoolName, 1)
+            else:
+                    reportData.set_elogStatus(schoolName, 2)
+        except:
+            reportData.set_elogStatus(schoolName, 2)
 
         # Final check
         print(reportData.get_schoolData(schoolName))
