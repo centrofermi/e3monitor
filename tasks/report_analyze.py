@@ -54,6 +54,9 @@ def report_analyze(monitorData,
         if schoolName not in EEE_ACTIVE_STATIONS:
             continue
 
+        # Initialize School List
+        reportData.init_School(schoolName)
+
         ########################################
         # Section on file transfer delay at CNAF
         # Yellow after 3 hours
