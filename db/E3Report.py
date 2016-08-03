@@ -31,7 +31,7 @@ class E3Report(dict):
     def get_transferDelaySeconds(self, schoolName):
         return(self._mydict[schoolName][1])
 
-    def get_trasferDelayStatus(self, schoolName):
+    def get_transferDelayStatus(self, schoolName):
         return(self._mydict[schoolName][2])
 
     def get_schoolData(self, schoolName):
