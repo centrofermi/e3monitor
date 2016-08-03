@@ -24,7 +24,7 @@ def write_monitor_data(lastEntryPerSchool,
     logger = logging.getLogger('plain')
     logger.info('Function write_monitor_data() started')
 
-    # Define class for saving all monitor data
+    # Declare class for saving all monitor data
     monitorData = E3Monitor()
 
     # Define now

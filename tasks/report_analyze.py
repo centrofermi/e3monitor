@@ -6,6 +6,8 @@ Created on Wed Jul 27 17:17:00 2016
 
 Task to read the monitorData class and write the reportData class
 """
+
+from e3monitor.db.E3Report import E3Report
 import logging
 from datetime import datetime
 from e3monitor.tasks.update_time import (compute_update,
@@ -35,6 +37,9 @@ def report_analyze(monitorData,
     '''Read the monitorData class and write the reportData class
     '''
 
+    # Declare class to write all report data
+    reportData = E3Report()
+
     # Start logger
     logger = logging.getLogger('plain')
     logger.info('Function report_analyze() started.')
@@ -48,10 +53,31 @@ def report_analyze(monitorData,
         # Skip schools with no data
         if schoolName not in EEE_ACTIVE_STATIONS:
             continue
-        print (schoolName)
-        print(monitorData.get_transferDelayDays(schoolName))
-        print(monitorData.get_transferDelaySeconds(schoolName))
-        print("")
+
+        ########################################
+        # Section on file transfer delay at CNAF
+        # Yellow after 3 hours
+        # Red after 2 days
+        ########################################
+        print(schoolName)
+        reportData.set_transferDelayDays(
+            schoolName, monitorData.get_transferDelayDays(schoolName))
+        reportData.set_transferDelaySeconds(
+            schoolName, monitorData.get_transferDelaySeconds(schoolName))
+
+        if monitorData.get_transferDelayDays(schoolName) == 0:
+            if monitorData.get_transferDelaySeconds(schoolName) < TRANSFER_SEC_LIMIT:
+                reportData.set_transferDelayStatus(schoolName, 0)
+            else:
+                reportData.set_transferDelayStatus(schoolName, 1)
+        elif monitorData.get_transferDelayDays(schoolName) == 1:
+            reportData.set_transferDelayStatus(schoolName, 1)
+        else:
+            reportData.set_transferDelayStatus(schoolName, 2)
+        print(reportData.get_transferDelayStatus(schoolName))
+
+        # Final check
+        print(reportData.get_schoolData(schoolName))
 
     # End
     logger.info('Function report_analyze() finished.')
