@@ -89,13 +89,13 @@ def report_analyze(monitorData,
             reportData.set_elogEntryTs(
                 schoolName, monitorData.get_elogEntryTs(schoolName))
             if elogDelay.days <= ELOG_WARNING:
-                    reportData.set_elogStatus(schoolName, 0)
+                    reportData.set_elogEntryStatus(schoolName, 0)
             elif elogDelay.days <= ELOG_ERROR:
-                    reportData.set_elogStatus(schoolName, 1)
+                    reportData.set_elogEntryStatus(schoolName, 1)
             else:
-                    reportData.set_elogStatus(schoolName, 2)
+                    reportData.set_elogEntryStatus(schoolName, 2)
         except:
-            reportData.set_elogStatus(schoolName, 2)
+            reportData.set_elogEntryStatus(schoolName, 2)
 
         # Final check
         print(reportData.get_schoolData(schoolName))
