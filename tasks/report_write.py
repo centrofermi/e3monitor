@@ -45,7 +45,7 @@ def report_write(reportData,
     w.write('Shift Report di ')
     w.write(todayStr)
     w.write('- RUN 2: Giorno ')
-    w.write(day_of_run)
+    w.write(day_of_run())
 
     w.write('''
 ****************************
