@@ -19,7 +19,7 @@ def report_write(reportData,
 
     # Array of schools with no problems
     schoolsOk = []
-    schoolsTriggerRed = []
+    schoolsTrackRed = []
     schoolsTransferRed = []
     schoolsElog = []
 
@@ -40,13 +40,13 @@ def report_write(reportData,
 
         # Check green stations (with no errors)
         if (reportData.get_transferDelayStatus(schoolName) == 0) and \
-            (reportData.get_triggerStatus(schoolName) == 0) and \
+            (reportData.get_trackStatus(schoolName) == 0) and \
                 (reportData.get_trackStatus(schoolName) == 0):
                     schoolsOk.append(schoolName)
 
-        # Check stations: trigger Red
-        if (reportData.get_triggerStatus(schoolName) == -2):
-            schoolsTransferRed.append(schoolName)
+        # Check stations: track Red
+        if (reportData.get_trackStatus(schoolName) == -2):
+            schoolsTrackRed.append(schoolName)
 
         # Check stations: transfer data Red
         if (reportData.get_transferDelayStatus(schoolName) == 2):
@@ -75,7 +75,7 @@ NEVER REPLY TO THIS LIST!!
 Please reply only to runcoord@centrofermi.it
 ********************************************
 
-Alle ore 8:00 del mattino, la situazione delle scuole risulta la seguente:\n
+Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:\n
 ''')
 
     ################################################
@@ -85,34 +85,34 @@ Alle ore 8:00 del mattino, la situazione delle scuole risulta la seguente:\n
     w.write(str(len(schoolsOk)))
     w.write(' telescopi in trasmissione attiva e con parametri dei dati che sembrano buoni:\n')
     w.write(', '.join(map(str, schoolsOk)))
-    w.write('.\n')
+    w.write('.\n\n')
 
     ################################################
-    # Write the list of schools with trigger very low (red)
+    # Write the list of schools with track very low (red)
     ################################################
     w.write('- Ci sono ')
-    w.write(str(len(schoolsTriggerRed)))
-    w.write(' telescopi che sono in trasmissione, ma hanno un rate inferiore a 5 Hz:\n')
-    w.write(', '.join(map(str, schoolsTriggerRed)))
-    w.write('.\n')
+    w.write(str(len(schoolsTrackRed)))
+    w.write(' telescopi che sono in trasmissione, ma hanno un rate di acquisizione delle tracce minore di 5 Hz:\n')
+    w.write(', '.join(map(str, schoolsTrackRed)))
+    w.write('.\n\n')
 
     ################################################
     # Write the list of schools with red transfer
     ################################################
     w.write('- Ci sono ')
     w.write(str(len(schoolsTransferRed)))
-    w.write(' telescopi che non sono in trasmissione da più di due giorni:\n')
+    w.write(' telescopi che non sono in trasmissione da piu\' di due giorni:\n')
     w.write(', '.join(map(str, schoolsTransferRed)))
-    w.write('.\n')
+    w.write('.\n\n')
 
     ################################################
     # Write the list of schools with elog red
     ################################################
     w.write('- Ci sono ')
     w.write(str(len(schoolsElog)))
-    w.write(' scuole che non compilano l\'elogbook da più di due giorni:\n')
+    w.write(' scuole che non compilano l\'elogbook da piu\' di due giorni:\n')
     w.write(', '.join(map(str, schoolsElog)))
-    w.write('.\n')
+    w.write('.\n\n')
 
     ################################################
     # Write the END of the html file
@@ -131,8 +131,8 @@ Mandare un email con il subject “UNSUBSCRIBE”
 a: fabrizio.coccetti@centrofermi.it
 
 e3report, il sistema automatico di generazione degli shift report,
-ti augura una buona giornata e ti ricorda che è solo grazie a lui
-che tu non devi più fare gli shift giornalieri.
+ti augura una buona giornata e ti ricorda che e\' solo grazie a lui
+che tu non devi piu\' fare gli shift giornalieri.
     ''')
 
     # Close html file
