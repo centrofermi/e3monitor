@@ -58,6 +58,7 @@ if __name__ == '__main__':
 
     report_write(reportData,
                  EEE_ACTIVE_STATIONS,
+                 pathWorkDir,
                  htmlReportFile)
 
     # Final log message
