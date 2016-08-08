@@ -92,7 +92,7 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
         w.write(schoolsOk[0])
         w.write('.\n\n')
     else:
-        w.write('Nessun telescopio mi risulta funzionante, deve esserci un errore di sistema.)
+        w.write('Nessun telescopio mi risulta attivo, deve esserci un errore di sistema o un problema al CNAF.')
 
     ################################################
     # Write the list of schools with track very low (red)
@@ -114,7 +114,7 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
     if len(schoolsTransferRed) > 1:
         w.write('- Ci sono ')
         w.write(str(len(schoolsTransferRed)))
-        w.write(' telescopi che non sono in trasmissione da piu\' di due giorni:\n')
+        w.write(' telescopi che non trasmettono dati al CNAF da piu\' di due giorni:\n')
         w.write(', '.join(map(str, schoolsTransferRed)))
         w.write('.\n\n')
     elif len(schoolsTransferRed) == 1:
