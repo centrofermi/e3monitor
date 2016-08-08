@@ -7,6 +7,7 @@ Created on Mon Aug  8 16:56:29 2016
 import logging
 import os
 from datetime import datetime
+from e3monitor.tasks.update_time import(day_of_run)
 
 
 def report_write(reportData,
@@ -21,7 +22,8 @@ def report_write(reportData,
     logger.info('Function report_write() started.')
 
     # Define now
-    now = datetime.today()
+    today = datetime.today()
+    todayStr = today.strftime("%a %d %B %Y")
 
     # Start loop for school names (sorted)
     for schoolName in sorted(reportData.get_allData()):
@@ -40,25 +42,29 @@ def report_write(reportData,
     logger.info('Opening html file for writing')
     w = open(os.path.join(pathWorkDir, htmlReportFile), 'w')
     logger.info(w)
-    w.write('''
-    Shift Report di Venerdì 23 Marzo 2016 - RUN 2: Giorno 138
-    ''')
-    w.write('''
-    ****************************
-    NEVER REPLY TO THIS LIST!!
-    Please reply only to the sender and runcoord@centrofermi.it
-    ****************************
+    w.write('Shift Report di ')
+    w.write(todayStr)
+    w.write('- RUN 2: Giorno ')
+    w.write(day_of_run)
 
-    Alle ore 8:00 del mattino, la situazione delle scuole risulta la seguente:
+    w.write('''
+****************************
+NEVER REPLY TO THIS LIST!!
+Please reply only to runcoord@centrofermi.it
+****************************
+
+Alle ore 8:00 del mattino, la situazione delle scuole risulta la seguente:
 ''')
 
     w.write('''
-    <<<<< Link utili >>>>>
-    EEE Monitor: http://eee.centrofermi.it/monitor
-    E-logbook scuole: http://www.centrofermi.it/elog/Run3
+<<<<< Link utili >>>>>
+EEE Monitor: http://eee.centrofermi.it/monitor
+E-logbook scuole: http://www.centrofermi.it/elog/Run3
+
 <<<<< Per rispondere >>>>>
 Se si vuole rispondere al presente messaggio,
 scrivere solo al mittente e a: runcoord@centrofermi.it
+
 <<<<< Per cancellarsi dalla mailing-list >>>>>
 Mandare un email con il subject “UNSUBSCRIBE”
 a: fabrizio.coccetti@centrofermi.it
