@@ -55,6 +55,9 @@ pklStatFile = "stat_data.pkl"
 # Name of the pickle File with the analysis of the report
 pklReportFile = "report_data.pkl"
 
+# Name of the html File with the analysis of the report
+htmlReportFile = "report_message.html"
+
 # Path of the Working directory
 pathWorkDir = '/opt/eee/e3monitor_work'
 
