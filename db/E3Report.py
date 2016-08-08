@@ -43,10 +43,10 @@ class E3Report(dict):
         self._mydict[schoolName][7] = status
 
     def set_trackRate(self, schoolName, rate):
-        self._mydict[schoolName][6] = rate
+        self._mydict[schoolName][8] = rate
 
     def set_trackStatus(self, schoolName, status):
-        self._mydict[schoolName][7] = status
+        self._mydict[schoolName][9] = status
 
     # Get methods
 
@@ -75,7 +75,10 @@ class E3Report(dict):
         return(self._mydict[schoolName][7])
 
     def get_trackRate(self, schoolName):
-        return(self._mydict[schoolName][7])
+        return(self._mydict[schoolName][8])
+
+    def get_trackStatus(self, schoolName):
+        return(self._mydict[schoolName][9])
 
     def get_schoolData(self, schoolName):
         return(self._mydict[schoolName])
