@@ -118,9 +118,29 @@ def report_analyze(monitorData,
             reportData.set_triggerStatus(schoolName, 3)
 
         ################################################
+        # Section on Track Rate
+        ################################################
+        try:
+            reportData.set_trackRate(
+                schoolName, monitorData.get_trackRate(schoolName))
+            _tracks = round(reportData.get_trackRate(schoolName))
+            if (_tracks < TRACKS_ERROR_LOW):
+                reportData.set_trackStatus(schoolName, -2)
+            elif (_tracks < TRACKS_WARNING_LOW):
+                reportData.set_trackStatus(schoolName, -1)
+            elif (_tracks < TRACKS_WARNING_HIGH):
+                reportData.set_trackStatus(schoolName, 0)
+            elif (_tracks < TRACKS_ERROR_HIGH):
+                reportData.set_trackStatus(schoolName, 1)
+            else:
+                reportData.set_trackStatus(schoolName, 2)
+        except:
+            reportData.set_trackStatus(schoolName, 3)
+
+        ################################################
         # Final check
         ################################################
-        print(reportData.get_schoolData(schoolName))
+        logger.info(reportData.get_schoolData(schoolName))
 
     # End
     logger.info('Function report_analyze() finished.')
