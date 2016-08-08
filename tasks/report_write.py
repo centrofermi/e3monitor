@@ -68,7 +68,7 @@ Alle ore 8:00 del mattino, la situazione delle scuole risulta la seguente:
     # Write the list of schools that are ok (green)
     ################################################
     w.write('- Ci sono ')
-    w.write(len(schoolsOk))
+    w.write(str(len(schoolsOk))
     w.write(' telescopi in trasmissione attiva e con parametri dei dati che \
     sembrano buoni:\n')
     w.write(','.join(map(str, schoolsOk)))
