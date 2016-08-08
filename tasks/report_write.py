@@ -32,8 +32,8 @@ def report_write(reportData,
 
         # Check green stations (with no errors)
         if (reportData.get_transferDelayStatus(schoolName) == 0) and \
-            (reportData.triggerStatus(schoolName) == 0) and \
-                (reportData.trackStatus(schoolName) == 0):
+            (reportData.get_triggerStatus(schoolName) == 0) and \
+                (reportData.get_trackStatus(schoolName) == 0):
                     print(schoolName)
 
     # Open html file for writing
