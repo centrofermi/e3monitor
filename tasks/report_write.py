@@ -81,38 +81,61 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
     ################################################
     # Write the list of schools that are ok (green)
     ################################################
-    w.write('- Ci sono ')
-    w.write(str(len(schoolsOk)))
-    w.write(' telescopi in trasmissione attiva e con parametri dei dati che sembrano buoni:\n')
-    w.write(', '.join(map(str, schoolsOk)))
-    w.write('.\n\n')
+    if len(schoolsOk) > 1:
+        w.write('- Ci sono ')
+        w.write(str(len(schoolsOk)))
+        w.write(' telescopi in trasmissione attiva e con parametri dei dati che sembrano buoni:\n')
+        w.write(', '.join(map(str, schoolsOk)))
+        w.write('.\n\n')
+    elif len(schoolsOk) == 1:
+        w.write('- C\'e\' un telescopio in trasmissione attiva e con parametri dei dati che sembrano buoni:\n')
+        w.write(schoolsOk[0])
+        w.write('.\n\n')
+    else:
+        w.write('Nessun telescopio mi risulta funzionante, deve esserci un errore di sistema.)
 
     ################################################
     # Write the list of schools with track very low (red)
     ################################################
-    w.write('- Ci sono ')
-    w.write(str(len(schoolsTrackRed)))
-    w.write(' telescopi che sono in trasmissione, ma hanno un rate di acquisizione delle tracce minore di 5 Hz:\n')
-    w.write(', '.join(map(str, schoolsTrackRed)))
-    w.write('.\n\n')
+    if len(schoolsTrackRed) > 1:
+        w.write('- Ci sono ')
+        w.write(str(len(schoolsTrackRed)))
+        w.write(' telescopi che sono in trasmissione, ma hanno un rate di acquisizione delle tracce minore di 5 Hz:\n')
+        w.write(', '.join(map(str, schoolsTrackRed)))
+        w.write('.\n\n')
+    elif len(schoolsTrackRed) == 1:
+        w.write('- C\'e\' un telescopio in trasmissione, ma ha un rate di acquisizione delle tracce minore di 5 Hz:')
+        w.write(schoolsTrackRed[0])
+        w.write('.\n\n')
 
     ################################################
     # Write the list of schools with red transfer
     ################################################
-    w.write('- Ci sono ')
-    w.write(str(len(schoolsTransferRed)))
-    w.write(' telescopi che non sono in trasmissione da piu\' di due giorni:\n')
-    w.write(', '.join(map(str, schoolsTransferRed)))
-    w.write('.\n\n')
+    if len(schoolsTransferRed) > 1:
+        w.write('- Ci sono ')
+        w.write(str(len(schoolsTransferRed)))
+        w.write(' telescopi che non sono in trasmissione da piu\' di due giorni:\n')
+        w.write(', '.join(map(str, schoolsTransferRed)))
+        w.write('.\n\n')
+    elif len(schoolsTransferRed) == 1:
+        w.write('C\'e\' un telescopio che non e\' in trasmissione da piu\' di due giorni:\n')
+        w.write(schoolsTransferRed[0])
+        w.write('.\n\n')
+        
 
     ################################################
     # Write the list of schools with elog red
     ################################################
-    w.write('- Ci sono ')
-    w.write(str(len(schoolsElog)))
-    w.write(' scuole che non compilano l\'elogbook da piu\' di due giorni:\n')
-    w.write(', '.join(map(str, schoolsElog)))
-    w.write('.\n\n')
+    if len(schoolsElog) > 1:
+        w.write('- Ci sono ')
+        w.write(str(len(schoolsElog)))
+        w.write(' scuole che non compilano l\'elogbook da piu\' di due giorni:\n')
+        w.write(', '.join(map(str, schoolsElog)))
+        w.write('.\n\n')
+    elif len(schoolsElog) == 1:
+        w.write('C\'e\' una scuola che non compila l\'elogbook da piu\' di due giorni:\n')
+        w.write(schoolsElog[0])
+        w.write('.\n\n')
 
     ################################################
     # Write the END of the html file
