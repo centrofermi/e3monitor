@@ -7,7 +7,7 @@ Created on Mon Aug  8 16:56:29 2016
 import logging
 import os
 from datetime import datetime
-from e3monitor.tasks.update_time import(day_of_run)
+from e3monitor.tasks.update_time import(day_run)
 
 
 def report_write(reportData,
@@ -16,6 +16,9 @@ def report_write(reportData,
                  htmlReportFile):
     '''Read the reportData class and write the html report file
     '''
+
+    # Array of schools with no problems
+    schoolsOk = []
 
     # Start logger
     logger = logging.getLogger('plain')
@@ -37,26 +40,44 @@ def report_write(reportData,
             (reportData.get_triggerStatus(schoolName) == 0) and \
                 (reportData.get_trackStatus(schoolName) == 0):
                     print(schoolName)
+                    schoolsOk.append(schoolName)
 
     # Open html file for writing
     logger.info('Opening html file for writing')
     w = open(os.path.join(pathWorkDir, htmlReportFile), 'w')
     logger.info(w)
+
+    ################################################
+    # Write the beginnig of the html file
+    ################################################
     w.write('Shift Report di ')
     w.write(todayStr)
-    w.write('- RUN 2: Giorno ')
-    w.write(day_of_run())
-
+    w.write(' - RUN 3: Giorno ')
+    w.write(day_run())
     w.write('''
-****************************
+********************************************
 NEVER REPLY TO THIS LIST!!
 Please reply only to runcoord@centrofermi.it
-****************************
+********************************************
 
 Alle ore 8:00 del mattino, la situazione delle scuole risulta la seguente:
+\n
 ''')
 
-    w.write('''
+    ################################################
+    # Write the list of schools that are ok (green)
+    ################################################
+    w.write('- Ci sono ')
+    w.write(len(schoolsOk))
+    w.write(' telescopi in trasmissione attiva e con parametri dei dati che \
+    sembrano buoni:\n')
+    w.write(','.join(map(str, schoolsOk)))
+    w.write('.\n')
+
+    ################################################
+    # Write the END of the html file
+    ################################################
+    w.write('''\n
 <<<<< Link utili >>>>>
 EEE Monitor: http://eee.centrofermi.it/monitor
 E-logbook scuole: http://www.centrofermi.it/elog/Run3

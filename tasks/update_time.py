@@ -12,7 +12,7 @@ from e3monitor.html.__html_headers__ import (PAGE_TITLE_HTML,
 
 
 def compute_update():
-    """Compute last update time for the webpage
+    """Computes last update time for the webpage
     and return string with time and title
     """
     updateTime = datetime.today().strftime("%H:%M - %a %d %B %Y")
@@ -24,10 +24,18 @@ def compute_update():
 
 
 def day_of_run():
-    """Compute the day of the run
+    """Computes the day of the run
     """
     today = date.today()
     startRun = date(2015, 11, 7-1)
     daysOfRun = today - startRun
     return(PAGE_SUBTILE_HTML + str(daysOfRun.days) + '</i></h2>')
 
+
+def day_run():
+    """Computes the day of the Run, returns only that day
+    """
+    today = date.today()
+    startRun = date(2015, 11, 7-1)
+    daysOfRun = today - startRun
+    return(str(daysOfRun.days))
