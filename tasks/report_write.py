@@ -60,24 +60,22 @@ NEVER REPLY TO THIS LIST!!
 Please reply only to runcoord@centrofermi.it
 ********************************************
 
-Alle ore 8:00 del mattino, la situazione delle scuole risulta la seguente:
-\n
+Alle ore 8:00 del mattino, la situazione delle scuole risulta la seguente:\n
 ''')
 
     ################################################
     # Write the list of schools that are ok (green)
     ################################################
     w.write('- Ci sono ')
-    w.write(str(len(schoolsOk))
-    w.write(' telescopi in trasmissione attiva e con parametri dei dati che \
-    sembrano buoni:\n')
-    w.write(','.join(map(str, schoolsOk)))
+    w.write(str(len(schoolsOk)))
+    w.write(' telescopi in trasmissione attiva e con parametri dei dati che sembrano buoni:\n')
+    w.write(', '.join(map(str, schoolsOk)))
     w.write('.\n')
 
     ################################################
     # Write the END of the html file
     ################################################
-    w.write('''\n
+    w.write('''
 <<<<< Link utili >>>>>
 EEE Monitor: http://eee.centrofermi.it/monitor
 E-logbook scuole: http://www.centrofermi.it/elog/Run3
@@ -89,6 +87,10 @@ scrivere solo al mittente e a: runcoord@centrofermi.it
 <<<<< Per cancellarsi dalla mailing-list >>>>>
 Mandare un email con il subject “UNSUBSCRIBE”
 a: fabrizio.coccetti@centrofermi.it
+
+e3report, il sistema automatico di generazione degli shift report,
+ti augura una buona giornata e ti ricorda che è solo grazie a lui
+che tu non devi più fare gli shift giornalieri.
     ''')
 
     # Close html file
