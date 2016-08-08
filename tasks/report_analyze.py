@@ -9,10 +9,10 @@ Task to read the monitorData class and write the reportData class
 
 from e3monitor.db.E3Report import E3Report
 import logging
+import os
+import pickle
 from datetime import datetime
-from e3monitor.tasks.update_time import (compute_update,
-        day_of_run)
-from e3monitor.tasks.set_version import set_version
+from e3monitor.config.__files_server__ import pathWorkDir
 from e3monitor.config.__limits__ import (
     TRANSFER_SEC_LIMIT,
     ELOG_WARNING,
@@ -21,13 +21,6 @@ from e3monitor.config.__limits__ import (
     TRACKS_WARNING_HIGH,
     TRACKS_WARNING_LOW,
     TRACKS_ERROR_LOW
-    )
-from e3monitor.html.__html_headers__ import (
-    HEADER_HTML,
-    TABELLA1_HTML,
-    TABELLA1_P2_HTML,
-    FOOTER_HTML,
-    BOTTOM_HTML
     )
 
 
@@ -138,9 +131,20 @@ def report_analyze(monitorData,
             reportData.set_trackStatus(schoolName, 3)
 
         ################################################
-        # Final check
+        # Class is full of data
         ################################################
         logger.info(reportData.get_schoolData(schoolName))
+        # End of loop on schools
+
+    ################################################
+    # Write pickle file with Class
+    ################################################
+    logger.info('Writing data to file...')
+    output = open(os.path.join(pathWorkDir, pklReportFile), 'wb')
+    pickle.dump(reportData, output)
+    output.close()
+    logger = logging.getLogger('full')
+    logger.info('Written ' + os.path.join(pathWorkDir, pklReportFile))
 
     # End
     logger.info('Function report_analyze() finished.')
