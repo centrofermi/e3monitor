@@ -19,6 +19,9 @@ def report_write(reportData,
 
     # Array of schools with no problems
     schoolsOk = []
+    schoolsTriggerRed = []
+    schoolsTransferRed = []
+    schoolsElog = []
 
     # Start logger
     logger = logging.getLogger('plain')
@@ -39,8 +42,20 @@ def report_write(reportData,
         if (reportData.get_transferDelayStatus(schoolName) == 0) and \
             (reportData.get_triggerStatus(schoolName) == 0) and \
                 (reportData.get_trackStatus(schoolName) == 0):
-                    print(schoolName)
                     schoolsOk.append(schoolName)
+
+        # Check stations: trigger Red
+        if (reportData.get_triggerStatus(schoolName) == -2):
+            schoolsTransferRed.append(schoolName)
+
+        # Check stations: transfer data Red
+        if (reportData.get_transferDelayStatus(schoolName) == 2):
+            schoolsTransferRed.append(schoolName)
+
+        # Check stations: elog Red
+        if (reportData.get_elogEntryStatus(schoolName) == 2):
+            schoolsElog.append(schoolName)
+
 
     # Open html file for writing
     logger.info('Opening html file for writing')
@@ -70,6 +85,33 @@ Alle ore 8:00 del mattino, la situazione delle scuole risulta la seguente:\n
     w.write(str(len(schoolsOk)))
     w.write(' telescopi in trasmissione attiva e con parametri dei dati che sembrano buoni:\n')
     w.write(', '.join(map(str, schoolsOk)))
+    w.write('.\n')
+
+    ################################################
+    # Write the list of schools with trigger very low (red)
+    ################################################
+    w.write('- Ci sono ')
+    w.write(str(len(schoolsTriggerRed)))
+    w.write(' telescopi che sono in trasmissione, ma hanno un rate inferiore a 5 Hz:\n')
+    w.write(', '.join(map(str, schoolsTriggerRed)))
+    w.write('.\n')
+
+    ################################################
+    # Write the list of schools with red transfer
+    ################################################
+    w.write('- Ci sono ')
+    w.write(str(len(schoolsTransferRed)))
+    w.write(' telescopi che non sono in trasmissione da più di due giorni:\n')
+    w.write(', '.join(map(str, schoolsTransferRed)))
+    w.write('.\n')
+
+    ################################################
+    # Write the list of schools with elog red
+    ################################################
+    w.write('- Ci sono ')
+    w.write(str(len(schoolsElog)))
+    w.write(' scuole che non compilano l\'elogbook da più di due giorni:\n')
+    w.write(', '.join(map(str, schoolsElog)))
     w.write('.\n')
 
     ################################################
