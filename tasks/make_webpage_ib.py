@@ -29,8 +29,8 @@ from e3monitor.html.__html_headers__ import (
 
 
 def make_webpage_ib(monitorData,
-                       EEE_ACTIVE_STATIONS,
-                       mainWebPageFile):
+                    EEE_ACTIVE_STATIONS,
+                    mainWebPageFile):
     '''Make the index.html webpage with the main Monitor table
     '''
 

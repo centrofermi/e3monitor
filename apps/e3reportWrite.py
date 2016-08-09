@@ -28,6 +28,12 @@ Created on Mon Aug 08 16:45:00 2016
 @author: Fabrizio Coccetti (fabrizio.coccetti@centrofermi.it) [www.fc8.net]
 
 This app read the class monitorData and writes the report
+
+This app analyze monitorData and writes a class to write the report
+Order of usage for the EEE Daily Report:
+1. e3reportAnalyze.py
+2. e3reportWrite.py
+3. e3reportSend.py
 """
 
 import locale
@@ -39,6 +45,7 @@ from e3monitor.config.__stations__ import EEE_ACTIVE_STATIONS
 from e3monitor.config.__files_server__ import (logConfigFile,
                                                pathWorkDir,
                                                pklReportFile,
+                                               pklTracksFile,
                                                htmlReportFile)
 
 if __name__ == '__main__':
@@ -56,9 +63,14 @@ if __name__ == '__main__':
     logger.info("pickle file read: E3Report class is loaded "
                 "as reportData")
 
+    # Read the totalTracks
+    totalTracks = read_pickle(pathWorkDir, pklTracksFile)
+    logger.info("totalTracks number read")
+
     report_write(reportData,
                  EEE_ACTIVE_STATIONS,
                  pathWorkDir,
+                 pklTracksFile,
                  htmlReportFile)
 
     # Final log message

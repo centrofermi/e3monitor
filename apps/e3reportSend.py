@@ -5,18 +5,27 @@ Created on Mon Jul 11 14:00:00 2016
 
 @author: Fabrizio Coccetti (fabrizio.coccetti@centrofermi.it) [www.fc8.net]
 Send EEE email report via Gmail
+This app analyze monitorData and writes a class to write the report
+
+Order of usage for the EEE Daily Report:
+1. e3reportAnalyze.py
+2. e3reportWrite.py
+3. e3reportSend.py
 """
 
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import locale
+import os
 import ConfigParser
 import logging
 import logging.config
 from datetime import datetime
 from e3monitor.config.__files_server__ import (logConfigFile,
-                                               emailConfigFile)
+                                               emailConfigFile,
+                                               pathWorkDir,
+                                               htmlReportFile)
 
 # Set up logging
 logging.config.fileConfig(logConfigFile)
@@ -46,27 +55,13 @@ msg['From'] = emailFrom
 msg['To'] = emailTo
 
 # Create the body of the message (a plain-text and an HTML version).
-text = "The message is in html format. It looks like your client does not support it"
-html = """
-<html>
-<head></head>
-<body>
-Shift Report di """ + \
-        todayStr + \
-        """
-<br />
-***************************<br />
-<B>NEVER REPLY</B> TO THIS LIST!!<br />
-Please reply only to the sender and runcoord@centrofermi.it<br />
-****************************<br />
-
-</body>
-</html>
-"""
+with open(os.path.join(pathWorkDir, htmlReportFile), 'r') as reportFile:
+    htmlText = reportFile.read().replace('\n', '')
+    textText = htmlText
 
 # Record the MIME types of both parts - text/plain and text/html.
-part1 = MIMEText(text, 'plain')
-part2 = MIMEText(html, 'html')
+part1 = MIMEText(textText, 'plain')
+part2 = MIMEText(htmlText, 'html')
 
 # Attach parts into message container.
 # According to RFC 2046, the last part of a multipart message, in this case

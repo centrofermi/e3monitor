@@ -28,6 +28,10 @@ Created on Wed Jul 27 16:55:00 2016
 @author: Fabrizio Coccetti (fabrizio.coccetti@centrofermi.it) [www.fc8.net]
 
 This app analyze monitorData and writes a class to write the report
+Order of usage for the EEE Daily Report:
+1. e3reportAnalyze.py
+2. e3reportWrite.py
+3. e3reportSend.py
 """
 
 import locale

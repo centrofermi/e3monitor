@@ -13,6 +13,7 @@ from e3monitor.tasks.update_time import(day_run)
 def report_write(reportData,
                  EEE_ACTIVE_STATIONS,
                  pathWorkDir,
+                 pklTracksFile,
                  htmlReportFile):
     '''Read the reportData class and write the html report file
     '''
@@ -56,6 +57,7 @@ def report_write(reportData,
         if (reportData.get_elogEntryStatus(schoolName) == 2):
             schoolsElog.append(schoolName)
 
+    # End of loop on schools
 
     # Open html file for writing
     logger.info('Opening html file for writing')
@@ -135,7 +137,14 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
     elif len(schoolsElog) == 1:
         w.write('C\'e\' una scuola che non compila l\'elogbook da piu\' di due giorni:\n')
         w.write(schoolsElog[0])
-        w.write('.\n\n')
+        w.write('.\n')
+
+    ################################################
+    # Write 
+    ################################################
+    w.write('Il numero di Muoni rilevati dai telescopi EEE ad oggi e:\'\n')
+    w.write(pklTracksFile)
+    w.write(' (tracce di Muoni con X^2<10) [Wow!!]\n)')
 
     ################################################
     # Write the END of the html file
