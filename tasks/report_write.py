@@ -10,10 +10,22 @@ from datetime import datetime
 from e3monitor.tasks.update_time import(day_run)
 
 
+def intWithCommas(x):
+    if type(x) not in [type(0), type(0L)]:
+        raise TypeError("Parameter must be an integer.")
+    if x < 0:
+        return '-' + intWithCommas(-x)
+    result = ''
+    while x >= 1000:
+        x, r = divmod(x, 1000)
+        result = ",%03d%s" % (r, result)
+    return "%d%s" % (x, result)
+
+
 def report_write(reportData,
+                 totalTracks,
                  EEE_ACTIVE_STATIONS,
                  pathWorkDir,
-                 pklTracksFile,
                  htmlReportFile):
     '''Read the reportData class and write the html report file
     '''
@@ -140,11 +152,11 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
         w.write('.\n')
 
     ################################################
-    # Write 
+    # Write the number of total tracks
     ################################################
-    w.write('Il numero di Muoni rilevati dai telescopi EEE ad oggi e:\'\n')
-    w.write(pklTracksFile)
-    w.write(' (tracce di Muoni con X^2<10) [Wow!!]\n)')
+    w.write('Il numero di Muoni (tracce di Muoni con X^2<10) rilevati dai telescopi EEE ad oggi e:\' ')
+    w.write(intWithCommas(totalTracks))
+    w.write(' [Wow!!]\n')
 
     ################################################
     # Write the END of the html file
@@ -155,16 +167,17 @@ EEE Monitor: http://eee.centrofermi.it/monitor
 E-logbook scuole: http://www.centrofermi.it/elog/Run3
 
 <<<<< Per rispondere >>>>>
-Se si vuole rispondere al presente messaggio,
-scrivere solo al mittente e a: runcoord@centrofermi.it
+Per rispondere al presente messaggio,
+scrivere solo a: runcoord@centrofermi.it
 
 <<<<< Per cancellarsi dalla mailing-list >>>>>
 Mandare un email con il subject “UNSUBSCRIBE”
 a: fabrizio.coccetti@centrofermi.it
 
-e3report, il sistema automatico di generazione degli shift report,
+E3report, il sistema automatico di generazione degli shift report,
 ti augura una buona giornata e ti ricorda che e\' solo grazie a lui
 che tu non devi piu\' fare gli shift giornalieri.
+https://github.com/centrofermi/e3monitor
     ''')
 
     # Close html file

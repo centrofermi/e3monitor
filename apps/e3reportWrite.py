@@ -68,9 +68,9 @@ if __name__ == '__main__':
     logger.info("totalTracks number read")
 
     report_write(reportData,
+                 totalTracks,
                  EEE_ACTIVE_STATIONS,
                  pathWorkDir,
-                 pklTracksFile,
                  htmlReportFile)
 
     # Final log message
