@@ -14,7 +14,7 @@ class E3Report(dict):
         self._mydict = {}
 
     def init_School(self, schoolName):
-        self._mydict[schoolName] = ['']*10
+        self._mydict[schoolName] = ['']*11
 
     # Set methods
 
@@ -48,6 +48,9 @@ class E3Report(dict):
     def set_trackStatus(self, schoolName, status):
         self._mydict[schoolName][9] = status
 
+    def set_message(self, schoolName, msg):
+        self._mydict[schoolName][10] = msg
+
     # Get methods
 
     def get_transferDelayDays(self, schoolName):
@@ -79,6 +82,9 @@ class E3Report(dict):
 
     def get_trackStatus(self, schoolName):
         return(self._mydict[schoolName][9])
+
+    def get_message(self, schoolName):
+        return(self._mydict[schoolName][10])
 
     def get_schoolData(self, schoolName):
         return(self._mydict[schoolName])

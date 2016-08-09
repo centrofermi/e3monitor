@@ -11,6 +11,8 @@ from e3monitor.tasks.update_time import(day_run)
 
 
 def intWithCommas(x):
+    ''' Print integer with commas for old python
+    '''
     if type(x) not in [type(0), type(0L)]:
         raise TypeError("Parameter must be an integer.")
     if x < 0:
@@ -35,6 +37,7 @@ def report_write(reportData,
     schoolsTrackRed = []
     schoolsTransferRed = []
     schoolsElog = []
+    schoolsMsg = []
 
     # Start logger
     logger = logging.getLogger('plain')
@@ -68,6 +71,10 @@ def report_write(reportData,
         # Check stations: elog Red
         if (reportData.get_elogEntryStatus(schoolName) == 2):
             schoolsElog.append(schoolName)
+
+        # Check if there are messages for a telescope
+        if (reportData.get_message(schoolName) not None):
+            schoolsMsg.append('- ' + schoolName + ': ' + reportData.get_message(schoolName))
 
     # End of loop on schools
 
@@ -135,7 +142,6 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
         w.write('C\'e\' un telescopio che non e\' in trasmissione da piu\' di due giorni:\n')
         w.write(schoolsTransferRed[0])
         w.write('.\n\n')
-        
 
     ################################################
     # Write the list of schools with elog red
@@ -150,6 +156,14 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
         w.write('C\'e\' una scuola che non compila l\'elogbook da piu\' di due giorni:\n')
         w.write(schoolsElog[0])
         w.write('.\n')
+
+    ################################################
+    # Write Messages for schools if any
+    ################################################
+    if len(schoolsMsg) > 0:
+        w.write('- Riportiamo i seguenti messaggi:\n')
+        w.write('\n'.join(map(str, schoolsMsg)))
+        w.write('\n')
 
     ################################################
     # Write the number of total tracks
