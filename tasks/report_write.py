@@ -73,8 +73,8 @@ def report_write(reportData,
             schoolsElog.append(schoolName)
 
         # Check if there are messages for a telescope
-        if (reportData.get_message(schoolName) not None):
-            schoolsMsg.append('- ' + schoolName + ': ' + reportData.get_message(schoolName))
+        if reportData.get_message(schoolName) != '':
+            schoolsMsg.append('   - ' + schoolName + ': ' + reportData.get_message(schoolName))
 
     # End of loop on schools
 
@@ -163,14 +163,15 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
     if len(schoolsMsg) > 0:
         w.write('- Riportiamo i seguenti messaggi:\n')
         w.write('\n'.join(map(str, schoolsMsg)))
-        w.write('\n')
+        w.write('\n\n')
 
     ################################################
     # Write the number of total tracks
     ################################################
-    w.write('Il numero di Muoni (tracce di Muoni con X^2<10) rilevati dai telescopi EEE ad oggi e:\' ')
+    w.write('Il numero totale di Muoni (tracce di Muoni con X^2<10) rilevati dalla rete dei telescopi EEE fino ad oggi e:\' ')
     w.write(intWithCommas(totalTracks))
     w.write(' [Wow!!]\n')
+    w.write('Vedi il grafico: http://eee.centrofermi.it/monitor/plots/tracks.png\n')
 
     ################################################
     # Write the END of the html file

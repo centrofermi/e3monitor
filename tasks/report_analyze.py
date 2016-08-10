@@ -136,6 +136,9 @@ def report_analyze(monitorData,
         logger.info(reportData.get_schoolData(schoolName))
         # End of loop on schools
 
+    # write messages for schools
+    # reportData.set_message('ROMA-01', 'Manca il gas') 
+
     ################################################
     # Write pickle file with Class
     ################################################
