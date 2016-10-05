@@ -27,7 +27,7 @@ def day_of_run():
     """Computes the day of the run
     """
     today = date.today()
-    startRun = date(2015, 11, 7-1)
+    startRun = date(2016, 10, 13-1)
     daysOfRun = today - startRun
     return(PAGE_SUBTILE_HTML + str(daysOfRun.days) + '</i></h2>')
 
@@ -36,6 +36,6 @@ def day_run():
     """Computes the day of the Run, returns only that day
     """
     today = date.today()
-    startRun = date(2015, 11, 7-1)
+    startRun = date(2016, 10, 13-1)
     daysOfRun = today - startRun
     return(str(daysOfRun.days))

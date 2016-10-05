@@ -68,12 +68,16 @@ Home Page EEE</a>
 Masterclass</a>
 </td><td>
 <a href="https://www1.cnaf.infn.it/eee/monitor/shifter_report.xlsx">
-Download the Excel Sheet for the Shifter's Report
+Download the Excel Sheet
+</td><td>
+<a href="http://eee.centrofermi.it/monitor/report/">
+Automatic Shift Report
 </td></tr></table>
 </div>
 """
 
-PAGE_SUBTILE_HTML = '<h2>[EEE Monitor info] <i>RUN 2 - Data taking - Day number '
+PAGE_SUBTILE_HTML = '<h2>[EEE Monitor info] <i>RUN 3 - Data taking - Day number: '
+PAGE_SUBTILE_HTML = '<h2>[EEE Monitor info] <i>RUN 3 - Almost ready to begin commissioning - Missing days: '
 
 TABELLA1_P2_HTML = """
 <p style="font-size:80%;">Questa tabella mostra la situazione dei telescopi in acquisizione:<br />
@@ -96,7 +100,7 @@ o con tracce (X^2<10) minori di 5Hz nell'ultimo run analizzato.</p>
 <th>Ora</th>
 <th class="small">Nome dell'ultimo<br />File trasferito</th>
 <th class="small">Numero Files<br />trasferiti oggi</th>
-<th class="small">Ultima Entry<br />nell'e-logbook<br />delle Scuole<br />del Run2</th>
+<th class="small">Ultima Entry<br />nell'e-logbook<br />delle Scuole<br />del Run</th>
 <th class="small">Nome dell'ultimo<br />File analizzato<br />dal DQM</th>
 <th>Report<br />giornaliero<br />DQM</th>
 <th class="small">RATE of<br />Triggers</br />
@@ -110,10 +114,10 @@ TABELLA2_HTML = """
 <div id="menu">
 <table>
 <tr class='gray'>
-<td><a href="http://www.centrofermi.it/elog/EEE+e-log">
+<td><a href="http://eee.centrofermi.it/elog/EEE+e-log">
 ELOGBOOK delle SCUOLE</a>
 </td><td>
-<a href="http://www.centrofermi.it/elog/Shifter">
+<a href="http://eee.centrofermi.it/elog/Shifter">
 ELOGBOOK dello SHIFTER</a>
 </td><td>
 <a href="index.html">

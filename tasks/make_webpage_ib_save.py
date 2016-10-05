@@ -5,12 +5,11 @@ Created on Tue Mar 10 12:17:38 2015
 @author: Fabrizio Coccetti (fabrizio.coccetti@centrofermi.it) [www.fc8.net]
 
 Make the index.html webpage with the main Monitor table
-This code in use since the Database is in place
+Code in use since the Database is in place
 """
 import logging
 from datetime import datetime
-from e3monitor.tasks.update_time import (compute_update,
-                                         day_of_run)
+from e3monitor.tasks.update_time import compute_update
 from e3monitor.tasks.set_version import set_version
 from e3monitor.config.__limits__ import (
     TRANSFER_SEC_LIMIT,
@@ -24,16 +23,14 @@ from e3monitor.config.__limits__ import (
 from e3monitor.html.__html_headers__ import (
     HEADER_HTML,
     TABELLA1_HTML,
-    TABELLA1_P2_HTML,
     FOOTER_HTML,
     BOTTOM_HTML
     )
 
 
-def make_webpage_index(monitorData,
-                       totalTracks,
-                       EEE_ACTIVE_STATIONS,
-                       mainWebPageFile):
+def make_webpage_ib(monitorData,
+                    EEE_ACTIVE_STATIONS,
+                    mainWebPageFile):
     '''Make the index.html webpage with the main Monitor table
     '''
 
@@ -51,15 +48,6 @@ def make_webpage_index(monitorData,
     w.write(HEADER_HTML)
     w.write(compute_update())
     w.write(TABELLA1_HTML)
-    # Day of run 
-    w.write(day_of_run())
-    ### Generic message
-    #w.write('<h2 style="margin:0;">[EEE Monitor info] <i>RUN 2 ended on May 20, 2016.</i></h2>')
-    #w.write('<h2 style="margin:0;">[EEE Monitor info] <i>RUN 3 will start in autumn.</i></h2>')
-    #w.write('<h3 style="margin-top:3px;"><i>RUN 2 ended on May 20, 2016. RUN 3 will start in autumn.</i></h3>')
-    w.write("<h3>Total number of candidate tracks (X^2<10) in the database: ")
-    w.write(str(totalTracks) + "</h3>")
-    w.write(TABELLA1_P2_HTML)
 
     # Start loop for school names (sorted)
     for schoolName in sorted(monitorData.get_allData()):
@@ -121,9 +109,9 @@ def make_webpage_index(monitorData,
         else:
             rowColor = 'red'
             transfer_time_txt = 'red'
-        # Print only green telescopes :-)
-        # if rowColor != 'green':
-        #    continue
+        # Print only green telescopes :-)    
+        if rowColor != 'green':
+            continue
         w.write('<tr class=\"' + rowColor + '\">')
 
         # Print School Name in format: TEST-01
@@ -217,7 +205,7 @@ def make_webpage_index(monitorData,
                 monitorData.get_dqmreportTs(schoolName), '%Y-%m-%d')
             w.write('<a href=\"dqmreport/' + schoolName + '/')
             w.write(monitorData.get_dqmreportTs(schoolName))
-            w.write('/\">')
+            w.write('/index.html\">')
             w.write(_dqmreportTs.strftime("%d/%m"))
             w.write('</a> <br />')
             w.write('<a href =\"dqmreport/' + schoolName + '/?C=M;O=D\">')

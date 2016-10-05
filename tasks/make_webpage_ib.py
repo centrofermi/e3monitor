@@ -5,11 +5,12 @@ Created on Tue Mar 10 12:17:38 2015
 @author: Fabrizio Coccetti (fabrizio.coccetti@centrofermi.it) [www.fc8.net]
 
 Make the index.html webpage with the main Monitor table
-Code in use since the Database is in place
+This code in use since the Database is in place
 """
 import logging
 from datetime import datetime
-from e3monitor.tasks.update_time import compute_update
+from e3monitor.tasks.update_time import (compute_update,
+                                         day_of_run)
 from e3monitor.tasks.set_version import set_version
 from e3monitor.config.__limits__ import (
     TRANSFER_SEC_LIMIT,
@@ -23,12 +24,14 @@ from e3monitor.config.__limits__ import (
 from e3monitor.html.__html_headers__ import (
     HEADER_HTML,
     TABELLA1_HTML,
+    TABELLA1_P2_HTML,
     FOOTER_HTML,
     BOTTOM_HTML
     )
 
 
 def make_webpage_ib(monitorData,
+                    totalTracks,
                     EEE_ACTIVE_STATIONS,
                     mainWebPageFile):
     '''Make the index.html webpage with the main Monitor table
@@ -48,6 +51,15 @@ def make_webpage_ib(monitorData,
     w.write(HEADER_HTML)
     w.write(compute_update())
     w.write(TABELLA1_HTML)
+    # Day of run 
+    w.write(day_of_run())
+    ### Generic message
+    #w.write('<h2 style="margin:0;">[EEE Monitor info] <i>RUN 2 ended on May 20, 2016.</i></h2>')
+    #w.write('<h2 style="margin:0;">[EEE Monitor info] <i>RUN 3 will start in autumn.</i></h2>')
+    #w.write('<h3 style="margin-top:3px;"><i>RUN 2 ended on May 20, 2016. RUN 3 will start in autumn.</i></h3>')
+    w.write("<h3>Total number of candidate tracks (X^2<10) in the database: ")
+    w.write(str(totalTracks) + "</h3>")
+    w.write(TABELLA1_P2_HTML)
 
     # Start loop for school names (sorted)
     for schoolName in sorted(monitorData.get_allData()):
@@ -64,8 +76,8 @@ def make_webpage_ib(monitorData,
 
         # Set <tr> class color
         if transferDelay == -1:
-            rowColor = 'red'
-            transfer_time_txt = 'red'
+            rowColor = 'red_ib'
+            transfer_time_txt = 'red_ib'
         elif transferDelay.days == 0:
             if transferDelay.seconds < TRANSFER_SEC_LIMIT:
                 transfer_time_txt = 'green'
@@ -73,45 +85,45 @@ def make_webpage_ib(monitorData,
                     _tracks = round(monitorData.get_trackRate(schoolName))
                     if (_tracks < TRACKS_ERROR_LOW or
                             _tracks > TRACKS_ERROR_HIGH):
-                        rowColor = 'red'
+                        rowColor = 'red_ib'
                     elif (_tracks < TRACKS_WARNING_LOW or
                             _tracks > TRACKS_WARNING_HIGH):
-                        rowColor = 'yellow'
+                        rowColor = 'yellow_ib'
                     else:
                         rowColor = 'green'
                 except:
-                    rowColor = 'red'
+                    rowColor = 'red_ib'
                     continue
             else:
-                transfer_time_txt = 'yellow'
+                transfer_time_txt = 'yellow_ib'
                 try:
                     _tracks = round(monitorData.get_trackRate(schoolName))
                     if (_tracks < TRACKS_ERROR_LOW or
                             _tracks > TRACKS_ERROR_HIGH):
-                        rowColor = 'red'
+                        rowColor = 'red_ib'
                     else:
-                        rowColor = 'yellow'
+                        rowColor = 'yellow_ib'
                 except:
-                    rowColor = 'red'
+                    rowColor = 'red_ib'
                     continue
         elif transferDelay.days == 1:
-            transfer_time_txt = 'yellow'
+            transfer_time_txt = 'yellow_ib'
             try:
                 _tracks = round(monitorData.get_trackRate(schoolName))
                 if (_tracks < TRACKS_ERROR_LOW or
                         _tracks > TRACKS_ERROR_HIGH):
-                    rowColor = 'red'
+                    rowColor = 'red_ib'
                 else:
-                    rowColor = 'yellow'
+                    rowColor = 'yellow_ib'
             except:
-                rowColor = 'yellow'
+                rowColor = 'yellow_ib'
                 continue
         else:
-            rowColor = 'red'
-            transfer_time_txt = 'red'
-        # Print only green telescopes :-)    
-        if rowColor != 'green':
-            continue
+            rowColor = 'red_ib'
+            transfer_time_txt = 'red_ib'
+        ## Print only green telescopes :-)
+        #if rowColor != 'green':
+        #    continue
         w.write('<tr class=\"' + rowColor + '\">')
 
         # Print School Name in format: TEST-01
@@ -173,9 +185,9 @@ def make_webpage_ib(monitorData,
             if elogDelay.days <= ELOG_WARNING:
                 elog_time_txt = 'gray'
             elif elogDelay.days <= ELOG_ERROR:
-                elog_time_txt = 'yellow'
+                elog_time_txt = 'yellow_ib'
             else:
-                elog_time_txt = 'red'
+                elog_time_txt = 'red_ib'
             w.write('<span class=\"' + elog_time_txt + '\">')
             w.write(monitorData.get_elogEntryTs(
                 schoolName).strftime("%H:%M"))
@@ -205,7 +217,7 @@ def make_webpage_ib(monitorData,
                 monitorData.get_dqmreportTs(schoolName), '%Y-%m-%d')
             w.write('<a href=\"dqmreport/' + schoolName + '/')
             w.write(monitorData.get_dqmreportTs(schoolName))
-            w.write('/index.html\">')
+            w.write('/\">')
             w.write(_dqmreportTs.strftime("%d/%m"))
             w.write('</a> <br />')
             w.write('<a href =\"dqmreport/' + schoolName + '/?C=M;O=D\">')
@@ -221,10 +233,10 @@ def make_webpage_ib(monitorData,
             _triggers = round(monitorData.get_triggerRate(schoolName))
             if (_triggers < TRACKS_ERROR_LOW or
                     _triggers > TRACKS_ERROR_HIGH):
-                triggers_txt = 'red'
+                triggers_txt = 'red_ib'
             elif (_triggers < TRACKS_WARNING_LOW or
                     _triggers > TRACKS_WARNING_HIGH):
-                triggers_txt = 'yellow'
+                triggers_txt = 'yellow_ib'
             else:
                 triggers_txt = 'gray'
             w.write('<span class=\"' + triggers_txt + '\">')
@@ -240,10 +252,10 @@ def make_webpage_ib(monitorData,
             _tracks = round(monitorData.get_trackRate(schoolName))
             if (_tracks < TRACKS_ERROR_LOW or
                     _tracks > TRACKS_ERROR_HIGH):
-                tracks_txt = 'red'
+                tracks_txt = 'red_ib'
             elif (_tracks < TRACKS_WARNING_LOW or
                     _tracks > TRACKS_WARNING_HIGH):
-                tracks_txt = 'yellow'
+                tracks_txt = 'yellow_ib'
             else:
                 tracks_txt = 'gray'
             w.write('<span class=\"' + tracks_txt + '\">')

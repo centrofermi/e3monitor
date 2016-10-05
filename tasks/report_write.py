@@ -168,10 +168,10 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
     ################################################
     # Write the number of total tracks
     ################################################
-    w.write('Il numero totale di Muoni (tracce di Muoni con X^2<10) rilevati dalla rete dei telescopi EEE fino ad oggi e:\' ')
+    w.write('Numero totale di Muoni (tracce di Muoni con X^2<10) rilevati dalla rete dei telescopi EEE fino ad oggi: ')
     w.write(intWithCommas(totalTracks))
     w.write(' [Wow!!]\n')
-    w.write('Vedi il grafico: http://eee.centrofermi.it/monitor/plots/tracks.png\n')
+    w.write('Consulta il grafico aggiornato: http://eee.centrofermi.it/monitor/plots/tracks.png\n')
 
     ################################################
     # Write the END of the html file
@@ -186,12 +186,12 @@ Per rispondere al presente messaggio,
 scrivere solo a: runcoord@centrofermi.it
 
 <<<<< Per cancellarsi dalla mailing-list >>>>>
-Mandare un email con il subject “UNSUBSCRIBE”
+Mandare un email con il subject "UNSUBSCRIBE"
 a: fabrizio.coccetti@centrofermi.it
 
-E3report, il sistema automatico di generazione degli shift report,
+EEE-Monitor, grazie al suo sistema automatico di generazione degli shift report,
 ti augura una buona giornata e ti ricorda che e\' solo grazie a lui
-che tu non devi piu\' fare gli shift giornalieri.
+se tu non devi piu\' fare gli shift giornalieri.
 https://github.com/centrofermi/e3monitor
     ''')
 

@@ -21,9 +21,11 @@ import os
 import ConfigParser
 import logging
 import logging.config
+import shutil
 from datetime import datetime
 from e3monitor.config.__files_server__ import (logConfigFile,
                                                emailConfigFile,
+                                               archiveReportDir,
                                                pathWorkDir,
                                                htmlReportFile)
 
@@ -49,6 +51,7 @@ passwd = parser.get('gmail', 'passwd')
 # Create message container - the correct MIME type is multipart/alternative.
 today = datetime.today()
 todayStr = today.strftime("%a %d %B %Y")
+_todayStr = today.strftime("%Y-%m-%d")
 # # Use both html and text messages
 # msg = MIMEMultipart('alternative')
 # Record the MIME types of both parts - text/plain and text/html.
@@ -86,4 +89,11 @@ s.login(emailFrom, passwd)
 s.sendmail(emailFrom, emailTo, msg.as_string())
 s.quit()
 
+logger.info('Sending email done')
+
+# Renaming and archiving the report
+logger.info('Renaming report for the archive')
+_name = 'report_message_' + _todayStr + '.html'
+shutil.copy((os.path.join(pathWorkDir, htmlReportFile)), (os.path.join(archiveReportDir, _name)))
 logger.info('Finished')
+

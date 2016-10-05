@@ -55,6 +55,9 @@ pklStatFile = "stat_data.pkl"
 # Name of the pickle File with the analysis of the report
 pklReportFile = "report_data.pkl"
 
+# Directory for the storage of the report
+archiveReportDir = "/var/www/html/monitor/report/run3/"
+
 # Name of the html File with the analysis of the report
 htmlReportFile = "report_message.html"
 
