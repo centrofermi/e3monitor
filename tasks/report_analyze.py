@@ -32,6 +32,7 @@ def report_analyze(monitorData,
 
     # Declare class to write all report data
     reportData = E3Report()
+    messagesDict = {}
 
     # Start logger
     logger = logging.getLogger('plain')
@@ -39,6 +40,15 @@ def report_analyze(monitorData,
 
     # Define now
     now = datetime.today()
+
+    # Read file with messages
+    with open('/var/www/html/monitor/report/report_messages.txt', 'r') as f:
+        for line in f:
+            try:
+                _school, _textmessage = line.split('\t',1)
+                messagesDict[_school] = _textmessage.rstrip()
+            except:
+                continue
 
     # Start loop for school names (sorted)
     for schoolName in sorted(monitorData.get_allData()):
@@ -130,14 +140,23 @@ def report_analyze(monitorData,
         except:
             reportData.set_trackStatus(schoolName, 3)
 
+
+        ################################################
+        # Section on messages from schools
+        ################################################
+        
+        try:
+            reportData.set_message(schoolName, messagesDict[schoolName])
+        except:
+            reportData.set_message(schoolName, '')
+
+
         ################################################
         # Class is full of data
         ################################################
+        #logger.info(reportData.get_message(schoolName))
         logger.info(reportData.get_schoolData(schoolName))
         # End of loop on schools
-
-    # write messages for schools
-    # reportData.set_message('ROMA-01', 'Manca il gas') 
 
     ################################################
     # Write pickle file with Class
@@ -152,3 +171,4 @@ def report_analyze(monitorData,
     # End
     logger.info('Function report_analyze() finished.')
     return True
+
