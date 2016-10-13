@@ -36,6 +36,7 @@ def report_write(reportData,
     schoolsOk = []
     schoolsTrackRed = []
     schoolsTransferRed = []
+    schoolsTransferYellow = []
     schoolsElog = []
     schoolsMsg = []
 
@@ -63,6 +64,9 @@ def report_write(reportData,
         # Check stations: transfer data Red
         if (reportData.get_transferDelayStatus(schoolName) == 2):
             schoolsTransferRed.append(schoolName)
+        # Check stations: transfer data Yellow
+        elif (reportData.get_transferDelayStatus(schoolName) == 1):
+             schoolsTransferYellow.append(schoolName)
         # Check stations: if transfer is fine then track rate Red
         elif (reportData.get_trackStatus(schoolName) == -2):
              schoolsTrackRed.append(schoolName)
@@ -87,7 +91,7 @@ def report_write(reportData,
     ################################################
     w.write('Shift Report di ')
     w.write(todayStr)
-    w.write(' - RUN 3: Giorno ')
+    w.write(' - RUN 3 (commissioning): Giorno ')
     w.write(day_run())
     w.write('''
 ********************************************
@@ -126,6 +130,20 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
     elif len(schoolsTrackRed) == 1:
         w.write('- C\'e\' un telescopio in trasmissione, ma ha un rate di acquisizione delle tracce minore di 5 Hz:\n')
         w.write(schoolsTrackRed[0])
+        w.write('.\n\n')
+
+    ################################################
+    # Write the list of schools with yellow transfer
+    ################################################
+    if len(schoolsTransferYellow) > 1:
+        w.write('- Ci sono ')
+        w.write(str(len(schoolsTransferYellow)))
+        w.write(' telescopi che non trasmettono dati al CNAF da alcune ore:\n')
+        w.write(', '.join(map(str, schoolsTransferYellow)))
+        w.write('.\n\n')
+    elif len(schoolsTransferYellow) == 1:
+        w.write('C\'e\' un telescopio che non trasmette dati al CNAF da alcune ore:\n')
+        w.write(schoolsTransferYellow[0])
         w.write('.\n\n')
 
     ################################################
