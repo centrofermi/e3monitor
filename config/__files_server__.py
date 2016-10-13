@@ -72,4 +72,4 @@ pathDqmreport = "/var/www/html/monitor/dqmreport"
 pathSaveFig = '/var/www/html/monitor/plots/'
 
 # Path of the MIDAS elogbook .log files
-elogBookPath = "/usr/local/elog/logbooks/Run2/"
+elogBookPath = "/usr/local/elog/logbooks/Run3/"

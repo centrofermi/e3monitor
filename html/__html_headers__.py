@@ -48,14 +48,14 @@ TABELLA1_HTML = """
 <div id="menu">
 <table>
 <tr class='gray'>
-<td><a href="http://www.centrofermi.it/elog/Run2">
-ELOGBOOK delle SCUOLE</a>
+<td><a href="http://eee.centrofermi.it/elog/Run3">
+ELOGBOOK delle SCUOLE per il RUN 3</a>
 </td><td>
-<a href="http://www.centrofermi.it/elog/Shifter">
+<a href="http://eee.centrofermi.it/elog/Shifter">
 ELOGBOOK dello SHIFTER</a>
 </td><td>
-<a href="https://www1.cnaf.infn.it/eee/e3rundb/">
-New DB Interface (BETA)
+<a href="http://eee.centrofermi.it/monitor/report/">
+Automatic Shift REPORT
 </a>
 </td></tr></table>
 <table>
@@ -70,14 +70,15 @@ Masterclass</a>
 <a href="https://www1.cnaf.infn.it/eee/monitor/shifter_report.xlsx">
 Download the Excel Sheet
 </td><td>
-<a href="http://eee.centrofermi.it/monitor/report/">
-Automatic Shift Report
+<a href="https://www1.cnaf.infn.it/eee/e3rundb/">
+New DB Interface
+</a>
 </td></tr></table>
 </div>
 """
 
 PAGE_SUBTILE_HTML = '<h2>[EEE Monitor info] <i>RUN 3 - Data taking - Day number: '
-PAGE_SUBTILE_HTML = '<h2>[EEE Monitor info] <i>RUN 3 - Almost ready to begin commissioning - Missing days: '
+PAGE_SUBTILE_HTML = '<h2>[EEE Monitor info] <i>RUN 3 - Commissioning - Day number: '
 
 TABELLA1_P2_HTML = """
 <p style="font-size:80%;">Questa tabella mostra la situazione dei telescopi in acquisizione:<br />

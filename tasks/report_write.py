@@ -60,13 +60,12 @@ def report_write(reportData,
                 (reportData.get_trackStatus(schoolName) == 0):
                     schoolsOk.append(schoolName)
 
-        # Check stations: track Red
-        if (reportData.get_trackStatus(schoolName) == -2):
-            schoolsTrackRed.append(schoolName)
-
         # Check stations: transfer data Red
         if (reportData.get_transferDelayStatus(schoolName) == 2):
             schoolsTransferRed.append(schoolName)
+        # Check stations: if transfer is fine then track rate Red
+        elif (reportData.get_trackStatus(schoolName) == -2):
+             schoolsTrackRed.append(schoolName)
 
         # Check stations: elog Red
         if (reportData.get_elogEntryStatus(schoolName) == 2):
@@ -113,7 +112,7 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
         w.write(schoolsOk[0])
         w.write('.\n\n')
     else:
-        w.write('Nessun telescopio mi risulta attivo, deve esserci un errore di sistema o un problema al CNAF.')
+        w.write('Nessun telescopio mi risulta attivo, deve esserci un errore di sistema o un problema al CNAF.\n')
 
     ################################################
     # Write the list of schools with track very low (red)
@@ -125,7 +124,7 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
         w.write(', '.join(map(str, schoolsTrackRed)))
         w.write('.\n\n')
     elif len(schoolsTrackRed) == 1:
-        w.write('- C\'e\' un telescopio in trasmissione, ma ha un rate di acquisizione delle tracce minore di 5 Hz:')
+        w.write('- C\'e\' un telescopio in trasmissione, ma ha un rate di acquisizione delle tracce minore di 5 Hz:\n')
         w.write(schoolsTrackRed[0])
         w.write('.\n\n')
 
@@ -146,22 +145,26 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
     ################################################
     # Write the list of schools with elog red
     ################################################
-    if len(schoolsElog) > 1:
-        w.write('- Ci sono ')
-        w.write(str(len(schoolsElog)))
-        w.write(' scuole che non compilano l\'elogbook da piu\' di due giorni:\n')
-        w.write(', '.join(map(str, schoolsElog)))
-        w.write('.\n\n')
-    elif len(schoolsElog) == 1:
-        w.write('C\'e\' una scuola che non compila l\'elogbook da piu\' di due giorni:\n')
-        w.write(schoolsElog[0])
-        w.write('.\n')
+#    if len(schoolsElog) > 1:
+#        w.write('- Ci sono ')
+#        w.write(str(len(schoolsElog)))
+#        w.write(' scuole che non compilano l\'elogbook da piu\' di due giorni:\n')
+#        w.write(', '.join(map(str, schoolsElog)))
+#        w.write('.\n\n')
+#    elif len(schoolsElog) == 1:
+#        w.write('C\'e\' una scuola che non compila l\'elogbook da piu\' di due giorni:\n')
+#        w.write(schoolsElog[0])
+#        w.write('.\n')
+
+    w.write('Tutte le scuole sono invitate a compilare ogni giorno l\'e-logbook del Run 3\n')
+    w.write('al seguente indirizzo: http://eee.centrofermi.it/elog/Run3\n\n')
 
     ################################################
     # Write Messages for schools if any
     ################################################
     if len(schoolsMsg) > 0:
         w.write('- Riportiamo i seguenti messaggi:\n')
+        w.write('(per modificarli: http://eee.centrofermi.it/monitor/report)\n')
         w.write('\n'.join(map(str, schoolsMsg)))
         w.write('\n\n')
 
@@ -179,7 +182,7 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
     w.write('''
 <<<<< Link utili >>>>>
 EEE Monitor: http://eee.centrofermi.it/monitor
-E-logbook scuole: http://www.centrofermi.it/elog/Run3
+E-logbook scuole: http://eee.centrofermi.it/elog/Run3
 
 <<<<< Per rispondere >>>>>
 Per rispondere al presente messaggio,
