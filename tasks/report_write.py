@@ -138,11 +138,11 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
     if len(schoolsTransferYellow) > 1:
         w.write('- Ci sono ')
         w.write(str(len(schoolsTransferYellow)))
-        w.write(' telescopi che non trasmettono dati al CNAF da alcune ore:\n')
+        w.write(' telescopi che non trasmettono dati al CNAF da piu\' di tre ore:\n')
         w.write(', '.join(map(str, schoolsTransferYellow)))
         w.write('.\n\n')
     elif len(schoolsTransferYellow) == 1:
-        w.write('C\'e\' un telescopio che non trasmette dati al CNAF da alcune ore:\n')
+        w.write('C\'e\' un telescopio che non trasmette dati al CNAF da piu\' di tre ore:\n')
         w.write(schoolsTransferYellow[0])
         w.write('.\n\n')
 
