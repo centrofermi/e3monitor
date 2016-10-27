@@ -193,6 +193,8 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
     w.write(intWithCommas(totalTracks))
     w.write(' [Wow!!]\n')
     w.write('Consulta il grafico aggiornato: http://eee.centrofermi.it/monitor/plots/tracks.png\n')
+    w.write('Puoi scaricare il file Excel con tutti i dati delle 8:00 del mattino a questo link:\n')
+    w.write('http://eee.centrofermi.it/monitor/shifter_report.xlsx\n')
 
     ################################################
     # Write the END of the html file

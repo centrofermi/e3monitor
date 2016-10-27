@@ -93,7 +93,7 @@ logger.info('Sending email done')
 
 # Renaming and archiving the report
 logger.info('Renaming report for the archive')
-_name = 'report_message_' + _todayStr + '.html'
+_name = 'report_message_' + _todayStr + '.txt'
 shutil.copy((os.path.join(pathWorkDir, htmlReportFile)), (os.path.join(archiveReportDir, _name)))
 logger.info('Finished')
 

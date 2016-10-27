@@ -35,7 +35,6 @@ def make_shift_report_xlsx(monitorData,
     worksheet.set_header('&CCentro Fermi')
 
     headers = ('Scuola',
-               'NOTE dello SHIFTER',
                'Data ultimo File\ntrasferito al CNAF',
                'Nome ultimo File\n trasferito al CNAF',
                'Numero Files trasferiti oggi',
@@ -128,10 +127,6 @@ def make_shift_report_xlsx(monitorData,
 
         # Print School Name
         worksheet.write(row, col, schoolName, fVcenterBold)
-        col += 1
-
-        # Print NOTE delle Shifter
-        worksheet.write(row, col, 'Inserisci_le_tue_note', fNotes)
         col += 1
 
         # Print Day of the last transferred file at CNAF

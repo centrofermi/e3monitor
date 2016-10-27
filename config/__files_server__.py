@@ -56,7 +56,7 @@ pklStatFile = "stat_data.pkl"
 pklReportFile = "report_data.pkl"
 
 # Directory for the storage of the report
-archiveReportDir = "/var/www/html/monitor/report/run3/"
+archiveReportDir = "/var/www/html/monitor/run3reports/"
 
 # Name of the html File with the analysis of the report
 htmlReportFile = "report_message.html"
