@@ -72,7 +72,7 @@ for _schoolName in schoolNames:
 logger.info('Query for the last run transferred at CNAF of each school')
 query = ("SELECT station_name, run_date, run_id, bin_file_size, "
          "transfer_timestamp, last_update "
-         "FROM runs WHERE station_name = %s "
+         "FROM runs2 WHERE station_name = %s "
          "ORDER BY transfer_timestamp DESC LIMIT 1;")
 logger.info('About to query: ' + query)
 for _schoolName in schoolNames:
@@ -89,7 +89,7 @@ for _schoolName in schoolNames:
 _beginTime = datetime.today().strftime("%Y-%m-%d") + " 00:00:00"
 _endTime = datetime.today().strftime("%Y-%m-%d") + " 23:59:59"
 logger.info('Query for the number of files transferred today')
-query = ("SELECT COUNT(*) FROM runs "
+query = ("SELECT COUNT(*) FROM runs2 "
          "WHERE station_name = %s "
          "AND (transfer_timestamp BETWEEN %s AND %s);")
 logger.info('About to query: ' + query)
@@ -133,7 +133,7 @@ for _schoolName in schoolNames:
 # Query for Statistics
 logger.info('Query for statistics:')
 logger.info('1. Query of the total number of Tracks')
-query = ("SELECT SUM(num_track_events) from runs WHERE (run_date >= %s AND run_date <= %s);")
+query = ("SELECT SUM(num_track_events) from runs2 WHERE (run_date >= %s AND run_date <= %s);")
 queryParam = (startRunStr, todayStr)
 cur.execute(query, queryParam)
 try:

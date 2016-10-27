@@ -9,7 +9,7 @@ import os
 
 def read_dqmreport(schoolNamesList, pathDqmreport):
     ''' Find directory for the last daily dqmreport
-    the format is: dqmreport/ALTA-01/2014-11-12/index.html
+    the format is: dqmreport2/ALTA-01/2014-11-12/index.html
     '''
     lastDqmreport = {}
     schoolsDqmreportList = []

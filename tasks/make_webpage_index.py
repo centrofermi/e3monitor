@@ -215,12 +215,12 @@ def make_webpage_index(monitorData,
         try:
             _dqmreportTs = datetime.strptime(
                 monitorData.get_dqmreportTs(schoolName), '%Y-%m-%d')
-            w.write('<a href=\"dqmreport/' + schoolName + '/')
+            w.write('<a href=\"dqmreport2/' + schoolName + '/')
             w.write(monitorData.get_dqmreportTs(schoolName))
             w.write('/\">')
             w.write(_dqmreportTs.strftime("%d/%m"))
             w.write('</a> <br />')
-            w.write('<a href =\"dqmreport/' + schoolName + '/?C=M;O=D\">')
+            w.write('<a href =\"dqmreport2/' + schoolName + '/?C=M;O=D\">')
             w.write('[History]')
             w.write('</a>')
         except:
@@ -267,7 +267,7 @@ def make_webpage_index(monitorData,
 
         # Print link to DMQ directory
         w.write('<td>')
-        w.write('<a href=\"dqm/' + schoolName + '/?C=M;O=D\">')
+        w.write('<a href=\"dqm2/' + schoolName + '/?C=M;O=D\">')
         w.write(schoolName)
         w.write('</a>')
         w.write('</td>')

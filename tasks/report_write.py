@@ -35,6 +35,7 @@ def report_write(reportData,
     # Array of schools with no problems
     schoolsOk = []
     schoolsTrackRed = []
+    schoolsTrackYellow = []
     schoolsTransferRed = []
     schoolsTransferYellow = []
     schoolsElog = []
@@ -70,6 +71,9 @@ def report_write(reportData,
         # Check stations: if transfer is fine then track rate Red
         elif (reportData.get_trackStatus(schoolName) == -2):
              schoolsTrackRed.append(schoolName)
+        # Check stations: if transfer is fine then track rate yellow
+        elif (reportData.get_trackStatus(schoolName) == -1):
+             schoolsTrackYellow.append(schoolName)
 
         # Check stations: elog Red
         if (reportData.get_elogEntryStatus(schoolName) == 2):
@@ -119,16 +123,30 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
         w.write('Nessun telescopio mi risulta attivo, deve esserci un errore di sistema o un problema al CNAF.\n')
 
     ################################################
-    # Write the list of schools with track very low (red)
+    # Write the list of schools with track rate yellow (yellow)
+    ################################################
+    if len(schoolsTrackYellow) > 1:
+        w.write('- Ci sono ')
+        w.write(str(len(schoolsTrackYellow)))
+        w.write(' telescopi in trasmissione, con un rate di acquisizione delle tracce minore di 10 Hz:\n')
+        w.write(', '.join(map(str, schoolsTrackYellow)))
+        w.write('.\n\n')
+    elif len(schoolsTrackYellow) == 1:
+        w.write('- C\'e\' un telescopio in trasmissione, con un rate di acquisizione delle tracce minore di 10 Hz:\n')
+        w.write(schoolsTrackYellow[0])
+        w.write('.\n\n')
+
+    ################################################
+    # Write the list of schools with track rate very low (red)
     ################################################
     if len(schoolsTrackRed) > 1:
         w.write('- Ci sono ')
         w.write(str(len(schoolsTrackRed)))
-        w.write(' telescopi che sono in trasmissione, ma hanno un rate di acquisizione delle tracce minore di 5 Hz:\n')
+        w.write(' telescopi in trasmissione, ma hanno un rate di acquisizione delle tracce inferiore a 5 Hz:\n')
         w.write(', '.join(map(str, schoolsTrackRed)))
         w.write('.\n\n')
     elif len(schoolsTrackRed) == 1:
-        w.write('- C\'e\' un telescopio in trasmissione, ma ha un rate di acquisizione delle tracce minore di 5 Hz:\n')
+        w.write('- C\'e\' un telescopio in trasmissione, ma ha un rate di acquisizione delle tracce inferiore a 5 Hz:\n')
         w.write(schoolsTrackRed[0])
         w.write('.\n\n')
 
@@ -163,17 +181,20 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
     ################################################
     # Write the list of schools with elog red
     ################################################
-#    if len(schoolsElog) > 1:
-#        w.write('- Ci sono ')
-#        w.write(str(len(schoolsElog)))
-#        w.write(' scuole che non compilano l\'elogbook da piu\' di due giorni:\n')
-#        w.write(', '.join(map(str, schoolsElog)))
-#        w.write('.\n\n')
-#    elif len(schoolsElog) == 1:
-#        w.write('C\'e\' una scuola che non compila l\'elogbook da piu\' di due giorni:\n')
-#        w.write(schoolsElog[0])
-#        w.write('.\n')
+    if len(schoolsElog) > 1:
+        w.write('- Ci sono ')
+        w.write(str(len(schoolsElog)))
+        w.write(' scuole che non compilano l\'elogbook da piu\' di due giorni:\n')
+        w.write(', '.join(map(str, schoolsElog)))
+        w.write('.\n\n')
+    elif len(schoolsElog) == 1:
+        w.write('C\'e\' una scuola che non compila l\'elogbook da piu\' di due giorni:\n')
+        w.write(schoolsElog[0])
+        w.write('.\n')
 
+    ################################################
+    # Message about elog for all schools
+    ################################################
     w.write('Tutte le scuole sono invitate a compilare ogni giorno l\'e-logbook del Run 3\n')
     w.write('al seguente indirizzo: http://eee.centrofermi.it/elog/Run3\n\n')
 

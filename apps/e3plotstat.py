@@ -93,7 +93,7 @@ ax.fill_between(dates, 0, ntracks, facecolor='#87CEFA')
 ax.plot_date(dates, ntracks, color='#0088CC', linestyle='dotted', marker='o')
 fig.autofmt_xdate()
 fig.savefig(pathSaveFig + 'tracks.png')
-logger.info("Plot saved in " + str(pathSaveFig) + 'tracksStat.png')
+logger.info("Plot saved in " + str(pathSaveFig) + 'tracks.png')
 
 #
 # Make the webpage

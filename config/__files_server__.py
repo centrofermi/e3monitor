@@ -65,8 +65,8 @@ htmlReportFile = "report_message.html"
 pathWorkDir = '/opt/eee/e3monitor_work'
 
 # Path of Dqm and Dqmreport
-pathDqm = "/var/www/html/monitor/dqm"
-pathDqmreport = "/var/www/html/monitor/dqmreport"
+pathDqm = "/var/www/html/monitor/dqm2"
+pathDqmreport = "/var/www/html/monitor/dqmreport2"
 
 # Path of the directory where we save transferred files plots
 pathSaveFig = '/var/www/html/monitor/plots/'

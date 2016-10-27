@@ -74,7 +74,7 @@ cur = db.cursor()
 
 # Query for the number of tracks every month
 logger.info('Queries of the total number of Tracks')
-query = "SELECT SUM(num_track_events) from runs WHERE (run_date >= %s AND run_date <= %s) AND station_name = %s;"
+query = "SELECT SUM(num_track_events) from runs2 WHERE (run_date >= %s AND run_date <= %s) AND station_name = %s;"
 logger.info("Exec loop: " + query)
 for _firstDay, _lastDay in enumerate_month_dates(startRun, endRun):
     _lastDayStr = _lastDay.strftime("%Y-%m-%d")
