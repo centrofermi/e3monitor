@@ -78,7 +78,6 @@ New DB Interface
 """
 
 PAGE_SUBTILE_HTML = '<h2>[EEE Monitor info] <i>RUN 3 - Data taking - Day number: '
-PAGE_SUBTILE_HTML = '<h2>[EEE Monitor info] <i>RUN 3 - Commissioning - Day number: '
 
 TABELLA1_P2_HTML = """
 <p style="font-size:80%;">Questa tabella mostra la situazione dei telescopi in acquisizione:<br />

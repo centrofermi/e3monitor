@@ -49,6 +49,7 @@ EEE_ACTIVE_STATIONS = [
     'SAVO-02',
     'SAVO-03',
     'TERA-01',
+    'TORI-01',
     'TORI-02',
     'TORI-03',
     'TORI-04',

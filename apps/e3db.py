@@ -116,7 +116,7 @@ logger.info('Written ' + os.path.join(pathWorkDir, pklTransferFile))
 
 # Query for DQM: the last run data of each school
 logger.info('Query for the last run in DQM of each school')
-query = ("SELECT * FROM runs WHERE station_name = %s "
+query = ("SELECT * FROM runs2 WHERE station_name = %s "
          "AND processing_status_code=0 "
          "ORDER BY last_update DESC LIMIT 1;")
 logger.info('About to query: ' + query)

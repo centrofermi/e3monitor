@@ -95,7 +95,7 @@ def report_write(reportData,
     ################################################
     w.write('Shift Report di ')
     w.write(todayStr)
-    w.write(' - RUN 3 (commissioning): Giorno ')
+    w.write(' - RUN 3 (data taking): Giorno ')
     w.write(day_run())
     w.write('''
 ********************************************
