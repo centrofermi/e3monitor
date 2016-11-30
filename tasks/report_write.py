@@ -103,6 +103,11 @@ NEVER REPLY TO THIS LIST!!
 Please reply only to runcoord@centrofermi.it
 ********************************************
 
+Come annunciato nel meeting di collaborazione EEE aperto alle scuole di ieri,
+vi inviamo -da oggi- il report generato automaticamente sullo stato dei telescopi.
+IMPORTANTE: non rispondete mai a questo email, per qualsisi questione
+potete scrivere agli indirizzi riportati in fondo a questo messaggio.
+
 Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:\n
 ''')
 
@@ -225,17 +230,16 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
 EEE Monitor: http://eee.centrofermi.it/monitor
 E-logbook scuole: http://eee.centrofermi.it/elog/Run3
 
-<<<<< Per rispondere >>>>>
-Per rispondere al presente messaggio,
+<<<<< Per rispondere o fare domande >>>>>
+Per rispondere al presente messaggio, o per fare domande,
 scrivere solo a: runcoord@centrofermi.it
 
 <<<<< Per cancellarsi dalla mailing-list >>>>>
 Mandare un email con il subject "UNSUBSCRIBE"
 a: fabrizio.coccetti@centrofermi.it
 
-EEE-Monitor, grazie al suo sistema automatico di generazione degli shift report,
-ti augura una buona giornata e ti ricorda che e\' solo grazie a lui
-se tu non devi piu\' fare gli shift giornalieri.
+EEE Report, il sistema automatico di generazione degli Shift Report di EEE,
+ti saluta e ti augura una buona giornata!! 
 https://github.com/centrofermi/e3monitor
     ''')
 
