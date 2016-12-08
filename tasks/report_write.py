@@ -103,11 +103,6 @@ NEVER REPLY TO THIS LIST!!
 Please reply only to runcoord@centrofermi.it
 ********************************************
 
-Come annunciato nel meeting di collaborazione EEE aperto alle scuole di ieri,
-vi inviamo -da oggi- il report generato automaticamente sullo stato dei telescopi.
-IMPORTANTE: non rispondete mai a questo email, per qualsisi questione
-potete scrivere agli indirizzi riportati in fondo a questo messaggio.
-
 Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:\n
 ''')
 
