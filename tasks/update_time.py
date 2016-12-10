@@ -15,7 +15,7 @@ def compute_update():
     """Computes last update time for the webpage
     and return string with time and title
     """
-    updateTime = datetime.today().strftime("%H:%M - %a %d %B %Y")
+    updateTime = datetime.today().strftime("%H:%M - %A %d %B %Y")
     return (PAGE_TITLE_HTML +
             '<div class=\"time\">Ultimo aggiornamento: ore ' +
             updateTime +

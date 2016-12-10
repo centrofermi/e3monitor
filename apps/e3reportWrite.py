@@ -56,7 +56,7 @@ if __name__ == '__main__':
     logger.info('Started')
 
     # Set locale to Italian
-    locale.setlocale(locale.LC_ALL, 'it_IT')
+    locale.setlocale(locale.LC_ALL, 'it_IT.UTF-8')
 
     # Read the class E3Report data
     reportData = read_pickle(pathWorkDir, pklReportFile)

@@ -52,7 +52,7 @@ if __name__ == '__main__':
     logger.info('Started')
 
     # Set locale to Italian
-    locale.setlocale(locale.LC_ALL, 'it_IT')
+    locale.setlocale(locale.LC_ALL, 'it_IT.UTF-8')
 
     # Read the E3Monitor data
     monitorData = read_pickle(pathWorkDir, pklMonitorFile)

@@ -36,7 +36,7 @@ logger.info('Started')
 logger = logging.getLogger('plain')
 
 # Set locale to Italian
-locale.setlocale(locale.LC_ALL, 'it_IT')
+locale.setlocale(locale.LC_ALL, 'it_IT.UTF-8')
 
 # Reading Email Config File
 logger.info('Reading ' + emailConfigFile)

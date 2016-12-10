@@ -1,26 +1,26 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Mar 12 16:12:07 2015
+Created on Thu Feb  5 17:19:41 2015
 
 @author: Fabrizio Coccetti (fabrizio.coccetti@centrofermi.it) [www.fc8.net]
 
-Make the Shift Report xlsx file
-Code in use since the Database is in place
+OLD code. Used before the Database was in place
 """
 
 import xlsxwriter
 from datetime import datetime
 import logging
+from e3monitor.config.__files_server__ import (lastDataFile,
+                                               xlsxFile)
 
 
-def make_shift_report_xlsx(monitorData,
-                           EEE_ACTIVE_STATIONS,
-                           xlsxFile):
-    '''Make the Shift Report xlsx file
+def make_xlsx_file(lastEntryPerSchool, lastDqmreport, schoolsDqmreportList,
+                   dqmData, schoolNamesList):
+    '''Make the xlsx file with the Online main monitoring table
     '''
-    # Start logger
+
     logger = logging.getLogger('plain')
-    logger.info('Function make_shift_report_xlsx() started')
+    logger.info('Function make_xlsx_file() started')
 
     # Define NOW
     now = datetime.today()
@@ -35,6 +35,7 @@ def make_shift_report_xlsx(monitorData,
     worksheet.set_header('&CCentro Fermi')
 
     headers = ('Scuola',
+               'NOTE dello SHIFTER',
                'Data ultimo File\ntrasferito al CNAF',
                'Nome ultimo File\n trasferito al CNAF',
                'Numero Files trasferiti oggi',
@@ -82,7 +83,7 @@ def make_shift_report_xlsx(monitorData,
     worksheet.set_row(1, 30)
     worksheet.write(0,
                     0,
-                    "Shifter Report: " + unicode(now.strftime("%A %d %B %Y"), 'UTF-8'),
+                    "Shifter Report: " + now.strftime("%A %d %B %Y"),
                     fBigFonts)
     worksheet.write(1,
                     0,
@@ -112,12 +113,17 @@ def make_shift_report_xlsx(monitorData,
 
     row = 3
 
-    # Start loop for school names (sorted)
-    for schoolName in sorted(monitorData.get_allData()):
-
-        # Skip schools with no data
-        if schoolName not in EEE_ACTIVE_STATIONS:
-            continue
+    # Read file from CNAF
+    f = open(lastDataFile, 'r')
+    lines = f.readlines()
+    for line in lines:
+        (schoolName, timeTempData, hourData,
+         fileNameData, transferedFileNumber) = line.split()
+        timeTempData = timeTempData+hourData
+        try:
+            timeData = datetime.strptime(timeTempData, '%Y-%m-%d%H:%M')
+        except:
+            timeData = now
 
         # Start at the first Column for every row
         col = 0
@@ -129,87 +135,75 @@ def make_shift_report_xlsx(monitorData,
         worksheet.write(row, col, schoolName, fVcenterBold)
         col += 1
 
-        # Print Day of the last transferred file at CNAF
-        try:
-            worksheet.write_datetime(
-                row,
-                col,
-                monitorData.get_transferTs(schoolName),
-                fTimeStamp
-                )
-        except:
-            logger.info('Error for get_transferTs(' + schoolName + ')')
+        # Print NOTE delle Shifter
+        worksheet.write(row, col, 'Inserisci_le_tue_note', fNotes)
         col += 1
 
+        # Print Day of the last transferred file at CNAF
+        worksheet.write_datetime(row,
+                                 col,
+                                 timeData,
+                                 fTimeStamp)
+        col += 1
+
+        # # Print Time of the last transferred file at CNAF
+        # worksheet.write(row, col, hourData, fVcenter)
+        # col += 1
+
         # Print "Nome dell'ultimo File trasferito"
-        worksheet.write(
-            row,
-            col,
-            monitorData.get_transferFileName(schoolName),
-            fVcenter
-            )
+        worksheet.write(row, col, fileNameData, fVcenter)
         col += 1
 
         # Print "Numero di file trasferiti oggi"
-        worksheet.write_number(
-            row,
-            col,
-            int(monitorData.get_transferFileNum(schoolName)),
-            fNumInt
-            )
+        worksheet.write_number(row,
+                               col,
+                               int(transferedFileNumber),
+                               fNumInt)
         col += 1
 
         # Print "Ultima Entry nell'e-logbook delle Scuole"
         try:
-            worksheet.write_datetime(
-                row,
-                col,
-                monitorData.get_elogEntryTs(schoolName),
-                fTimeStamp
-                )
+            worksheet.write(row, col,
+                            lastEntryPerSchool[schoolName].strftime(
+                                "%H:%M %d/%m/%Y"), fVcenter)
         except:
-            logger.info('Error for get_elogEntryTs(' + schoolName + ')')
+            worksheet.write(row, col, '')
         col += 1
 
         # Print "Nome dell'ultimo File analizzato dal DQM"
         try:
-            worksheet.write(
-                row,
-                col,
-                monitorData.get_DqmFileName(schoolName),
-                fVcenter
-                )
+            _runNameInDqm = (schoolName +
+                             dqmData.run_date(
+                                 schoolName).strftime("-%Y-%m-%d-") +
+                             "{0:0>5}".format(int(
+                                 dqmData.run_id(schoolName))))
+            worksheet.write(row, col, _runNameInDqm, fVcenter)
         except:
-            logger.info('Error for get_DqmFileName(' + schoolName + ')')
+            worksheet.write(row, col, '')
         col += 1
 
         # Print triggers
         try:
-            worksheet.write_number(
-                row,
-                col,
-                float(monitorData.get_triggerRate(schoolName)),
-                fNumDec
-                )
+            worksheet.write_number(row,
+                                   col,
+                                   float(dqmData.trigger_rate(schoolName)),
+                                   fNumDec)
         except:
-            logger.info('Error for get_DqmFileName(' + schoolName + ')')
+            worksheet.write(row, col, '')
         col += 1
 
         # Print tracks (chi^2 < 10)
         try:
-            worksheet.write_number(
-                row,
-                col,
-                float(monitorData.get_trackRate(schoolName)),
-                fNumDec
-                )
+            worksheet.write_number(row,
+                                   col,
+                                   dqmData.track_rate(schoolName),
+                                   fNumDec)
         except:
-            logger.info('Error for get_DqmFileName(' + schoolName + ')')
+            worksheet.write(row, col, '')
         col += 1
 
-        # End of loop for schoolName. Now move to the next line
         row += 1
 
     workbook.close()
-    logger.info('Function make_shift_report_xlsx() finished')
+    logger.info('Function make_xlsx_file() finished')
     return True
