@@ -103,6 +103,9 @@ NEVER REPLY TO THIS LIST!!
 Please reply only to runcoord@centrofermi.it
 ********************************************
 
+NOVITA': e' possibile accedere all'archivio degli Shift Report Automatici inviati fino adesso:
+http://eee.centrofermi.it/monitor/run3reports
+
 Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:\n
 ''')
 
