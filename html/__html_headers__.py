@@ -57,6 +57,9 @@ ELOGBOOK dello SHIFTER</a>
 <a href="http://eee.centrofermi.it/monitor/report/">
 Automatic Shift REPORT
 </a>
+</td><td>
+<a href="http://eee.centrofermi.it/monitor/run3reports/">
+Automatic Shift Report ARCHIVE</a>
 </td></tr></table>
 <table>
 <tr class='gray'>
@@ -64,15 +67,17 @@ Automatic Shift REPORT
 <a href="http://eee.centrofermi.it/">
 Home Page EEE</a>
 </td><td>
-<a href="https://www1.cnaf.infn.it/eee/monitor/masterclass/">
+<a href="http://eee.centrofermi.it/monitor/masterclass/">
 Masterclass</a>
 </td><td>
 <a href="https://www1.cnaf.infn.it/eee/monitor/shifter_report.xlsx">
-Download the Excel Sheet
+Download the Excel Sheet</a>
 </td><td>
 <a href="https://www1.cnaf.infn.it/eee/e3rundb/">
-New DB Interface
-</a>
+New DB Interface</a>
+</td><td>
+<a href="http://eee.centrofermi.it/monitor/traffic">
+Connectivity Report</a>
 </td></tr></table>
 </div>
 """

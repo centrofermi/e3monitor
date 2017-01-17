@@ -87,10 +87,18 @@ ax.xaxis.set_major_formatter(monthsFmt)
 ax.set_ylabel("Number of tracks")
 ax.yaxis.set_major_locator(sci)
 ax.yaxis.set_major_formatter(sciFmt)
-ax.fill_between(dates, 0, ntracks, facecolor='#87CEFA')
+
+# Color Runs
+#run3 = [datetime(2016, 9, 30, 0, 0), datetime(2016, 10, 31, 0, 0)]
+#ax.fill_between(dates, 0, ntracks, where=dates<datetime(2015,12,8), facecolor='#87CEFA')
 #ax.fill_between(dates, 0, ntracks, facecolor='#99FF99')
 
+# Print graph
 ax.plot_date(dates, ntracks, color='#0088CC', linestyle='dotted', marker='o')
+ax.fill_between(dates, 0, ntracks, facecolor='#87CEFA')
+
+# Color Runs
+
 fig.autofmt_xdate()
 fig.savefig(pathSaveFig + 'tracks.png')
 logger.info("Plot saved in " + str(pathSaveFig) + 'tracks.png')
