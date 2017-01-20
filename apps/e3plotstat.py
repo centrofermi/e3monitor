@@ -72,6 +72,7 @@ dateRun2Start = md.date2num(datetime(2015,11,7))
 dateRun2End = md.date2num(datetime(2016,5,20))
 dateRun3Start = md.date2num(datetime(2016,11,1))
 dateRun3End = md.date2num(datetime(2017,6,30))
+dateRunToday = md.date2num(datetime.today())
 
 # Read pickle
 trackStat = read_pickle(pathWorkDir, pklStatFile)
@@ -111,14 +112,16 @@ ax.yaxis.set_major_formatter(sciFmt)
 ax.plot_date(dates, ntracks, color='#0088CC', linestyle='dotted', marker='o')
 ax.fill_between(dates, 0, ntracks, facecolor='#87CEFA',zorder=1)
 
+# ############
 # Color Runs
+# ###########
 yMin, yMax = ax.get_ylim()
 hText = 7e9
 # Pilot Run
 #ax.add_patch(patches.Rectangle((dateRun0Start, yMin), dateRun0End-dateRun0Start, yMax, fill=1, facecolor="#c0392b", alpha=.3))
 ax.annotate('PILOT RUN', xy=(dateRun0Start-5+(dateRun0End-dateRun0Start)/2,hText+1e9),size=13,rotation='vertical',weight='bold',color='#c0392b', backgroundcolor='white',zorder=10)
 ax.add_patch(patches.Rectangle((dateRun0Start, yMin), dateRun0End-dateRun0Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed',linewidth=2,zorder=20))
-ax.annotate('', xy=(dateRun0End,hText), xytext=(dateRun0Start, hText), arrowprops=dict(arrowstyle='<->',connectionstyle="arc3,rad=0.0",edgecolor='#c0392b',linewidth=0.3,zorder=10))
+#ax.annotate('', xy=(dateRun0End,hText), xytext=(dateRun0Start, hText), arrowprops=dict(arrowstyle='<->',connectionstyle="arc3,rad=0.0",edgecolor='#c0392b',linewidth=0.3,zorder=10))
 # Run 1
 ax.add_patch(patches.Rectangle((dateRun1Start, yMin), dateRun1End-dateRun1Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed',linewidth=2))
 ax.annotate('', xy=(dateRun1End,hText), xytext=(dateRun1Start, hText), arrowprops=dict(arrowstyle='<->',connectionstyle="arc3,rad=0.0",edgecolor='#c0392b',linewidth=2.5))
@@ -128,7 +131,9 @@ ax.add_patch(patches.Rectangle((dateRun2Start, yMin), dateRun2End-dateRun2Start,
 ax.annotate('', xy=(dateRun2End,hText), xytext=(dateRun2Start, hText), arrowprops=dict(arrowstyle='<->',connectionstyle="arc3,rad=0.0",edgecolor='#c0392b',linewidth=2.5))
 ax.annotate('RUN 2', xy=(dateRun2Start-35+(dateRun2End-dateRun2Start)/2,hText+1e9),size=18,weight='bold',color='#c0392b', backgroundcolor='#87CEFA')
 # Run 3
-ax.add_patch(patches.Rectangle((dateRun3Start, yMin), dateRun3End-dateRun3Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed',linewidth=2))
+ax.add_patch(patches.Rectangle((dateRun3Start, yMin), dateRunToday-dateRun3Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed',linewidth=2))
+ax.annotate('', xy=(dateRunToday-2,hText), xytext=(dateRun3Start, hText), arrowprops=dict(arrowstyle='<->',connectionstyle="arc3,rad=0.0",edgecolor='#c0392b',linewidth=2.5))
+ax.annotate('RUN 3', xy=(dateRun3Start-5+(dateRunToday-dateRun3Start)/2,hText+1e9),size=18,weight='bold',color='#c0392b', rotation='vertical',backgroundcolor='#87CEFA')
 
 # Save plot
 fig.autofmt_xdate()

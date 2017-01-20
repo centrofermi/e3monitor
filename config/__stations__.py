@@ -13,6 +13,7 @@ EEE_EXCLUDED_STATIONS = ['FRAS-01']
 """
 EEE_ACTIVE_STATIONS = [
     'ALTA-01',
+    'ANCO-01',
     'AREZ-01',
     'BARI-01',
     'BOLO-01',
@@ -64,6 +65,7 @@ EEE_ACTIVE_STATIONS = [
 """
 EEE_STATISTIC_STATIONS = [
     'ALTA-01',
+    'ANCO-01',
     'AREZ-01',
     'BARI-01',
     'BOLO-01',
