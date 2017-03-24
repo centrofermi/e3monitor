@@ -41,7 +41,7 @@ href="https://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
 
 PAGE_TITLE_HTML = """
 <h2><i>Progetto Extreme Energy Events - La Scienza nelle Scuole</i></h2>
-<h1>EEE Monitor</h1>
+<h1><span style="font-size:15px;font-style:italic;">[http://eee.centrofermi.it/monitor]</span><br />EEE MONITOR</h1>
 """
 
 TABELLA1_HTML = """
