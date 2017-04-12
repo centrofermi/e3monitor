@@ -95,7 +95,7 @@ sci = ticker.MultipleLocator(base=2000000000.0)
 sciFmt = ticker.ScalarFormatter()
 sciFmt.set_scientific(True)
 
-fig = plt.figure(figsize=(12, 6))
+fig = plt.figure(figsize=(16, 6))
 ax = fig.add_subplot(111)
 ax.autoscale_view()
 ax.grid(True)
@@ -132,7 +132,7 @@ ax.annotate('RUN 2', xy=(dateRun2Start-35+(dateRun2End-dateRun2Start)/2,hText+1e
 # Run 3
 ax.add_patch(patches.Rectangle((dateRun3Start, yMin), dateRunToday-dateRun3Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed',linewidth=2))
 ax.annotate('', xy=(dateRunToday-2,hText), xytext=(dateRun3Start, hText), arrowprops=dict(arrowstyle='<->',connectionstyle="arc3,rad=0.0",edgecolor='#c0392b',linewidth=2.5))
-ax.annotate('RUN 3', xy=(dateRun3Start-5+(dateRunToday-dateRun3Start)/2,hText+1e9),size=18,weight='bold',color='#c0392b', backgroundcolor='#87CEFA')
+ax.annotate('RUN 3', xy=(dateRun3Start-35+(dateRunToday-dateRun3Start)/2,hText+1e9),size=18,weight='bold',color='#c0392b', backgroundcolor='#87CEFA')
 
 # Save plot
 fig.autofmt_xdate()
