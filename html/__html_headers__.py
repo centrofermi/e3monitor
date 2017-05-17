@@ -70,10 +70,10 @@ Home Page EEE</a>
 <a href="http://eee.centrofermi.it/monitor/masterclass/">
 Masterclass</a>
 </td><td>
-<a href="https://www1.cnaf.infn.it/eee/monitor/shifter_report.xlsx">
+<a href="https://iatw.cnaf.infn.it/eee/monitor/shifter_report.xlsx">
 Download the Excel Sheet</a>
 </td><td>
-<a href="https://www1.cnaf.infn.it/eee/e3rundb/">
+<a href="https://iatw.cnaf.infn.it/eee/e3rundb/">
 New DB Interface</a>
 </td><td>
 <a href="http://eee.centrofermi.it/monitor/traffic">
