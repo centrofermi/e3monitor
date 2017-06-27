@@ -53,11 +53,12 @@ def make_webpage_index(monitorData,
     w.write(TABELLA1_HTML)
 
     # Day of run 
+    ### Enable following line during RUN 4
     #w.write(day_of_run())
+
     ### Generic message
-    w.write('<h2 style="margin:0;">[EEE Monitor] <i>RUN 3 ended on May 31, 2017.</i></h2>')
-    w.write('<h2 style="margin:0;">[EEE Monitor info] <i>RUN 4 will start in autumn.</i></h2>')
-    #w.write('<h3 style="margin-top:3px;"><i>RUN 3 ended on May 30, 2017. RUN 4 will start in autumn.</i></h3>')
+    w.write('<h2 style="margin:0;"><i>[EEE Monitor info] RUN 3 ended on May 31, 2017</i></h2>')
+    w.write('<h2 style="margin:0;"><i>[EEE Monitor info] RUN 4 will start in autumn</i></h2>')
 
     # Number of tracks
     w.write("<h3>Total number of candidate tracks (X^2<10) in the database: ")
