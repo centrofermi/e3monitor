@@ -23,6 +23,14 @@ def compute_update():
             'e3monitor</a>]</div>')
 
 
+def time_update():
+    """Computes last update time for the webpage
+    and return string with time
+    """
+    timeUpdate = datetime.today().strftime("%H:%M - %A %d %B %Y")
+    return (timeUpdate)
+
+
 def day_of_run():
     """Computes the day of the run
     """

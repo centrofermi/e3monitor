@@ -171,3 +171,38 @@ BOTTOM_HTML = """
 </body>
 </html>
 """
+
+DQM_HEADER_HTML = """<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="it" xml:lang="it" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="author" content="Fabrizio Coccetti" />
+<meta name="generator" content="e3monitor" />
+<meta http-equiv="REFRESH" content="60"/>
+<meta http-equiv="Expires" content="0"/>
+<meta http-equiv="PRAGMA" content="NO-CACHE"/>
+<title>EEE Monitor -
+Museo Storico della Fisica e Centro Studi e Ricerche Enrico Fermi</title>
+<link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+<link rel="stylesheet" type="text/css"
+href="https://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+<link href="e3monitor.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="page-wrap">
+    <p style="margin-bottom:6px;">
+    <img src="img/banner_centro_fermi.jpg"
+    alt="banner CF" width="800" /></p>
+"""
+
+DQM_TITLE_HTML = """
+<h2><i>Progetto Extreme Energy Events - La Scienza nelle Scuole</i></h2>
+<h1>Coincidences DQM</h1>
+"""
+
+DQM_BOTTOM_HTML = """
+</div> <!-- close page-wrap -->
+</body>
+</html>
+"""

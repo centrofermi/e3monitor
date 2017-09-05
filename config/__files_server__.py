@@ -73,3 +73,10 @@ pathSaveFig = '/var/www/html/monitor/plots/'
 
 # Path of the MIDAS elogbook .log files
 elogBookPath = "/usr/local/elog/logbooks/Run3/"
+
+# Path of the directory of Coincidences DQM
+coincidencesDqmDir = "/home/analisi/dqmcoincidences/"
+
+# Name of the webpage for the Coincidences DQM Summary
+coincidencesDqmFile = "/var/www/html/monitor/coincidences.html"
+
