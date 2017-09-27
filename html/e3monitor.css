@@ -98,6 +98,24 @@ tr.red {
 tr.yellow {
  background-color: #FFC;
 }
+tr.red_ib {
+ background-color: #CFC;
+}
+tr.yellow_ib {
+ background-color: #CFC;
+}
+td.gray {
+ background-color: #EEE;
+}
+td.green {
+ background-color: #9F9;
+}
+td.yellow {
+ background-color: #FFC;
+}
+td.red {
+ background-color: #FCC;
+}
 .small {
  font-size: 6pt;
  color: #fff;
@@ -116,6 +134,12 @@ span.yellow {
 }
 span.red {
     color: #C00;
+}
+span.yellow_ib {
+    color: #333;
+}
+span.red_ib {
+    color: #333;
 }
 #menu a {
   font-weight: bold;

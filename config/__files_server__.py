@@ -56,7 +56,7 @@ pklStatFile = "stat_data.pkl"
 pklReportFile = "report_data.pkl"
 
 # Directory for the storage of the report
-archiveReportDir = "/var/www/html/monitor/run3reports/"
+archiveReportDir = "/var/www/html/monitor/run4reports/"
 
 # Name of the html File with the analysis of the report
 htmlReportFile = "report_message.html"
@@ -72,7 +72,7 @@ pathDqmreport = "/var/www/html/monitor/dqmreport2"
 pathSaveFig = '/var/www/html/monitor/plots/'
 
 # Path of the MIDAS elogbook .log files
-elogBookPath = "/usr/local/elog/logbooks/Run3/"
+elogBookPath = "/usr/local/elog/logbooks/Run4/"
 
 # Path of the directory of Coincidences DQM
 coincidencesDqmDir = "/home/analisi/dqmcoincidences/"

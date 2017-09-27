@@ -41,15 +41,15 @@ href="https://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
 
 PAGE_TITLE_HTML = """
 <h2><i>Progetto Extreme Energy Events - La Scienza nelle Scuole</i></h2>
-<h1><span style="font-size:15px;font-style:italic;">[http://eee.centrofermi.it/monitor]</span><br />EEE MONITOR</h1>
+<h1><span style="font-size:16px;font-style:italic;">[ http://eee.centrofermi.it/monitor ]</span><br />EEE MONITOR</h1>
 """
 
 TABELLA1_HTML = """
 <div id="menu">
 <table>
 <tr class='gray'>
-<td><a href="http://eee.centrofermi.it/elog/Run3">
-ELOGBOOK delle SCUOLE per il RUN 3</a>
+<td><a href="http://eee.centrofermi.it/elog/Run4">
+ELOGBOOK delle SCUOLE per il RUN 4</a>
 </td><td>
 <a href="http://eee.centrofermi.it/elog/Shifter">
 ELOGBOOK dello SHIFTER</a>
@@ -82,7 +82,7 @@ Connectivity Report</a>
 </div>
 """
 
-PAGE_SUBTILE_HTML = '<h2>[EEE Monitor] <i>RUN 3 - Data taking - Day number: '
+PAGE_SUBTILE_HTML = '<h2><i>[EEE Monitor] RUN 4 - Countdown - Day number: '
 
 TABELLA1_P2_HTML = """
 <p style="font-size:80%;">Questa tabella mostra la situazione dei telescopi in acquisizione:<br />

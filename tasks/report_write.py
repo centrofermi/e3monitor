@@ -95,7 +95,7 @@ def report_write(reportData,
     ################################################
     w.write('Shift Report di ')
     w.write(todayStr)
-    w.write(' - RUN 3 (data taking): Giorno ')
+    w.write(' - RUN 4 (data taking): Giorno ')
     w.write(day_run())
     w.write('''
 ********************************************
@@ -195,8 +195,8 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
     ################################################
     # Message about elog for all schools
     ################################################
-    w.write('Tutte le scuole sono invitate a compilare ogni giorno l\'e-logbook del Run 3\n')
-    w.write('al seguente indirizzo: http://eee.centrofermi.it/elog/Run3\n\n')
+    w.write('Tutte le scuole sono invitate a compilare ogni giorno l\'e-logbook del Run 4\n')
+    w.write('al seguente indirizzo: http://eee.centrofermi.it/elog/Run4\n\n')
 
     ################################################
     # Write Messages for schools if any
@@ -223,9 +223,9 @@ Alle ore 8:00 di questa mattina, la situazione delle scuole risulta la seguente:
     w.write('''
 <<<<< Link utili >>>>>
 EEE Monitor: http://eee.centrofermi.it/monitor
-E-logbook scuole: http://eee.centrofermi.it/elog/Run3
+E-logbook scuole: http://eee.centrofermi.it/elog/Run4
 Archivio degli Shift Report Automatici inviati fino adesso:
-http://eee.centrofermi.it/monitor/run3reports
+http://eee.centrofermi.it/monitor/run4reports
 
 <<<<< Per rispondere o fare domande >>>>>
 Per rispondere al presente messaggio, o per fare domande,
