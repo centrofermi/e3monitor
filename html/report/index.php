@@ -36,6 +36,7 @@ Inserisci il messaggio relativo al tuo Telescopio
   <select name="school">
    <option selected disabled>Elenco dei telescopi</option>
    <option value="ALTA-01">ALTA-01</option>
+   <option value="ANCO-01">ANCO-01</option>
    <option value="AREZ-01">AREZ-01</option>
    <option value="BARI-01">BARI-01</option>
    <option value="BOLO-01">BOLO-01</option>
@@ -45,6 +46,7 @@ Inserisci il messaggio relativo al tuo Telescopio
    <option value="CAGL-01">CAGL-01</option>
    <option value="CAGL-02">CAGL-02</option>
    <option value="CAGL-03">CAGL-03</option>
+   <option value="CARI-01">CARI-01</option>
    <option value="CATA-01">CATA-01</option>
    <option value="CATA-02">CATA-02</option>
    <option value="CATZ-01">CATZ-01</option>
@@ -70,9 +72,12 @@ Inserisci il messaggio relativo al tuo Telescopio
    <option value="ROMA-01">ROMA-01</option>
    <option value="ROMA-02">ROMA-02</option>
    <option value="SALE-01">SALE-01</option>
+   <option value="SALE-02">SALE-02</option>
    <option value="SAVO-01">SAVO-01</option>
    <option value="SAVO-02">SAVO-02</option>
    <option value="SAVO-03">SAVO-03</option>
+   <option value="SIEN-01">SIEN-01</option>
+   <option value="SIEN-02">SIEN-02</option>
    <option value="TERA-01">TERA-01</option>
    <option value="TORI-02">TORI-02</option>
    <option value="TORI-03">TORI-03</option>
@@ -82,6 +87,7 @@ Inserisci il messaggio relativo al tuo Telescopio
    <option value="TRIN-01">TRIN-01</option>
    <option value="VIAR-01">VIAR-01</option>
    <option value="VIAR-02">VIAR-02</option>
+   <option value="VICE-01">VICE-01</option>
   </select>
 </td></tr><tr class='green'><td style="text-align:left;">
 2. Inserisci il testo del messaggio:<br />
@@ -89,6 +95,14 @@ Inserisci il messaggio relativo al tuo Telescopio
 </td></tr><tr style="margin:0px;padding:0px;"><td class="button">
   <input class="button" type="submit" name="submit" value="Manda il messaggio">  
 </form>
+
+</td></tr><tr><td style="text-align:left;">
+<h2 style="text-align:left;">Messaggi attivi</h2>
+<?php
+$output = shell_exec('/var/www/html/monitor/report/report_extract_message.py');
+echo "<pre>$output</pre>";
+?>
+
 </td></tr><tr><td style="text-align:left;">
 <h2 style="text-align:left;">Note</h2>
 <p>
