@@ -55,10 +55,10 @@ ELOGBOOK delle SCUOLE per il RUN 4</a>
 ELOGBOOK dello SHIFTER</a>
 </td><td>
 <a href="http://eee.centrofermi.it/monitor/report/">
-Automatic Shift REPORT
+Set Automatic Shift REPORT Messages
 </a>
 </td><td>
-<a href="http://eee.centrofermi.it/monitor/run3reports/">
+<a href="http://eee.centrofermi.it/monitor/run4reports/">
 Automatic Shift Report ARCHIVE</a>
 </td></tr></table>
 <table>

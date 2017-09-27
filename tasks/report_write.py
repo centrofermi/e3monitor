@@ -47,7 +47,7 @@ def report_write(reportData,
 
     # Define now
     today = datetime.today()
-    todayStr = today.strftime("%a %d %B %Y")
+    todayStr = today.strftime("%A %d %B %Y")
 
     # Start loop for school names (sorted)
     for schoolName in sorted(reportData.get_allData()):
