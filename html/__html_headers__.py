@@ -78,6 +78,8 @@ New DB Interface</a>
 </td><td>
 <a href="http://eee.centrofermi.it/monitor/traffic">
 Connectivity Report</a>
+</td><td>
+<a href="http://eee.centrofermi.it/elog/Query">Data Request</a>
 </td></tr></table>
 </div>
 """

@@ -7,7 +7,7 @@ Modified on 17 Nov 2014
 
 """ List of EEE Stations to exclude from Writing files in Monitoring
 """
-EEE_EXCLUDED_STATIONS = ['FRAS-01']
+EEE_EXCLUDED_STATIONS = ['FRAS-01', 'VICE-01']
 
 """ List of EEE Active Stations
 """
@@ -63,7 +63,8 @@ EEE_ACTIVE_STATIONS = [
     'TREV-01',
     'TRIN-01',
     'VIAR-01',
-    'VIAR-02'
+    'VIAR-02',
+    'VICE-01'
 ]
 
 """ List of EEE Stations for statistics
@@ -119,7 +120,8 @@ EEE_STATISTIC_STATIONS = [
     'TREV-01',
     'TRIN-01',
     'VIAR-01',
-    'VIAR-02'
+    'VIAR-02',
+    'VICE-01'
 ]
 
 """ Unique ID assigned to each station.
@@ -171,5 +173,6 @@ EEE_STATION_DICT = {
     'TREV-01': 44,
     'TRIN-01': 45,
     'VIAR-01': 46,
-    'VIAR-02': 47
+    'VIAR-02': 47,
+    'VICE-01': 48
 }
