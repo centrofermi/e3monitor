@@ -18,16 +18,16 @@ Float_t windowAlignment2 = 10000; // in ns (cut signal and background)
 
 // (1)
 // setting for histos
-const Int_t nbint = 100;
+const Int_t nbint = 50;
 const Float_t tmin = -10000; //ns
 const Float_t tmax = 10000; //ns
 const Float_t maxwidth = 400;
 
 // (2)
 // periods
-Int_t yearRange[2] = {2014,2017};
-Int_t monthRange[2] = {11,12};
-Int_t dayRange[2] = {1,1};
+Int_t yearRange[2] = {2014,2020};
+Int_t monthRange[2] = {11,6};
+Int_t dayRange[2] = {1,31};
 
 // thresholds for good runs
 Int_t hitevents[2] = {10000,10000};
@@ -48,7 +48,7 @@ Int_t ndeadTopMax[2] = {23,23};
 Int_t ndeadTopMin[2] = {0,0};
 
 // requirement on the number of satellites in the run (average)
-Float_t minAvSat[2] = {0.,0.};
+Float_t minAvSat[2] = {4.,4.};
 Float_t maxAvSat[2] = {10,10};
 
 // time difference between weather info and the start of the run (it is negative!) allowed (in seconds)
@@ -76,7 +76,7 @@ Bool_t recomputeThetaRel = kTRUE; // if true correction below are applied to adj
 Float_t phi1Corr = 27; // in degrees (the one stored in the header + refinements)
 Float_t phi2Corr = 297; // in degrees
 
-void doCoincTORI_03_04new(const char *fileIn="coincTORI_0304n.root"){
+Float_t doCoinc(const char *fileIn="coincTORI_0304n.root",TCanvas *cout=NULL,Float_t &rate,Float_t &rateErr){
 
   // Print settings
   printf("SETTINGS\nAnalyze output from new Analyzer\n");
@@ -154,7 +154,7 @@ void doCoincTORI_03_04new(const char *fileIn="coincTORI_0304n.root"){
   Int_t nStripDeadTop[2][nyearmax][12][31][500];
 
   Float_t nstripDeadB[2]={0,0},nstripDeadM[2]={0,0},nstripDeadT[2]={0,0};
- 
+
   // sat info
   Float_t NsatAv[2][nyearmax][12][31][500];
 
@@ -459,10 +459,10 @@ void doCoincTORI_03_04new(const char *fileIn="coincTORI_0304n.root"){
   TF1 *fpol0 = new TF1("fpol0","pol0");
   hnsigpeak->Fit(fpol0);
 
-  if(fpol0->GetParameter(0) > 0) hModulation->Scale(fpol0->GetParameter(0));
-  if(fpol0->GetParameter(0) > 0) hModulation2->Scale(fpol0->GetParameter(0));
-  if(fpol0->GetParameter(0) > 0) hModulationAv->Scale(fpol0->GetParameter(0));
-  if(fpol0->GetParameter(0) > 0) hModulationAvCorr->Scale(fpol0->GetParameter(0));
+  hModulation->Scale(fpol0->GetParameter(0));
+  hModulation2->Scale(fpol0->GetParameter(0));
+  hModulationAv->Scale(fpol0->GetParameter(0));
+  hModulationAvCorr->Scale(fpol0->GetParameter(0));
   
   TF1 *fmod = new TF1("fmod","[0] + [1]*cos((x-[2])*TMath::DegToRad())"); 
   hModulationAv->Fit(fmod); 
@@ -481,6 +481,8 @@ void doCoincTORI_03_04new(const char *fileIn="coincTORI_0304n.root"){
   hAngle->Add(hAngleBack,-1);
 
   printf("bin counting: SIGNAL = %f +/- %f\n",hDeltaPhi->Integral()-hDeltaPhiBack->Integral(),sqrt(hDeltaPhi->Integral()));
+  rate = (hDeltaPhi->Integral()-hDeltaPhiBack->Integral())/nsecGR*86400;
+  rateErr = sqrt(hDeltaPhi->Integral())/nsecGR*86400;
 
 
   Float_t val,eval;
@@ -493,13 +495,14 @@ void doCoincTORI_03_04new(const char *fileIn="coincTORI_0304n.root"){
   ff->SetParName(4,"bin width");
   ff->SetParameter(0,42369);
   ff->SetParameter(1,0);
-  ff->SetParLimits(2,200,maxwidth);
+  ff->SetParLimits(2,10,maxwidth);
   ff->SetParameter(2,350); // fix witdh if needed
   ff->SetParameter(3,319);
   ff->FixParameter(4,(tmax-tmin)/nbint); // bin width
 
   ff->SetNpx(1000);
   
+  if(cout) cout->cd();
   h->Fit(ff,"EI","",-10000,10000);
   
   val = ff->GetParameter(2);
@@ -508,7 +511,8 @@ void doCoincTORI_03_04new(const char *fileIn="coincTORI_0304n.root"){
   printf("significance = %f\n",ff->GetParameter(0)/sqrt(ff->GetParameter(0) + ff->GetParameter(3)));
 
   h->Draw();
-  
+  new TCanvas;
+
   TF1 *func1 = (TF1 *)  h->GetListOfFunctions()->At(0);
   
   func1->SetLineColor(2);
@@ -556,6 +560,8 @@ void doCoincTORI_03_04new(const char *fileIn="coincTORI_0304n.root"){
   hRunCut[0]->Write();
   hRunCut[1]->Write();
   fo->Close();
+
+  return nsecGR*1./86400;
   
 }
 
