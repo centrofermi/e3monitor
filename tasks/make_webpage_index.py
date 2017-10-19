@@ -130,10 +130,10 @@ def make_webpage_index(monitorData,
 
         # Print School Name in format: TEST-01
         w.write('<td>')
-        w.write('<span class=\"bold big\">')
+        w.write('<span class=\"bold bigtab\">')
         w.write(schoolName)
         w.write('</span>')
-        w.write('<span class=\"small\">')
+        w.write('<span class=\"smalltab\">')
         w.write('<br />')
         w.write('<a href=\"dqm2/datatransfer/eventdisplay/')
         w.write(schoolName + 'last.html\">')
@@ -183,7 +183,7 @@ def make_webpage_index(monitorData,
             w.write(str(monitorData.get_transferFileNum(schoolName)))
         except:
             w.write('*')
-        w.write('<br /><a href=\"plots/' + schoolName + '.png\">[History]</a>')
+        w.write('<br /><a href=\"plots/' + schoolName + '.png\"><span class=\"smalltab\">[History]</span></a>')
         w.write('</td>')
 
         # Print "Ultima Entry nell'e-logbook delle Scuole"
@@ -229,7 +229,7 @@ def make_webpage_index(monitorData,
             w.write(_dqmreportTs.strftime("%d/%m"))
             w.write('</a> <br />')
             w.write('<a href =\"dqmreport2/' + schoolName + '/?C=M;O=D\">')
-            w.write('[History]')
+            w.write('<span class=\"smalltab\">[History]</span>')
             w.write('</a>')
         except:
             w.write('*')

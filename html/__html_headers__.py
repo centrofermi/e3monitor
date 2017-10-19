@@ -34,14 +34,18 @@ href="https://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
 </head>
 <body>
 <div id="page-wrap">
-    <p style="margin-bottom:6px;">
-    <img src="img/banner_centro_fermi.jpg"
-    alt="banner CF" width="800" /></p>
 """
 
 PAGE_TITLE_HTML = """
+<table>
+<tr><td>
 <h2><i>Progetto Extreme Energy Events - La Scienza nelle Scuole</i></h2>
-<h1><span style="font-size:16px;font-style:italic;">[ http://eee.centrofermi.it/monitor ]</span><br />EEE MONITOR - DQM</h1>
+<h1>EEE MONITOR - DQM</h1>
+<div style="font-size:16px;font-style:italic;">[ eee.centrofermi.it/monitor ]</div>
+</td><td>
+<img src="img/logo_centrofermi.png" alt="Logo Centro Fermi" width="200px">
+</td></tr>
+</table>
 """
 
 TABELLA1_HTML = """
