@@ -130,8 +130,14 @@ def make_webpage_index(monitorData,
 
         # Print School Name in format: TEST-01
         w.write('<td>')
-        w.write('<span class=\"bold\">')
+        w.write('<span class=\"bold big\">')
         w.write(schoolName)
+        w.write('</span>')
+        w.write('<span class=\"small\">')
+        w.write('<br />')
+        w.write('<a href=\"dqm2/datatransfer/eventdisplay/')
+        w.write(schoolName + 'last.html\">')
+        w.write('[Event Display]</a>')
         w.write('</span>')
         w.write('</td>')
 

@@ -117,11 +117,17 @@ td.red {
  background-color: #FCC;
 }
 .small {
- font-size: 6pt;
+ font-size: 10px;
  color: #fff;
 }
 span.bold {
   font-weight: bold;
+}
+span.big {
+  font-size: 16px;
+}
+span.small {
+  font-size: 11px;
 }
 span.gray {
     color: #333;
