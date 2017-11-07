@@ -53,10 +53,10 @@ TABELLA1_HTML = """
 <table>
 <tr class='gray'>
 <td><a href="http://eee.centrofermi.it/elog/Run4">
-ELOGBOOK delle SCUOLE per il RUN 4</a>
+SCHOOLs ELOGBOOK for RUN 4</a>
 </td><td>
 <a href="http://eee.centrofermi.it/elog/Shifter">
-ELOGBOOK dello SHIFTER</a>
+SHIFTERs ELOGBOOK</a>
 </td><td>
 <a href="http://eee.centrofermi.it/monitor/report/">
 Set Automatic Shift REPORT Messages
@@ -106,14 +106,14 @@ cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di due giorni
 o con tracce (X^2<10) minori di 5Hz nell'ultimo run analizzato.</p>
 
 <table>
-<tr><th>Scuola</th>
-<th>Giorno</th>
-<th>Ora</th>
-<th class="small">Nome dell'ultimo<br />File trasferito</th>
-<th class="small">Numero Files<br />trasferiti oggi</th>
-<th class="small">Ultima Entry<br />nell'e-logbook<br />delle Scuole<br />del Run</th>
-<th class="small">Nome dell'ultimo<br />File analizzato<br />dal DQM</th>
-<th>Report<br />giornaliero<br />DQM</th>
+<tr><th>School</th>
+<th>Day</th>
+<th>Time</th>
+<th class="small">Name of the last<br />trasferred File</th>
+<th class="small">Number of Files<br />trasferred today</th>
+<th class="small">Last Entry<br />in the e-logbook<br />of the Schools</th>
+<th class="small">Name of the last<br />File analyzed<br />by DQM</th>
+<th>DQM<br />daily<br />report</th>
 <th class="small">RATE of<br />Triggers</br />
 for the<br />last Run<br />in DQM</th>
 <th class="small">RATE of<br />Tracks<br />
