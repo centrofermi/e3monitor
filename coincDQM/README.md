@@ -21,3 +21,11 @@ If path changes, please fix it in
 coincDQM.sh
 doall.sh
 draw.C
+
+
+Crontab
+Analysis-User machine (user analysis)
+0 12 * * * cd /home/analisi/coincDQM;./doall.sh
+
+Monitor machine (user analysis)
+30 12 * * * /home/analisi/coincDQM/copyOnWeb.sh
