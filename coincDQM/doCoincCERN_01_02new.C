@@ -35,7 +35,7 @@ Int_t dayRange[2] = {1,30};
 // thresholds for good runs
 Int_t hitevents[2] = {1000,1000};
 Float_t fracGT[2] = {0.6,0.6};
-Float_t rateMin[2] = {20,20};
+Float_t rateMin[2] = {10,10};
 Float_t rateMax[2] = {100,100};
 
 // old cut on the missing rate (replaced by the number of dead strips)
@@ -146,7 +146,7 @@ Float_t doCoinc(const char *fileIn="coincCERN_0102n.root",TCanvas *cout=NULL,Flo
   TTree *tel[2];
   tel[0] = (TTree *) f->Get("treeTel1");
   tel[1] = (TTree *) f->Get("treeTel2");
-  
+
   TTree *telC = (TTree *) f->Get("treeTimeCommon");
   
   // quality info of runs
@@ -185,6 +185,7 @@ Float_t doCoinc(const char *fileIn="coincCERN_0102n.root",TCanvas *cout=NULL,Flo
 
 	Int_t aday = (tel[i]->GetLeaf("year")->GetValue()-2014) * 1000 + tel[i]->GetLeaf("month")->GetValue()*50 + tel[i]->GetLeaf("day")->GetValue();
 
+        if(i==1) printf("%f %f\n",rateGT , rateMin[i]);
 
 	if(aday < adayMin || aday > adayMax){
 	  hRunCut[i]->Fill("DateRange",1); continue;}
@@ -196,6 +197,8 @@ Float_t doCoinc(const char *fileIn="coincCERN_0102n.root",TCanvas *cout=NULL,Flo
 	  hRunCut[i]->Fill("rateGT",1); continue;} // cut on the rate
 	if(tel[i]->GetLeaf("run")->GetValue() > 499){
 	  hRunCut[i]->Fill("RunNumber",1); continue;} // run < 500
+
+        if(i==1) printf("GR\n");
 
 	Float_t missinghitfrac = (tel[i]->GetLeaf("ratePerRun")->GetValue()-tel[i]->GetLeaf("rateHitPerRun")->GetValue()-2)/(tel[i]->GetLeaf("ratePerRun")->GetValue()-2);
 	if(missinghitfrac < minmissingHitFrac[i] || missinghitfrac > maxmissingHitFrac[i]){
@@ -212,7 +215,7 @@ Float_t doCoinc(const char *fileIn="coincCERN_0102n.root",TCanvas *cout=NULL,Flo
 	  hRunCut[i]->Fill("DeadStripMid",1); continue;}
 	if(nStripDeadTop[i][Int_t(tel[i]->GetLeaf("year")->GetValue())-2014][Int_t(tel[i]->GetLeaf("month")->GetValue())][Int_t(tel[i]->GetLeaf("day")->GetValue())][Int_t(tel[i]->GetLeaf("run")->GetValue())] > ndeadTopMax[i] || nStripDeadTop[i][Int_t(tel[i]->GetLeaf("year")->GetValue())-2014][Int_t(tel[i]->GetLeaf("month")->GetValue())][Int_t(tel[i]->GetLeaf("day")->GetValue())][Int_t(tel[i]->GetLeaf("run")->GetValue())] < ndeadTopMin[i]){
 	  hRunCut[i]->Fill("DeadStripTop",1); continue;}
-
+     
 	// nsat averaged  per run
 	if(tel[i]->GetLeaf("nSat")) NsatAv[i][Int_t(tel[i]->GetLeaf("year")->GetValue())-2014][Int_t(tel[i]->GetLeaf("month")->GetValue())][Int_t(tel[i]->GetLeaf("day")->GetValue())][Int_t(tel[i]->GetLeaf("run")->GetValue())] = tel[i]->GetLeaf("nSat")->GetValue();
 
@@ -231,12 +234,14 @@ Float_t doCoinc(const char *fileIn="coincCERN_0102n.root",TCanvas *cout=NULL,Flo
 	// Set good runs
 	runstatus[i][Int_t(tel[i]->GetLeaf("year")->GetValue())-2014][Int_t(tel[i]->GetLeaf("month")->GetValue())][Int_t(tel[i]->GetLeaf("day")->GetValue())][Int_t(tel[i]->GetLeaf("run")->GetValue())] = kTRUE;
 	effTel[i][Int_t(tel[i]->GetLeaf("year")->GetValue())-2014][Int_t(tel[i]->GetLeaf("month")->GetValue())][Int_t(tel[i]->GetLeaf("day")->GetValue())][Int_t(tel[i]->GetLeaf("run")->GetValue())] = 1;//rateGT/refRate[i];
+
       }
     }
   }
   else{
     telC = NULL;
   }
+
   printf("Start to process correlations\n");
   Int_t n = t->GetEntries();
   // counter for seconds

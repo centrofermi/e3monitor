@@ -6,3 +6,5 @@ rm summary.txt
 cat summary*-*.txt >>summary.txt
 
 cp summary.txt /home/analisi/dqmcoincidences/
+
+./createmain.sh
