@@ -77,8 +77,8 @@ Masterclass</a>
 <a href="https://iatw.cnaf.infn.it/eee/monitor/shifter_report.xlsx">
 Download the Excel Sheet</a>
 </td><td>
-<a href="https://iatw.cnaf.infn.it/eee/e3rundb/">
-New DB Interface</a>
+<a href="https://iatw.cnaf.infn.it/eee/monitor/coincidences.html">
+Coincidences</a>
 </td><td>
 <a href="http://eee.centrofermi.it/monitor/traffic">
 Connectivity Report</a>
