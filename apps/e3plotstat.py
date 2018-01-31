@@ -137,7 +137,7 @@ ax.annotate('RUN 3', xy=(dateRun3Start-35+(dateRun3End-dateRun3Start)/2,hText+1e
 # FOLLOWING THREE LINES for RUN 4
 ax.add_patch(patches.Rectangle((dateRun4Start, yMin), dateRunToday-dateRun4Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed',linewidth=2))
 ax.annotate('', xy=(dateRunToday-2,hText), xytext=(dateRun4Start, hText), arrowprops=dict(arrowstyle='<->',connectionstyle="arc3,rad=0.0",edgecolor='#c0392b',linewidth=2.5))
-ax.annotate('RUN 4', xy=(dateRun4Start-35+(dateRunToday-dateRun3Start)/2,hText+1e9),size=18,weight='bold',color='#c0392b', backgroundcolor='#87CEFA')
+ax.annotate('RUN 4', xy=(dateRun4Start-40+(dateRunToday-dateRun4Start)/2,hText+1e9),size=18,weight='bold',color='#c0392b', backgroundcolor='#87CEFA')
 # Save plot
 fig.autofmt_xdate()
 fig.savefig(pathSaveFig + 'tracks.png')
