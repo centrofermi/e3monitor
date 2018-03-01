@@ -23,6 +23,7 @@ from e3monitor.config.__limits__ import (
     )
 from e3monitor.html.__html_headers__ import (
     HEADER_HTML,
+    TABELLA0_HTML,
     TABELLA1_HTML,
     TABELLA1_P2_HTML,
     FOOTER_HTML,
@@ -50,7 +51,7 @@ def make_webpage_index(monitorData,
     # Write html headers and titles of the table
     w.write(HEADER_HTML)
     w.write(compute_update())
-    w.write(TABELLA1_HTML)
+    w.write(TABELLA0_HTML)
 
     # Day of run 
     ### Generic message
@@ -61,6 +62,7 @@ def make_webpage_index(monitorData,
     # Number of tracks
     w.write("<h3>Total number of candidate tracks (X^2<10) in the database: ")
     w.write(str(totalTracks) + "</h3>")
+    w.write(TABELLA1_HTML)
     w.write(TABELLA1_P2_HTML)
 
     # Start loop for school names (sorted)

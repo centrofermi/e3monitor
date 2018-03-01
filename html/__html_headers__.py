@@ -50,8 +50,16 @@ PAGE_TITLE_HTML = """
 </table>
 """
 
+TABELLA0_HTML = """
+<!-- <div id="menu"> -->
+<table style="table-layout:auto;width:1000px;border-collapse:separate;">
+<tbody style="width:100%">
+<tr>
+<td style="width:700px">
+"""
+
 TABELLA1_HTML = """
-<div id="menu">
+<div style="text-align: left;">
 <table>
 <tr class='gray'>
 <td><a href="http://eee.centrofermi.it/elog/Run4">
@@ -59,7 +67,10 @@ SCHOOLs ELOGBOOK for RUN 4</a>
 </td><td>
 <a href="http://eee.centrofermi.it/elog/Shifter">
 SHIFTERs ELOGBOOK</a>
-</td><td>
+</td></tr></table>
+<table>
+<tr class='gray'>
+<td>
 <a href="http://eee.centrofermi.it/monitor/report/">
 Set Automatic Shift REPORT Messages
 </a>
@@ -78,7 +89,10 @@ Masterclass</a>
 </td><td>
 <a href="https://iatw.cnaf.infn.it/eee/monitor/shifter_report.xlsx">
 Download the Excel Sheet</a>
-</td><td>
+</td></tr></table>
+<table>
+<tr class='gray'>
+<td>
 <a href="https://iatw.cnaf.infn.it/eee/monitor/coincidences.html">
 Coincidences</a>
 </td><td>
@@ -93,20 +107,27 @@ Connectivity Report</a>
 PAGE_SUBTILE_HTML = '<h2><i>[EEE Monitor] RUN 4 - Data Taking - Day number: '
 
 TABELLA1_P2_HTML = """
-<p style="font-size:80%;">Questa tabella mostra la situazione dei telescopi in acquisizione:<br />
+<div style="font-size:80%;text-align: left;">
+<br />
+La tabella qui sotto mostra la situazione dei telescopi in acquisizione:<br />
 
 In <span class="bold">verde</span> sono indicati i telescopi in
-presa dati e trasferimento nelle ultime 3 ore 
+presa dati e trasferimento nelle ultime 3 ore<br /> 
 e con parametri di acquisizione ragionevoli nell'ultimo run analizzato.<br />
 
 In <span class="bold">giallo</span> sono indicati i telescopi in
-cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di 3 ore
+cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di 3 ore<br />
 o con tracce (X^2<10) minori di 10 Hz nell'ultimo run analizzato.<br />
 
 In <span class="bold">rosso</span> sono indicati i telescopi in
-cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di due giorni
-o con tracce (X^2<10) minori di 5Hz nell'ultimo run analizzato.</p>
+cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di due giorni<br />
+o con tracce (X^2<10) minori di 5Hz nell'ultimo run analizzato.</div>
 
+</td>
+<td style="width:300px; padding:0px; margin:0px; border: 1px solid #555555;">
+<a class="twitter-timeline" data-lang="en" data-width="300" data-height="400" data-theme="light" href="https://twitter.com/centrofermi?ref_src=twsrc%5Etfw">Tweets by centrofermi</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</td></tr></tbody></table>
+<!-- Closing main twitter table -->
 <table>
 <tr><th>School</th>
 <th>Day</th>
