@@ -220,7 +220,7 @@ def make_webpage_index(monitorData,
             w.write('*')
         w.write('</td>')
 
-        # Print "Report giornaliero DQM"
+        # Print "DQM daily report"
         w.write('<td>')
         try:
             _dqmreportTs = datetime.strptime(

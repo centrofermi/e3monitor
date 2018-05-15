@@ -16,6 +16,10 @@ def read_dqmreport(schoolNamesList, pathDqmreport):
     for dirSchoolName in schoolNamesList:
         try:
             dirDates = os.listdir(os.path.join(pathDqmreport, dirSchoolName))
+            dirDates.remove('index.html')
+            dirDates.remove('templateTail.html')
+            dirDates.remove('template.html')
+            dirDates.remove('mkreportdqm.sh')
         except:
             lastDqmreport[dirSchoolName] = ''
         # Get the directory of last day of DqmReports
