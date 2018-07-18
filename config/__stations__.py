@@ -7,7 +7,7 @@ Modified on 17 Nov 2014
 
 """ List of EEE Stations to exclude from Writing files in Monitoring
 """
-EEE_EXCLUDED_STATIONS = ['FRAS-01']
+EEE_EXCLUDED_STATIONS = []
 
 """ List of EEE Active Stations
 """
@@ -44,6 +44,9 @@ EEE_ACTIVE_STATIONS = [
     'PARM-01',
     'PATE-01',
     'PISA-01',
+    'POLA-01',
+    'POLA-02',
+    'POLA-03',
     'REGG-01',
     'ROMA-01',
     'ROMA-02',
