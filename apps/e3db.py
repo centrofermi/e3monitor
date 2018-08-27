@@ -57,7 +57,7 @@ cur = db.cursor()
 
 # Connect to the School's table and get the school name list
 logger.info('Connect to the School\'s table and get the school name list')
-query = "SELECT name FROM telescope_ids;"
+query = "SELECT name FROM telescopes;"
 logger.info('Get the School\'s name list: ' + query)
 cur.execute(query)
 schoolNames = [item[0] for item in cur.fetchall()]
