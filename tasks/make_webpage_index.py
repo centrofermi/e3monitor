@@ -55,9 +55,9 @@ def make_webpage_index(monitorData,
 
     # Day of run 
     ### Generic message
-    #w.write('<h2 style="margin:0;"><i>[EEE Monitor] RUN4: October 2, 2017 - May 30, 2018</i></h2>')
-    w.write('<h2 style="margin:0;"><i>[EEE Monitor] RUN 4 ended on May 30th, 2018</i></h2>')
-    w.write('<h2 style="margin:0;"><i>[EEE Monitor] RUN 5 will start next fall</i></h2>')
+    w.write('<h2 style="margin:0;"><i>[EEE Monitor] RUN 5: COMMISSIONING has begun</i></h2>')
+    w.write('<h2 style="margin:0;"><i>[EEE Monitor] RUN 5 will start on October 15, 2018</i></h2>')
+    w.write('<h2 style="margin:0;"><i>[EEE Monitor] RUN 5: October 15, 2018 - May 31, 2019</i></h2>')
     ### Enable following line during RUN 4
     #w.write(day_of_run())
 
