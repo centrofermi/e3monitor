@@ -67,6 +67,9 @@ SCHOOLs ELOGBOOK for RUN 5</a>
 </td><td>
 <a href="http://eee.centrofermi.it/elog/Shifter">
 SHIFTERs ELOGBOOK</a>
+</td><td>
+<a href="https://sites.google.com/centrofermi.it/3etech/">
+EEE Tech Coord</a>
 </td></tr></table>
 <table>
 <tr class='gray'>
