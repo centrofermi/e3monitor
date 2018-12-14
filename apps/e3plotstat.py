@@ -144,7 +144,7 @@ ax.annotate('RUN 4', xy=(dateRun4Start-35+(dateRun4End-dateRun4Start)/2,hText+1e
 # Run 5
 ax.add_patch(patches.Rectangle((dateRun5Start, yMin), dateRunToday-dateRun5Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed',linewidth=2))
 ax.annotate('', xy=(dateRunToday-2,hText), xytext=(dateRun5Start, hText), arrowprops=dict(arrowstyle='<->',connectionstyle="arc3,rad=0.0",edgecolor='#c0392b',linewidth=2.5))
-#ax.annotate('RUN 5', xy=(dateRun5Start-40+(dateRunToday-dateRun5Start)/2,hText+1e9),size=18,weight='bold',color='#c0392b', backgroundcolor='#87CEFA')
+ax.annotate('RUN 5', xy=(dateRun5Start-4+(dateRunToday-dateRun5Start)/2,hText+1e9),size=18,rotation='vertical',weight='bold',color='#c0392b', backgroundcolor='#87CEFA')
 # FOLLOWING THREE LINES for RUN 6
 #ax.add_patch(patches.Rectangle((dateRun5Start, yMin), dateRunToday-dateRun5Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed',linewidth=2))
 #ax.annotate('', xy=(dateRunToday-2,hText), xytext=(dateRun5Start, hText), arrowprops=dict(arrowstyle='<->',connectionstyle="arc3,rad=0.0",edgecolor='#c0392b',linewidth=2.5))
