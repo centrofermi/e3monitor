@@ -5,16 +5,13 @@ Created on Mon Nov 17 18:48:52 2014
 @author: Fabrizio Coccetti
 """
 HEADER_HTML = """
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="it" xml:lang="it" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="it">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta charset="UTF-8" />
 <meta name="author" content="Fabrizio Coccetti" />
 <meta name="generator" content="e3monitor" />
-<meta http-equiv="REFRESH" content="60"/>
-<meta http-equiv="Expires" content="0"/>
-<meta http-equiv="PRAGMA" content="NO-CACHE"/>
+<meta http-equiv="refresh" content="60" />
 <title>EEE Monitor -
 Museo Storico della Fisica e Centro Studi e Ricerche Enrico Fermi</title>
 <link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
@@ -39,13 +36,13 @@ href="https://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
 PAGE_TITLE_HTML = """
 <table>
 <tr><td class='title'>
-<img src="img/logo_centrofermi.png" alt="Logo Centro Fermi" width="200px">
+<img src="img/logo_centrofermi.png" alt="Logo Centro Fermi" style="width:200px">
 </td><td class='title'>
 <h2><i>Progetto Extreme Energy Events - La Scienza nelle Scuole</i></h2>
 <h1>EEE MONITOR - DQM</h1>
 <div style="font-size:16px;font-style:italic;">[ Official address: http://eee.centrofermi.it/monitor ]</div>
 </td><td class='title'>
-<img src="img/logo_EEE.png" alt="Logo Centro Fermi" width="200px">
+<img src="img/logo_EEE.png" alt="Logo Centro Fermi" style="width:200px">
 </td></tr>
 </table>
 """
@@ -120,15 +117,15 @@ e con parametri di acquisizione ragionevoli nell'ultimo run analizzato.<br />
 
 In <span class="bold">giallo</span> sono indicati i telescopi in
 cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di 3 ore<br />
-o con tracce (X^2<10) minori di 10 Hz nell'ultimo run analizzato.<br />
+o con tracce (X^2&lt;10) minori di 10 Hz nell'ultimo run analizzato.<br />
 
 In <span class="bold">rosso</span> sono indicati i telescopi in
 cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di due giorni<br />
-o con tracce (X^2<10) minori di 5Hz nell'ultimo run analizzato.</div>
+o con tracce (X^2&lt;10) minori di 5Hz nell'ultimo run analizzato.</div>
 
 </td>
 <td style="width:300px; padding:0px; margin:0px; border: 1px solid #555555;">
-<a class="twitter-timeline" data-lang="en" data-width="300" data-height="400" data-theme="light" href="https://twitter.com/centrofermi?ref_src=twsrc%5Etfw">Tweets by centrofermi</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a class="twitter-timeline" data-lang="en" data-width="300" data-height="400" data-theme="light" href="https://twitter.com/centrofermi?ref_src=twsrc%5Etfw">Tweets by centrofermi</a> <script async src="https://platform.twitter.com/widgets.js"></script>
 </td></tr></tbody></table>
 <!-- Closing main twitter table -->
 <table>
@@ -140,7 +137,7 @@ o con tracce (X^2<10) minori di 5Hz nell'ultimo run analizzato.</div>
 <th class="small">Last Entry<br />in the e-logbook<br />of the Schools</th>
 <th class="small">Name of the last<br />File analyzed<br />by DQM</th>
 <th>DQM<br />daily<br />report</th>
-<th class="small">RATE of<br />Triggers</br />
+<th class="small">RATE of<br />Triggers<br />
 for the<br />last Run<br />in DQM</th>
 <th class="small">RATE of<br />Tracks<br />
 for the<br />last Run<br />in DQM</th>
