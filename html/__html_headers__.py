@@ -9,6 +9,7 @@ HEADER_HTML = """
 <html lang="it">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="author" content="Fabrizio Coccetti" />
 <meta name="generator" content="e3monitor" />
 <meta http-equiv="refresh" content="60" />
@@ -34,73 +35,59 @@ href="https://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
 """
 
 PAGE_TITLE_HTML = """
-<table>
-<tr><td class='title'>
+<div class="flex">
 <img src="img/logo_centrofermi.png" alt="Logo Centro Fermi" style="width:200px">
-</td><td class='title'>
+<div class='title'>
 <h2><i>Progetto Extreme Energy Events - La Scienza nelle Scuole</i></h2>
 <h1>EEE MONITOR - DQM</h1>
-<div style="font-size:16px;font-style:italic;">[ Official address: http://eee.centrofermi.it/monitor ]</div>
-</td><td class='title'>
+<div style="font-size:16px;font-style:italic;text-align:center;">[ Official address: http://eee.centrofermi.it/monitor ]</div>
+</div>
 <img src="img/logo_EEE.png" alt="Logo Centro Fermi" style="width:200px">
-</td></tr>
-</table>
+</div>
 """
 
 TABELLA0_HTML = """
 <!-- <div id="menu"> -->
-<table style="table-layout:auto;width:1000px;border-collapse:separate;">
-<tbody style="width:100%">
-<tr>
-<td style="width:700px">
+<div class="flex">
+<div style="max-width:700px">
 """
 
 TABELLA1_HTML = """
-<div style="text-align: left;">
-<table>
-<tr class='gray'>
-<td><a href="http://eee.centrofermi.it/elog/Run5">
+<div style="text-align: center;">
+<div class="flex">
+<div class="buttons">
+<a href="http://eee.centrofermi.it/elog/Run5">
 SCHOOLs ELOGBOOK for RUN 5</a>
-</td><td>
 <a href="http://eee.centrofermi.it/elog/Shifter">
 SHIFTERs ELOGBOOK</a>
-</td><td>
 <a href="https://sites.google.com/centrofermi.it/3etech/">
 EEE Tech Coord</a>
-</td></tr></table>
-<table>
-<tr class='gray'>
-<td>
+</div></div>
+<div class="flex">
+<div class="buttons">
 <a href="http://eee.centrofermi.it/monitor/report/">
 Set Automatic Shift REPORT Messages
 </a>
-</td><td>
 <a href="http://eee.centrofermi.it/monitor/run5reports/">
 Automatic Shift Report ARCHIVE</a>
-</td></tr></table>
-<table>
-<tr class='gray'>
-<td>
+</div></div>
+<div class="flex">
+<div class="buttons">
 <a href="http://eee.centrofermi.it/">
 Home Page EEE</a>
-</td><td>
 <a href="http://eee.centrofermi.it/monitor/masterclass/">
 Masterclass</a>
-</td><td>
 <a href="https://iatw.cnaf.infn.it/eee/monitor/shifter_report.xlsx">
 Download the Excel Sheet</a>
-</td></tr></table>
-<table>
-<tr class='gray'>
-<td>
+</div></div>
+<div class="flex">
+<div class="buttons">
 <a href="https://iatw.cnaf.infn.it/eee/monitor/coincidences.html">
 Coincidences</a>
-</td><td>
 <a href="http://eee.centrofermi.it/monitor/traffic">
 Connectivity Report</a>
-</td><td>
 <a href="http://eee.centrofermi.it/elog/Query">Data Request</a>
-</td></tr></table>
+</div></div>
 </div>
 """
 
@@ -123,11 +110,12 @@ In <span class="bold">rosso</span> sono indicati i telescopi in
 cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di due giorni<br />
 o con tracce (X^2&lt;10) minori di 5Hz nell'ultimo run analizzato.</div>
 
-</td>
-<td style="width:300px; padding:0px; margin:0px; border: 1px solid #555555;">
+</div>
+<div style="width:300px; padding:0px; margin:0px; border: 1px solid #555555;">
 <a class="twitter-timeline" data-lang="en" data-width="300" data-height="400" data-theme="light" href="https://twitter.com/centrofermi?ref_src=twsrc%5Etfw">Tweets by centrofermi</a> <script async src="https://platform.twitter.com/widgets.js"></script>
-</td></tr></tbody></table>
+</div></div>
 <!-- Closing main twitter table -->
+<div style="overflow-x:auto">
 <table>
 <tr><th>School</th>
 <th>Day</th>
@@ -178,11 +166,12 @@ cui il link con il CNAF non funziona da pi&ugrave; di 3 ore.</p>
 """
 
 FOOTER_HTML = """
+</div>
 <h3 style="margin-top:24px;">Today's plot of the total number of candidate tracks vs
 months of data acquisition</h3>
-<div style="text-align:left;padding:0px;margin:0px;">
+<div style="text-align:center;padding:0px;margin:0px;">
 <a href="plots/tracks.png">
-<img src="plots/tracks.png" alt="Tracks" width="1200">
+<img src="plots/tracks.png" alt="Tracks" style="width:100%;max-width:1200px;">
 </a>
 </div>
 <p>&nbsp;</p>
