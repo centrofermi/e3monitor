@@ -85,7 +85,7 @@ w.write(HTML_TITLE)
 w.write('<div class=\"time\">Ultimo aggiornamento di questa pagina: ' +
         datetime.today().strftime("%A %d %B %Y") +
         ' alle ore '+datetime.today().strftime("%H:%M")+'.</div>')
-w.write('<h2>[EEE Report] <i>RUN 4 - Automatic Shift Report Archive</i></h2>')
+w.write('<h2>[EEE Report] <i>Automatic Shift Report Archive</i></h2>')
 w.write('<p>&nbsp;</p>')
 w.write('<table style=\"width:700px;\"><tbody>')
 w.write('<tr><th>Link ai Report giornalieri sullo stato dei Telescopi EEE</th></tr>')
