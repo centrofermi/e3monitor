@@ -60,7 +60,7 @@ def make_webpage_index(monitorData,
     w.write(day_of_run())
 
     # Number of tracks
-    w.write("<h3>Total number of candidate tracks (X^2<10) in the database: ")
+    w.write("<h3>Total number of candidate tracks (X^2&lt;10) in the database: ")
     w.write(str(totalTracks) + "</h3>")
     w.write(TABELLA1_HTML)
     w.write(TABELLA1_P2_HTML)

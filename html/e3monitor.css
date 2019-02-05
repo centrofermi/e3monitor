@@ -14,7 +14,7 @@ p {
   margin: 0 auto;
   margin-top: 3px;
   margin-bottom: 6px;
-  width: 950px;
+  max-width: 950px;
 }
 a {
  color: #06c;
@@ -62,8 +62,7 @@ table, th, td {
   white-space: nowrap;
 }
 table {
-  width=100%
-  table-layout:fixed;
+  width: 100%;
   margin: 0 auto;
 }
 th {
@@ -168,5 +167,23 @@ span.red_ib {
   padding-bottom: 25px;
   border-top: 1px solid #ccc;
 }
-
-
+.flex {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2px 0px 2px 0px;
+}
+div.buttons > a {
+  display: inline-block;
+  background-color: #eee;
+  padding: 15px;
+}
+@media only screen and (max-width: 768px) {
+  .flex {
+    flex-wrap: wrap;
+  }
+  div.title {
+    order: 2;
+  }
+}
