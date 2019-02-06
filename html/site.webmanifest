@@ -1,0 +1,28 @@
+{
+	"name": "EEE Monitor - Progetto Extreme Energy Events",
+	"short_name": "EEE Monitor",
+	"icons": [
+		{
+			"src": "./favicon/favicon16.png",
+			"sizes": "16x16",
+			"type": "image/png"
+		}, {
+			"src": "./favicon/favicon32.png",
+			"sizes": "32x32",
+			"type": "image/png"
+		}, {
+			"src": "./favicon/favicon192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		}, {
+			"src": "./favicon/favicon256.png",
+			"sizes": "256x256",
+			"type": "image/png"
+		}
+	],
+	"theme_color": "#ffffff",
+	"background_color": "#ffffff",
+	"start_url": "http://eee.centrofermi.it/monitor",
+	"display": "standalone"
+}
+
