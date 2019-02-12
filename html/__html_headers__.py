@@ -13,9 +13,13 @@ HEADER_HTML = """
 <meta name="author" content="Fabrizio Coccetti" />
 <meta name="generator" content="e3monitor" />
 <meta http-equiv="refresh" content="60" />
+<link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon16.png" />
+<link rel="manifest" href="./site.webmanifest" />
+<link rel="shortcut icon" href="./favicon/favicon.ico" />
 <title>EEE Monitor -
 Museo Storico della Fisica e Centro Studi e Ricerche Enrico Fermi</title>
-<link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
 <link rel="stylesheet" type="text/css"
 href="https://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
 <link href="e3monitor.css" rel="stylesheet" type="text/css" />
