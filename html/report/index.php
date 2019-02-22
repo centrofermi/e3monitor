@@ -43,6 +43,7 @@ Inserisci il messaggio relativo al tuo Telescopio
    <option value="BOLO-02">BOLO-02</option>
    <option value="BOLO-03">BOLO-03</option>
    <option value="BOLO-04">BOLO-04</option>
+   <option value="BOLO-05">BOLO-05</option>
    <option value="CAGL-01">CAGL-01</option>
    <option value="CAGL-02">CAGL-02</option>
    <option value="CAGL-03">CAGL-03</option>

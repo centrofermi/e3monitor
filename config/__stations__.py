@@ -127,5 +127,19 @@ EEE_STATION_DICT = {
     'TRIN-01': 45,
     'VIAR-01': 46,
     'VIAR-02': 47,
-    'VICE-01': 48
+    'FRAS-03': 48,
+    'GROS-02': 49,
+    'SIEN-01': 50,
+    'VICE-01': 51,
+    'LODI-02': 52,
+    'SIEN-02': 53,
+    'SALE-02': 54,
+    'LAMP-01': 55,
+    'POLA-01': 56,
+    'POLA-02': 57,
+    'POLA-03': 58,
+    'POLA-04': 59,
+    'GENO-01': 60,
+    'BOLO-05': 61,
+    'CARI-01': 62
 }

@@ -16,9 +16,11 @@ Scegli il nome del tuo telescopio:
    <option value="BOLO-02">BOLO-02</option>
    <option value="BOLO-03">BOLO-03</option>
    <option value="BOLO-04">BOLO-04</option>
+   <option value="BOLO-05">BOLO-05</option>
    <option value="CAGL-01">CAGL-01</option>
    <option value="CAGL-02">CAGL-02</option>
    <option value="CAGL-03">CAGL-03</option>
+   <option value="CARI-01">CARI-01</option>
    <option value="CATA-01">CATA-01</option>
    <option value="CATA-02">CATA-02</option>
    <option value="CATZ-01">CATZ-01</option>
