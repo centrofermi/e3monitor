@@ -44,12 +44,14 @@ EEE_ACTIVE_STATIONS = [
     'LECC-03',
     'LODI-01',
     'LODI-02',
+    'LODI-03',
     'PARM-01',
     'PATE-01',
     'PISA-01',
     'POLA-01',
     'POLA-02',
     'POLA-03',
+    'POLA-04',
     'REGG-01',
     'ROMA-01',
     'ROMA-02',
@@ -141,5 +143,6 @@ EEE_STATION_DICT = {
     'POLA-04': 59,
     'GENO-01': 60,
     'BOLO-05': 61,
-    'CARI-01': 62
+    'CARI-01': 62,
+    'LODI-03': 63
 }
