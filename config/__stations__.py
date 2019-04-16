@@ -24,6 +24,7 @@ EEE_ACTIVE_STATIONS = [
     'CAGL-01',
     'CAGL-02',
     'CAGL-03',
+    'CAGL-04',
     'CARI-01',
     'CATA-01',
     'CATA-02',
@@ -145,5 +146,6 @@ EEE_STATION_DICT = {
     'BOLO-05': 61,
     'CARI-01': 62,
     'LODI-03': 63,
-    'REND-01': 63
+    'REND-01': 64,
+    'CAGL-04': 65
 }
