@@ -62,8 +62,8 @@ TABELLA1_HTML = """
 <div class="buttons">
 <a href="http://eee.centrofermi.it/elog/Run5">
 SCHOOLs ELOGBOOK for RUN 5</a>
-<a href="http://eee.centrofermi.it/elog/Shifter">
-SHIFTERs ELOGBOOK</a>
+<a href="http://eee.centrofermi.it/elog/Telescopes">
+Telescope ELOGBOOK</a>
 <a href="https://sites.google.com/centrofermi.it/3etech/">
 EEE Tech Coord</a>
 </div></div>
@@ -79,8 +79,8 @@ Automatic Shift Report ARCHIVE</a>
 <div class="buttons">
 <a href="http://eee.centrofermi.it/">
 Home Page EEE</a>
-<a href="http://eee.centrofermi.it/monitor/masterclass/">
-Masterclass</a>
+<a href="http://eee.centrofermi.it/monitor/supermonitor/run5/">
+Run 5 SuperSummary</a>
 <a href="https://iatw.cnaf.infn.it/eee/monitor/shifter_report.xlsx">
 Download the Excel Sheet</a>
 </div></div>

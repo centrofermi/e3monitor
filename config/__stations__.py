@@ -32,6 +32,7 @@ EEE_ACTIVE_STATIONS = [
     'CERN-01',
     'CERN-02',
     'COSE-01',
+    'FERM-01',
     'FRAS-01',
     'FRAS-02',
     'FRAS-03',
@@ -147,5 +148,6 @@ EEE_STATION_DICT = {
     'CARI-01': 62,
     'LODI-03': 63,
     'REND-01': 64,
-    'CAGL-04': 65
+    'CAGL-04': 65,
+    'FERM-01': 66
 }
