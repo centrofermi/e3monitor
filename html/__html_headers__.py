@@ -60,8 +60,8 @@ TABELLA1_HTML = """
 <div style="text-align: center;">
 <div class="flex">
 <div class="buttons">
-<a href="http://eee.centrofermi.it/elog/Run5">
-SCHOOLs ELOGBOOK for RUN 5</a>
+<a href="http://eee.centrofermi.it/elog/Run6">
+SCHOOLs ELOGBOOK for RUN 6</a>
 <a href="http://eee.centrofermi.it/elog/Telescopes">
 Telescope ELOGBOOK</a>
 <a href="https://sites.google.com/centrofermi.it/3etech/">
@@ -95,7 +95,7 @@ Connectivity Report</a>
 </div>
 """
 
-PAGE_SUBTILE_HTML = '<h2><i>[EEE Monitor] RUN 5 - Data Taking - Day number: '
+PAGE_SUBTILE_HTML = '<h2><i>[EEE Monitor] RUN 6 - Data Taking - Day number: '
 
 TABELLA1_P2_HTML = """
 <div style="font-size:80%;text-align: left;">
