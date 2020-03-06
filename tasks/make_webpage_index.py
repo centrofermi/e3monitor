@@ -26,6 +26,7 @@ from e3monitor.html.__html_headers__ import (
     TABELLA0_HTML,
     TABELLA1_HTML,
     TABELLA1_P2_HTML,
+    TRACK_PLOT_HTML,
     FOOTER_HTML,
     BOTTOM_HTML
     )
@@ -55,7 +56,7 @@ def make_webpage_index(monitorData,
 
     # Day of run 
     ### Generic message
-    w.write('<h2 style="margin:0;"><i>[EEE Monitor] RUN 6 is in progress</i></h2>')
+    w.write('<h2 style="margin:0;"><i>[EEE Monitor] Pausa tecnica per manutenzione</i></h2>')
     ### Enable following line during RUN 5
     ###w.write(day_of_run())
 
@@ -63,6 +64,7 @@ def make_webpage_index(monitorData,
     w.write("<h3>Total number of candidate tracks (X^2&lt;10) in the database: ")
     w.write(str(totalTracks) + "</h3>")
     w.write(TABELLA1_HTML)
+    w.write(TRACK_PLOT_HTML)
     w.write(TABELLA1_P2_HTML)
 
     # Start loop for school names (sorted)
