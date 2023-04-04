@@ -66,7 +66,7 @@ sorted(schoolNames)
 # Initialize Transfer Data
 for _schoolName in schoolNames:
     transferData.init_School(_schoolName)
-    print(transferData.schoolData(_schoolName))
+    print(transferData.schoolData(_schoolName),(_schoolName))
 
 # Query for the last transferred file at CNAF
 logger.info('Query for the last run transferred at CNAF of each school')
@@ -76,7 +76,7 @@ query = ("SELECT station_name, run_date, run_id, bin_file_size, "
          "ORDER BY transfer_timestamp DESC LIMIT 1;")
 logger.info('About to query: ' + query)
 for _schoolName in schoolNames:
-    cur.execute(query, _schoolName)
+    cur.execute(query, [_schoolName])
     _entry = cur.fetchone()
     if _entry is None:
         continue
@@ -121,7 +121,7 @@ query = ("SELECT * FROM runs2 WHERE station_name = %s "
          "ORDER BY last_update DESC LIMIT 1;")
 logger.info('About to query: ' + query)
 for _schoolName in schoolNames:
-    cur.execute(query, _schoolName)
+    cur.execute(query, [_schoolName])
     _entry = cur.fetchone()
     if _entry is None:
         continue

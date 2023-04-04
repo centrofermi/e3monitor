@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3.8
 # -*- coding: utf-8 -*-
 # *********************************************************************
 # * Copyright (C) 2014 Fabrizio Coccetti                              *

@@ -68,6 +68,7 @@ TABELLA1_HTML = """
 <div style="text-align: center;">
 <div class="flex">
 <div class="buttons">
+<!--
 <a href="http://eee.centrofermi.it/elog/Run6">
 SCHOOLs ELOGBOOK for RUN 6</a>
 <a href="http://eee.centrofermi.it/elog/Telescopes">
@@ -98,33 +99,14 @@ Download the Excel Sheet</a>
 Coincidences</a>
 <a href="http://eee.centrofermi.it/monitor/traffic">
 Connectivity Report</a>
-<a href="http://eee.centrofermi.it/elog/Query">Data Request</a>
+-->
+<a href="https://iatw.cnaf.infn.it/eee/elog/Run6/"><b>ELOG RUN6</b></a>
+</div></div>
+</div></div>
+<a href="http://eee.centrofermi.it/elog/Query"><b>DATA REQUEST</b></a>
 </div></div>
 </div>
-
-<div style="font-size:80%;text-align: left;">
-<br />
-La tabella qui sotto mostra la situazione dei telescopi in acquisizione:<br />
-
-In <span class="bold">verde</span> sono indicati i telescopi in
-presa dati e trasferimento nelle ultime 3 ore<br /> 
-e con parametri di acquisizione ragionevoli nell'ultimo run analizzato.<br />
-
-In <span class="bold">giallo</span> sono indicati i telescopi in
-cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di 3 ore<br />
-o con tracce (X^2&lt;10) minori di 10 Hz nell'ultimo run analizzato.<br />
-
-In <span class="bold">rosso</span> sono indicati i telescopi in
-cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di due giorni<br />
-o con tracce (X^2&lt;10) minori di 5Hz nell'ultimo run analizzato.</div>
-
-</div>
-</div>
-</td><td>
-<div style="width:300px; padding:0px; margin:0px; border: 1px solid #555555;">
-<a class="twitter-timeline" data-lang="en" data-width="300" data-height="400" data-theme="light" href="https://twitter.com/centrofermi?ref_src=twsrc%5Etfw">Tweets by centrofermi</a> <script async src="https://platform.twitter.com/widgets.js"></script>
-</div>
-</td></tr></table>
+</tr></table>
 """
 
 PAGE_SUBTILE_HTML = '<h2><i>[EEE Monitor] RUN 6 - Data Taking - Day number: '
@@ -138,7 +120,6 @@ TABELLA1_P2_HTML = """
 <th>Time</th>
 <th class="small">Name of the last<br />trasferred File</th>
 <th class="small">Number of Files<br />trasferred today</th>
-<th class="small">Last Entry<br />in the e-logbook<br />of the Schools</th>
 <th class="small">Name of the last<br />File analyzed<br />by DQM</th>
 <th>DQM<br />daily<br />report</th>
 <th class="small">RATE of<br />Triggers<br />
@@ -147,6 +128,8 @@ for the<br />last Run<br />in DQM</th>
 for the<br />last Run<br />in DQM</th>
 <th>Link DQM</th></tr>
 """
+# tolto dalla tabella precedente dopo "transferred today"
+#<th class="small">Last Entry<br />in the e-logbook<br />of the Schools</th>
 
 TABELLA2_HTML = """
 <div id="menu">
@@ -192,6 +175,35 @@ months of data acquisition</h3>
 <img src="plots/tracks.png" alt="Tracks" style="width:100%;max-width:1200px;">
 </a>
 </div>
+
+
+<div style="font-size:80%;text-align: left;">
+<br />
+La tabella qui sotto mostra la situazione dei telescopi in acquisizione:<br />
+
+In <span class="bold">verde</span> sono indicati i telescopi in
+presa dati e trasferimento nelle ultime 3 ore<br />
+e con parametri di acquisizione ragionevoli nell'ultimo run analizzato.<br />
+
+In <span class="bold">giallo</span> sono indicati i telescopi in
+cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di 3 ore<br />
+o con tracce (X^2&lt;10) minori di 10 Hz nell'ultimo run analizzato.<br />
+
+In <span class="bold">rosso</span> sono indicati i telescopi in
+cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di due giorni<br />
+o con tracce (X^2&lt;10) minori di 5Hz nell'ultimo run analizzato.<br />
+
+In <span class="bold">grigio</span> sono indicati gli archivi storici dei dati
+dei telescopi che non sono più operativi perch&eacute spostati in altre scuole.</div>
+
+</div>
+</div>
+</td>
+<!-- <td>
+<div style="width:300px; padding:0px; margin:0px; border: 1px solid #555555;">
+<a class="twitter-timeline" data-lang="en" data-width="300" data-height="400" data-theme="light" href="https://twitter.com/centrofermi?ref_src=twsrc%5Etfw">Tweets by centrofermi</a> <script async src="https://platform.twitter.com/widgets.js"></script>
+</div>
+</td>  -->
 """
 
 FOOTER_HTML = """

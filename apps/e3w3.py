@@ -69,10 +69,10 @@ if __name__ == '__main__':
                        EEE_ACTIVE_STATIONS,
                        mainWebPageFile)
 
-    make_webpage_ib(monitorData,
-                    totalTracks,
-                    EEE_ACTIVE_STATIONS,
-                    ibWebPageFile)
+#    make_webpage_ib(monitorData,
+#                    totalTracks,
+#                    EEE_ACTIVE_STATIONS,
+#                    ibWebPageFile)
 
     # Final log message
     logger.info('Finished')

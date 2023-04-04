@@ -81,7 +81,10 @@ def make_webpage_index(monitorData,
             transferDelay = -1
 
         # Set <tr> class color
-        if transferDelay == -1:
+        if schoolName == "BOLO-04":
+            rowColor = 'gray'
+            transfer_time_txt = ''
+        elif transferDelay == -1:
             rowColor = 'red'
             transfer_time_txt = 'red'
         elif transferDelay.days == 0:
@@ -191,25 +194,25 @@ def make_webpage_index(monitorData,
         w.write('</td>')
 
         # Print "Ultima Entry nell'e-logbook delle Scuole"
-        w.write('<td>')
-        try:
-            elogDelay = now - monitorData.get_elogEntryTs(schoolName)
-            if elogDelay.days <= ELOG_WARNING:
-                elog_time_txt = 'gray'
-            elif elogDelay.days <= ELOG_ERROR:
-                elog_time_txt = 'yellow'
-            else:
-                elog_time_txt = 'red'
-            w.write('<span class=\"' + elog_time_txt + '\">')
-            w.write(monitorData.get_elogEntryTs(
-                schoolName).strftime("%H:%M"))
-            w.write('<br />')
-            w.write(monitorData.get_elogEntryTs(
-                schoolName).strftime("%d/%m/%Y"))
-            w.write('</span>')
-        except:
-            w.write('*')
-        w.write('</td>')
+        #w.write('<td>')
+        #try:
+        #    elogDelay = now - monitorData.get_elogEntryTs(schoolName)
+        #    if elogDelay.days <= ELOG_WARNING:
+        #        elog_time_txt = 'gray'
+        #    elif elogDelay.days <= ELOG_ERROR:
+        #        elog_time_txt = 'yellow'
+        #    else:
+        #        elog_time_txt = 'red'
+        #    w.write('<span class=\"' + elog_time_txt + '\">')
+        #    w.write(monitorData.get_elogEntryTs(
+        #        schoolName).strftime("%H:%M"))
+        #    w.write('<br />')
+        #    w.write(monitorData.get_elogEntryTs(
+        #        schoolName).strftime("%d/%m/%Y"))
+        #    w.write('</span>')
+        #except:
+        #    w.write('*')
+        #w.write('</td>')
 
         # Print "Nome dell'ultimo File analizzato dal DQM"
         w.write('<td>')
@@ -227,12 +230,12 @@ def make_webpage_index(monitorData,
         try:
             _dqmreportTs = datetime.strptime(
                 monitorData.get_dqmreportTs(schoolName), '%Y-%m-%d')
-            w.write('<a href=\"dqmreport2/' + schoolName + '/')
+            w.write('<a href=\"dqmreport/' + schoolName + '/')
             w.write(monitorData.get_dqmreportTs(schoolName))
             w.write('/\">')
             w.write(_dqmreportTs.strftime("%d/%m"))
             w.write('</a> <br />')
-            w.write('<a href =\"dqmreport2/' + schoolName + '/?C=M;O=D\">')
+            w.write('<a href =\"dqmreport/' + schoolName + '/?C=M;O=D\">')
             w.write('<span class=\"smalltab\">[History]</span>')
             w.write('</a>')
         except:

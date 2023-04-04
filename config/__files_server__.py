@@ -29,13 +29,13 @@ ibWebPageFile = "/var/www/html/monitor/ib.html"
 xlsxFile = "/var/www/html/monitor/shifter_report.xlsx"
 
 # Config File for email report
-emailConfigFile = "/opt/eee/e3monitor/config/email.ini"
+emailConfigFile = "/home/coccetti/e3monitor/config/email.ini"
 
 # Config File for logging module
-logConfigFile = "/opt/eee/e3monitor/config/logConf.ini"
+logConfigFile = "/home/coccetti/e3monitor/config/logConf.ini"
 
 # Config File for database
-dbConfigFile = "/opt/eee/e3monitor/config/database.ini"
+dbConfigFile = "/home/coccetti/e3monitor/config/database.ini"
 
 # Name of the Data pickle File storing Transfer entries from DB
 pklTransferFile = "transfer_db_data.pkl"
@@ -62,11 +62,11 @@ archiveReportDir = "/var/www/html/monitor/run6reports/"
 htmlReportFile = "report_message.html"
 
 # Path of the Working directory
-pathWorkDir = '/opt/eee/e3monitor_work'
+pathWorkDir = '/home/coccetti/e3monitor_work'
 
 # Path of Dqm and Dqmreport
 pathDqm = "/var/www/html/monitor/dqm2"
-pathDqmreport = "/var/www/html/monitor/dqmreport2"
+pathDqmreport = "/var/www/html/monitor/dqmreport"
 
 # Path of the directory where we save transferred files plots
 pathSaveFig = '/var/www/html/monitor/plots/'
