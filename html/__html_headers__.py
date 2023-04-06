@@ -181,7 +181,7 @@ months of data acquisition</h3>
 <table>
 
 <tr><td class="blue">
-<div style="font-size:120%; text-align: left; color: white; font-weight:bold;">
+<div style="font-size:140%; text-align: left; color: white; font-weight:bold;">
 La tabella sottostante mostra la situazione dei telescopi:
 </div>
 </td></tr>
@@ -211,14 +211,14 @@ o con tracce (X^2&lt;10) minori di 5 Hz nell'ultimo run analizzato.<br />
 </td></tr>
 
 <tr><td class="gray">
-<div style="text-align: left;">
+<div style="text-align: left; color: black;">
 - In <span class="bold">grigio</span> sono indicati i telescopi in 
 attesa di ripartire con la nuova miscela di gas ecosostenibile.<br />
 </div>
 </td></tr>
 
 <tr><td class="wheat">
-<div style="text-align: left;">
+<div style="text-align: left; color: black;">
 - In <span class="bold">beige</span> sono indicati gli archivi storici dei dati
 dei telescopi che ora sono stati spostati in altre scuole.
 </div>
