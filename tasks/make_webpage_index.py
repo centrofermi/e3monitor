@@ -56,7 +56,7 @@ def make_webpage_index(monitorData,
 
     # Day of run 
     ### Generic message
-    w.write('<h2 style="margin:0;"><i>[EEE Monitor] Pausa tecnica per manutenzione</i></h2>')
+    w.write('<h2 style="margin:0;"><i>[EEE Monitor] Riaccensione telescopi con nuova miscela di gas ecosostenibile</i></h2>')
     ### Enable following line during RUN 5
     ###w.write(day_of_run())
 
@@ -81,12 +81,15 @@ def make_webpage_index(monitorData,
             transferDelay = -1
 
         # Set <tr> class color
-        if schoolName == "BOLO-04":
-            rowColor = 'gray'
-            transfer_time_txt = ''
+        if schoolName == "BOLO-04" or schoolName == "SAVO-02" or schoolName == "CATA-02":
+            rowColor = 'wheat'
+            transfer_time_txt = 'gray'
         elif transferDelay == -1:
             rowColor = 'red'
             transfer_time_txt = 'red'
+        elif transferDelay.days >= 45:
+            rowColor = 'gray'
+            transfer_time_txt = 'gray'
         elif transferDelay.days == 0:
             if transferDelay.seconds < TRANSFER_SEC_LIMIT:
                 transfer_time_txt = 'green'

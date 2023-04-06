@@ -178,23 +178,53 @@ months of data acquisition</h3>
 
 
 <div style="font-size:80%;text-align: left;">
-<br />
-La tabella qui sotto mostra la situazione dei telescopi in acquisizione:<br />
+<table>
 
-In <span class="bold">verde</span> sono indicati i telescopi in
-presa dati e trasferimento nelle ultime 3 ore<br />
-e con parametri di acquisizione ragionevoli nell'ultimo run analizzato.<br />
+<tr><td class="blue">
+<div style="font-size:120%; text-align: left; color: white; font-weight:bold;">
+La tabella sottostante mostra la situazione dei telescopi:
+</div>
+</td></tr>
 
-In <span class="bold">giallo</span> sono indicati i telescopi in
-cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di 3 ore<br />
-o con tracce (X^2&lt;10) minori di 10 Hz nell'ultimo run analizzato.<br />
+<tr><td class="green">
+<div style="text-align: left;">
+- In <span class="bold">verde</span> sono indicati i telescopi in
+presa dati e trasferimento nelle ultime 3 ore
+e con parametri di acquisizione ragionevoli nell'ultimo run analizzato.
+</div>
+</td></tr>
 
-In <span class="bold">rosso</span> sono indicati i telescopi in
-cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di due giorni<br />
-o con tracce (X^2&lt;10) minori di 5Hz nell'ultimo run analizzato.<br />
+<tr><td class="yellow">
+<div style="text-align: left;">
+- In <span class="bold">giallo</span> sono indicati i telescopi in
+cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di 3 ore
+o con tracce (X^2&lt;10) minori di 10 Hz nell'ultimo run analizzato.
+</div>
+</td></tr>
 
-In <span class="bold">grigio</span> sono indicati gli archivi storici dei dati
-dei telescopi che non sono più operativi perch&eacute spostati in altre scuole.</div>
+<tr><td class="red">
+<div style="text-align: left;">
+- In <span class="bold">rosso</span> sono indicati i telescopi in
+cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di due giorni
+o con tracce (X^2&lt;10) minori di 5 Hz nell'ultimo run analizzato.<br />
+</div>
+</td></tr>
+
+<tr><td class="gray">
+<div style="text-align: left;">
+- In <span class="bold">grigio</span> sono indicati i telescopi in 
+attesa di ripartire con la nuova miscela di gas ecosostenibile.<br />
+</div>
+</td></tr>
+
+<tr><td class="wheat">
+<div style="text-align: left;">
+- In <span class="bold">beige</span> sono indicati gli archivi storici dei dati
+dei telescopi che ora sono stati spostati in altre scuole.
+</div>
+</td></tr>
+</table>
+</div>
 
 </div>
 </div>

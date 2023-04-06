@@ -91,6 +91,9 @@ tr {
  background-color: #fff;
  border: 1px solid #fff;
 }
+tr.blue {
+ background-color: #08C;
+}
 tr.gray {
  background-color: #eee;
 }
@@ -103,11 +106,17 @@ tr.red {
 tr.yellow {
  background-color: #FFC;
 }
+tr.wheat {
+ background-color: #EBDDBE;
+ }
 tr.red_ib {
  background-color: #CFC;
 }
 tr.yellow_ib {
  background-color: #CFC;
+}
+td.blue {
+ background-color: #08C;
 }
 td.gray {
  background-color: #EEE;
@@ -121,6 +130,9 @@ td.yellow {
 td.red {
  background-color: #FCC;
 }
+td.wheat {
+ background-color: #EBDDBE;
+ }
 .small {
  font-size: 10px;
  color: #fff;
