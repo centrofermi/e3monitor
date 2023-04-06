@@ -96,6 +96,7 @@ tr.blue {
 }
 tr.gray {
  background-color: #eee;
+ color: #888;
 }
 tr.green {
  background-color: #9f9;
@@ -108,6 +109,7 @@ tr.yellow {
 }
 tr.wheat {
  background-color: #EBDDBE;
+ color: #888;
  }
 tr.red_ib {
  background-color: #CFC;
@@ -120,6 +122,7 @@ td.blue {
 }
 td.gray {
  background-color: #EEE;
+ color: #888;
 }
 td.green {
  background-color: #9F9;
@@ -132,6 +135,7 @@ td.red {
 }
 td.wheat {
  background-color: #EBDDBE;
+ color: #888;
  }
 .small {
  font-size: 10px;
@@ -149,6 +153,9 @@ span.smalltab {
 }
 span.gray {
     color: #333;
+}
+span.gray2 {
+    color: #888;
 }
 span.green {
     color: #090;

@@ -83,13 +83,13 @@ def make_webpage_index(monitorData,
         # Set <tr> class color
         if schoolName == "BOLO-04" or schoolName == "SAVO-02" or schoolName == "CATA-02":
             rowColor = 'wheat'
-            transfer_time_txt = 'gray'
+            transfer_time_txt = 'gray2'
         elif transferDelay == -1:
             rowColor = 'red'
             transfer_time_txt = 'red'
         elif transferDelay.days >= 45:
             rowColor = 'gray'
-            transfer_time_txt = 'gray'
+            transfer_time_txt = 'gray2'
         elif transferDelay.days == 0:
             if transferDelay.seconds < TRANSFER_SEC_LIMIT:
                 transfer_time_txt = 'green'
