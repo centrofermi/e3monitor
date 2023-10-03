@@ -100,7 +100,7 @@ Coincidences</a>
 <a href="http://eee.centrofermi.it/monitor/traffic">
 Connectivity Report</a>
 -->
-<a href="https://iatw.cnaf.infn.it/eee/elog/Run6/"><b>ELOG RUN6</b></a>
+<a href="https://iatw.cnaf.infn.it/eee/elog/Run7/"><b>ELOG RUN7</b></a>
 </div></div>
 </div></div>
 <a href="http://eee.centrofermi.it/elog/Query"><b>DATA REQUEST</b></a>
