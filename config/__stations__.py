@@ -56,6 +56,7 @@ EEE_ACTIVE_STATIONS = [
     'POLA-03',
     'POLA-04',
     'REND-01',
+    'REND-02',
     'REGG-01',
     'ROMA-01',
     'ROMA-02',
@@ -155,5 +156,6 @@ EEE_STATION_DICT = {
     'FERM-01': 66,
     'LNLE-01': 67,
     'SALE-03': 68,
-    'MESS-01': 69
+    'MESS-01': 69,
+    'REND-02': 69
 }
