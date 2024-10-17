@@ -154,9 +154,9 @@ se ci sono problemi di collegamento tra la propria Scuola e il CNAF.</br />
 In <span class="bold">verde</span> sono indicate le Scuole in
 comunicazione con il CNAF nelle ultime 2 ore.<br />
 In <span class="bold">giallo</span> sono indicate le Scuole in
-cui il link con  il CNAF non funziona da 3 ore.<br />
+cui il link con  il CNAF non funziona da 24 ore.<br />
 In <span class="bold">rosso</span> sono indicate le Scuole in
-cui il link con il CNAF non funziona da pi&ugrave; di 3 ore.</p>
+cui il link con il CNAF non funziona da pi&ugrave; di 24 ore.</p>
 <table>
 <tr><th>Scuola</th>
 <th>Giorno</th
@@ -189,7 +189,7 @@ La tabella sottostante mostra la situazione dei telescopi:
 <tr><td class="green">
 <div style="text-align: left;">
 - In <span class="bold">verde</span> sono indicati i telescopi in
-presa dati e trasferimento nelle ultime 3 ore
+presa dati e trasferimento nelle ultime 24 ore
 e con parametri di acquisizione ragionevoli nell'ultimo run analizzato.
 </div>
 </td></tr>
@@ -197,7 +197,7 @@ e con parametri di acquisizione ragionevoli nell'ultimo run analizzato.
 <tr><td class="yellow">
 <div style="text-align: left;">
 - In <span class="bold">giallo</span> sono indicati i telescopi in
-cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di 3 ore
+cui trasferimento e/o acquisizione sono sospesi da pi&ugrave; di 24 ore
 o con tracce (X^2&lt;10) minori di 10 Hz nell'ultimo run analizzato.
 </div>
 </td></tr>
@@ -219,7 +219,7 @@ attesa di ripartire con la nuova miscela di gas ecosostenibile.<br />
 
 <tr><td class="wheat">
 <div style="text-align: left; color: black;">
-- In <span class="bold">beige</span> sono indicati gli archivi storici dei dati
+- In <span class="bold">beige</span>, a fine tabella, sono indicati gli archivi storici dei dati
 dei telescopi che ora sono stati spostati in altre scuole.
 </div>
 </td></tr>
