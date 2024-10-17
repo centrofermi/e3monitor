@@ -297,7 +297,7 @@ def make_webpage_index(monitorData,
 
     # Second table of the page
     w.write('<p>&nbsp;</p>')
-    w.write('<h3>Nella tabella seguente, sono riportati gli archivi storici dei dati dei telescopi che ora sono stati spostati in altre scuole</h3>')
+    w.write('<h3>Archivi dati storici dei telescopi che ora sono operativi presso altre scuole</h3>')
     w.write('<p>&nbsp;</p>')
     # Write table for OLD Telescopes
     w.write(TABELLA1_P2_HTML)
