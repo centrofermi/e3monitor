@@ -296,13 +296,16 @@ def make_webpage_index(monitorData,
 
     w.write('</table>')
     # This is the END of the main table
+    # w.write('</div>')
+    # This is really the end
 
     # Second table of the page
     w.write('<p>&nbsp;</p>')
     w.write('<h3>Archivi dati storici dei telescopi che ora sono operativi presso altre scuole</h3>')
     w.write('<p>&nbsp;</p>')
     # Write table for OLD Telescopes
-    w.write(TABELLA1_P2_HTML)
+    #w.write(TABELLA1_P2_HTML)
+    w.write('<table> <tr><th>School</th> <th>Day</th> <th>Time</th> <th class="small">Name of the last<br />trasferred File</th> <th class="small">Number of Files<br />trasferred today</th> <th class="small">Name of the last<br />File analyzed<br />by DQM</th> <th>DQM<br />daily<br />report</th> <th class="small">RATE of<br />Triggers<br /> for the<br />last Run<br />in DQM</th> <th class="small">RATE of<br />Tracks<br /> for the<br />last Run<br />in DQM</th> <th>Link DQM</th></tr>')
     # Start SECOND loop for OLD school names (sorted)
     for schoolName in sorted(monitorData.get_allData()):
 
