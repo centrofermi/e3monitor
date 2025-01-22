@@ -162,7 +162,7 @@ fig.savefig(pathSaveFig + 'tracks.png')
 logger.info("Plot saved in " + str(pathSaveFig) + 'tracks.png')
 # Save data to CSV
 csv_file_path = pathSaveFig + 'tracks.csv'
-with open(csv_file_path, mode='w', newline='') as file:
+with open(csv_file_path, mode='wb') as file:
     writer = csv.writer(file)
     writer.writerow(['Date', 'Number of Tracks'])
     for date, ntrack in zip(dates, ntracks):
