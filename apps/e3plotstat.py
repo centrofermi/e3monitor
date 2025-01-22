@@ -35,6 +35,7 @@ import logging
 import logging.config
 from matplotlib.dates import MonthLocator, WeekdayLocator, DateFormatter
 #import matplotlib.ticker as mtick
+import csv
 import matplotlib.dates as md
 import matplotlib.patches as patches
 from matplotlib import ticker
@@ -159,7 +160,15 @@ ax.annotate('RUN 6', xy=(dateRun6Start-70+(dateRun6End-dateRun6Start)/2,hText+10
 fig.autofmt_xdate()
 fig.savefig(pathSaveFig + 'tracks.png')
 logger.info("Plot saved in " + str(pathSaveFig) + 'tracks.png')
+# Save data to CSV
+csv_file_path = pathSaveFig + 'tracks.csv'
+with open(csv_file_path, mode='w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(['Date', 'Number of Tracks'])
+    for date, ntrack in zip(dates, ntracks):
+        writer.writerow([date.strftime('%Y-%m-%d'), ntrack])
 
+logger.info("Data saved in " + csv_file_path)
 #
 # Make the webpage
 #
