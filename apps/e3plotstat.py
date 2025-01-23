@@ -146,8 +146,8 @@ ax.add_patch(patches.Rectangle((dateRun4Start, yMin), dateRun4End-dateRun4Start,
 #ax.annotate('', xy=(dateRun4End,hText), xytext=(dateRun4Start, hText), arrowprops=dict(arrowstyle='<->',connectionstyle="arc3,rad=0.0",edgecolor='#c0392b',linewidth=2.5))
 ax.annotate('RUN 4', xy=(dateRun4Start-18+(dateRun4End-dateRun4Start)/2,hText+10e10),size=12,rotation='vertical',weight='bold',color='#c0392b')
 # Run 5
-ax.add_patch(patches.Rectangle((dateRun5Start, yMin), dateRun5End-dateRun5Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed',linewidth=2))
-#ax.annotate('', xy=(dateRun5End-2,hText), xytext=(dateRun5Start, hText), arrowprops=dict(arrowstyle='<->',connectionstyle="arc3,rad=0.0",edgecolor='#c0392b',linewidth=2.5))
+ax.add_patch(patches.Rectangle((dateRun5Start, yMin), dateRun5End-dateRun5Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed', linewidth=2))
+ax.add_patch(patches.Rectangle((dateRun5Start, yMin), dateRun5End-dateRun5Start, yMax, fill=1, facecolor="#c0392b", alpha=0.1))
 ax.annotate('RUN 5', xy=(dateRun5Start-18+(dateRun5End-dateRun5Start)/2,hText+10e10),size=12,rotation='vertical',weight='bold',color='#c0392b')
 # Run 6
 ax.add_patch(patches.Rectangle((dateRun6Start, yMin), dateRun6End-dateRun6Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed', linewidth=2))
