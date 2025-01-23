@@ -135,6 +135,7 @@ ax.add_patch(patches.Rectangle((dateRun1Start, yMin), dateRun1End-dateRun1Start,
 ax.annotate('RUN 1', xy=(dateRun1Start-18+(dateRun1End-dateRun1Start)/2,hText+10e10),size=12,rotation='vertical',weight='bold',color='#c0392b')
 # Run 2
 ax.add_patch(patches.Rectangle((dateRun2Start, yMin), dateRun2End-dateRun2Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed',linewidth=2))
+ax.annotate('RUN 2', xy=(dateRun2Start-75+(dateRun2End-dateRun2Start)/2,hText+10e10),size=12,rotation='vertical',weight='bold',color='#c0392b')
 #ax.annotate('', xy=(dateRun2End,hText), xytext=(dateRun2Start, hText), arrowprops=dict(arrowstyle='<->',connectionstyle="arc3,rad=0.0",edgecolor='#c0392b',linewidth=2.5))
 ax.annotate('RUN 2', xy=(dateRun2Start-75+(dateRun2End-dateRun2Start)/2,hText+10e10),size=12,weight='bold',color='#c0392b')
 # Run 3
