@@ -128,8 +128,8 @@ hText = 7e9
 # Pilot Run
 #ax.add_patch(patches.Rectangle((dateRun0Start, yMin), dateRun0End-dateRun0Start, yMax, fill=1, facecolor="#c0392b", alpha=.3))
 ax.annotate('PILOT RUN', xy=(dateRun0Start-80+(dateRun0End-dateRun0Start)/2,hText+10e10),size=12,rotation='vertical',weight='bold',color='#c0392b',zorder=10)
-ax.add_patch(patches.Rectangle((dateRun0Start, yMin), dateRun0End-dateRun0Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed', linewidth=2, zorder=20))
-#ax.annotate('', xy=(dateRun0End, hText), xytext=(dateRun0Start, hText), arrowprops=dict(arrowstyle='<->', connectionstyle="arc3,rad=0.0", edgecolor='#c0392b', linewidth=0.3, zorder=10))
+ax.add_patch(patches.Rectangle((dateRun0Start, yMin), dateRun0End-dateRun0Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed', linewidth=2))
+ax.add_patch(patches.Rectangle((dateRun0Start, yMin), dateRun0End-dateRun0Start, yMax, fill=1, facecolor="#c0392b", alpha=0.1))
 
 # Run 1
 ax.add_patch(patches.Rectangle((dateRun1Start, yMin), dateRun1End-dateRun1Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed', linewidth=2))
