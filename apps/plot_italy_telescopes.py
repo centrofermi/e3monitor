@@ -4,7 +4,6 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 import os
 import sys
-sys.path.append(os.path.abspath(r'/home/coccetti/miniconda3/lib'))
 from e3monitor.config.__files_server__ import (pathSaveFig)
 
 # Coordinapythtes of the telescopes (example data)
