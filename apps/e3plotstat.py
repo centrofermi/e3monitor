@@ -78,7 +78,9 @@ dateRun5Start = md.date2num(datetime(2018,10,15))
 dateRun5End = md.date2num(datetime(2019,5,31))
 dateRun6Start = md.date2num(datetime(2022,10,1))
 dateRun6End = md.date2num(datetime(2023,7,31))
+dateRun7Start = md.date2num(datetime(2023,11,1))
 dateRunToday = md.date2num(datetime.today())
+dateRun7End = dateRunToday
 
 # Read pickle
 trackStat = read_pickle(pathWorkDir, pklStatFile)
@@ -164,7 +166,12 @@ ax.add_patch(patches.Rectangle((dateRun6Start, yMin), dateRun6End-dateRun6Start,
 ax.add_patch(patches.Rectangle((dateRun6Start, yMin), dateRun6End-dateRun6Start, yMax, fill=1, facecolor="#c0392b", alpha=0.1))
 ax.annotate('RUN 6', xy=(dateRun6Start-18+(dateRun6End-dateRun6Start)/2, hText+10e10), size=12, rotation='vertical', weight='bold', color='#c0392b')
 
-# FOLLOWING THREE LINES for RUN 7
+# Run 7
+ax.add_patch(patches.Rectangle((dateRun7Start, yMin), dateRun7End-dateRun7Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed', linewidth=2))
+ax.add_patch(patches.Rectangle((dateRun7Start, yMin), dateRun7End-dateRun7Start, yMax, fill=1, facecolor="#c0392b", alpha=0.1))
+ax.annotate('RUN 7', xy=(dateRun7Start-18+(dateRun7End-dateRun7Start)/2, hText+10e10), size=12, rotation='vertical', weight='bold', color='#c0392b')
+
+# FOLLOWING THREE LINES for RUN 8
 #ax.add_patch(patches.Rectangle((dateRun5Start, yMin), dateRunToday-dateRun5Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed',linewidth=2))
 #ax.annotate('', xy=(dateRunToday-2,hText), xytext=(dateRun5Start, hText), arrowprops=dict(arrowstyle='<->',connectionstyle="arc3,rad=0.0",edgecolor='#c0392b',linewidth=2.5))
 #ax.annotate('RUN 5', xy=(dateRun5Start-40+(dateRunToday-dateRun5Start)/2,hText+1e9),size=18,weight='bold',color='#c0392b', backgroundcolor='#87CEFA')
