@@ -2,6 +2,7 @@
 
 import geopandas as gpd
 import matplotlib.pyplot as plt
+from e3monitor.config.__files_server__ import (pathSaveFig)
 
 # Coordinates of the telescopes (example data)
 telescopes = {
@@ -83,4 +84,4 @@ plt.title('Map of Italy with Telescopes')
 plt.xlabel('Longitude')
 plt.ylabel('Latitude')
 plt.grid(True)
-plt.show()
+plt.savefig(pathSaveFig + '/italy_telescopes.png')
