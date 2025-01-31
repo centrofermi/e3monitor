@@ -83,7 +83,7 @@ def make_webpage_index(monitorData,
         # Set <tr> class color
         if schoolName == "BOLO-04" or schoolName == "SAVO-02" or schoolName == "CATA-02" \
                          or schoolName == "SAVO-03" or schoolName == "TORI-01" or schoolName == "TORI-03" \
-                         or schoolName == "TORI-04":
+                        or schoolName == "TORI-04" or schoolName == "CAGL-03" :
             continue
         elif transferDelay == -1:
             rowColor = 'red'
@@ -322,7 +322,7 @@ def make_webpage_index(monitorData,
         # Set <tr> class color
         if schoolName == "BOLO-04" or schoolName == "SAVO-02" or schoolName == "CATA-02" \
                          or schoolName == "SAVO-03" or schoolName == "TORI-01" or schoolName == "TORI-03" \
-                         or schoolName == "TORI-04":
+                         or schoolName == "TORI-04" or schoolName == "CAGL-03" :
             rowColor = 'wheat'
             transfer_time_txt = 'gray2'
         else:
