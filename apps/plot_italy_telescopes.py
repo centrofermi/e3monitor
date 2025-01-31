@@ -69,8 +69,8 @@ telescopes = {
 }
 
 # Load the map of Italy
-world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
-italy = world[(world.name == "Italy")]
+italy = gpd.read_file("https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_0_countries.geojson")
+italy = italy[italy['ADMIN'] == "Italy"]
 
 # Create a plot
 fig, ax = plt.subplots(figsize=(10, 10))
