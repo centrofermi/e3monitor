@@ -21,7 +21,7 @@ from e3monitor.config.__limits__ import (
     TRACKS_WARNING_LOW,
     TRACKS_ERROR_LOW
     )
-from e3monitor.html.__html_headers__ import (
+from e3monitor.table_headers.__html_headers__ import (
     HEADER_HTML,
     TABELLA1_HTML,
     TABELLA1_P2_HTML,
