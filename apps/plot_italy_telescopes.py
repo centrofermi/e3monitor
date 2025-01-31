@@ -2,9 +2,12 @@
 
 import geopandas as gpd
 import matplotlib.pyplot as plt
+import os
+import sys
+sys.path.append(os.path.abspath(r'/home/coccetti/miniconda3/lib'))
 from e3monitor.config.__files_server__ import (pathSaveFig)
 
-# Coordinates of the telescopes (example data)
+# Coordinapythtes of the telescopes (example data)
 telescopes = {
     'ALTA-01': (45.0703, 7.6869),
     'AREZ-01': (43.4633, 11.8797),
