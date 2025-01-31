@@ -7,7 +7,7 @@ Created on Wed Nov 19 16:59:30 2014
 
 from datetime import datetime
 from datetime import date
-from e3monitor.html.__html_headers__ import (PAGE_TITLE_HTML,
+from e3monitor.table_headers.__html_headers__ import (PAGE_TITLE_HTML,
                                              PAGE_SUBTILE_HTML)
 
 
