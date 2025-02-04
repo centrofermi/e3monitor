@@ -4,8 +4,8 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 import os
 import matplotlib.colors as mcolors
-# from e3monitor.config.__files_server__ import pathSaveFig
-pathSaveFig = '/Users/fc/Downloads'
+from e3monitor.config.__files_server__ import pathSaveFig
+# pathSaveFig = '/Users/fc/Downloads'
 
 # Coordinates of the telescopes (example data)
 telescopes = {
