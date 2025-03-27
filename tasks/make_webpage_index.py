@@ -194,7 +194,7 @@ def make_webpage_index(monitorData,
             w.write(str(monitorData.get_transferFileNum(schoolName)))
         except:
             w.write('*')
-        w.write('<br /><a href=\"plots/' + schoolName + '.png\"><span class=\"smalltab\">[History]</span></a>')
+        # w.write('<br /><a href=\"plots/' + schoolName + '.png\"><span class=\"smalltab\">[History]</span></a>')
         w.write('</td>')
 
         # Print "Ultima Entry nell'e-logbook delle Scuole"
