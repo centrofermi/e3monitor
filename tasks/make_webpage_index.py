@@ -305,7 +305,7 @@ def make_webpage_index(monitorData,
     w.write('<p>&nbsp;</p>')
     # Write table for OLD Telescopes
     #w.write(TABELLA1_P2_HTML)
-    w.write('<table> <tr><th>Telescope</th> <th class="small">Name of the last<br />trasferred File</th> <th class="small">Name of the last<br />File analyzed<br />by DQM</th> <th>DQM<br />daily<br />report</th> <th class="small">RATE of<br />Triggers<br /> for the<br />last Run<br />in DQM</th> <th class="small">RATE of<br />Tracks<br /> for the<br />last Run<br />in DQM</th> <th>Link DQM</th></tr>')
+    w.write('<table> <tr><th>Telescope</th> <th class="small">Name of the last<br />trasferred File</th> <th class="small">Name of the last<br />File analyzed<br />by DQM</th> <th>DQM<br />daily<br />report</th> <th>Link DQM</th></tr>')
     # Start SECOND loop for OLD school names (sorted)
     for schoolName in sorted(monitorData.get_allData()):
 
@@ -436,43 +436,43 @@ def make_webpage_index(monitorData,
             w.write('*')
         w.write('</td>')
 
-        # Print triggers
-        w.write('<td>')
-        try:
-            _triggers = round(monitorData.get_triggerRate(schoolName))
-            if (_triggers < TRACKS_ERROR_LOW or
-                    _triggers > TRACKS_ERROR_HIGH):
-                triggers_txt = 'red'
-            elif (_triggers < TRACKS_WARNING_LOW or
-                    _triggers > TRACKS_WARNING_HIGH):
-                triggers_txt = 'yellow'
-            else:
-                triggers_txt = 'gray'
-            w.write('<span class=\"' + triggers_txt + '\">')
-            w.write(str(_triggers))
-            w.write('</span>')
-        except:
-            w.write('*')
-        w.write('</td>')
+        # # Print triggers
+        # w.write('<td>')
+        # try:
+        #     _triggers = round(monitorData.get_triggerRate(schoolName))
+        #     if (_triggers < TRACKS_ERROR_LOW or
+        #             _triggers > TRACKS_ERROR_HIGH):
+        #         triggers_txt = 'red'
+        #     elif (_triggers < TRACKS_WARNING_LOW or
+        #             _triggers > TRACKS_WARNING_HIGH):
+        #         triggers_txt = 'yellow'
+        #     else:
+        #         triggers_txt = 'gray'
+        #     w.write('<span class=\"' + triggers_txt + '\">')
+        #     w.write(str(_triggers))
+        #     w.write('</span>')
+        # except:
+        #     w.write('*')
+        # w.write('</td>')
 
-        # Print tracks (chi^2 < 10)
-        w.write('<td>')
-        try:
-            _tracks = round(monitorData.get_trackRate(schoolName))
-            if (_tracks < TRACKS_ERROR_LOW or
-                    _tracks > TRACKS_ERROR_HIGH):
-                tracks_txt = 'red'
-            elif (_tracks < TRACKS_WARNING_LOW or
-                    _tracks > TRACKS_WARNING_HIGH):
-                tracks_txt = 'yellow'
-            else:
-                tracks_txt = 'gray'
-            w.write('<span class=\"' + tracks_txt + '\">')
-            w.write(str(_tracks))
-            w.write('</span>')
-        except:
-            w.write('*')
-        w.write('</td>')
+        # # Print tracks (chi^2 < 10)
+        # w.write('<td>')
+        # try:
+        #     _tracks = round(monitorData.get_trackRate(schoolName))
+        #     if (_tracks < TRACKS_ERROR_LOW or
+        #             _tracks > TRACKS_ERROR_HIGH):
+        #         tracks_txt = 'red'
+        #     elif (_tracks < TRACKS_WARNING_LOW or
+        #             _tracks > TRACKS_WARNING_HIGH):
+        #         tracks_txt = 'yellow'
+        #     else:
+        #         tracks_txt = 'gray'
+        #     w.write('<span class=\"' + tracks_txt + '\">')
+        #     w.write(str(_tracks))
+        #     w.write('</span>')
+        # except:
+        #     w.write('*')
+        # w.write('</td>')
 
         # Print link to DMQ directory
         w.write('<td>')
