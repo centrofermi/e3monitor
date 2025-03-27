@@ -119,9 +119,9 @@ TABELLA1_P2_HTML = """
 <th>Day</th>
 <th>Time</th>
 <th class="small">Name of the last<br />trasferred File</th>
-<th class="small">Number of Files<br />trasferred today</th>
+<th class="small">Number<br />of Files<br />trasferred<br />today</th>
 <th class="small">Name of the last<br />File analyzed<br />by DQM</th>
-<th>DQM<br />daily<br />report</th>
+<th>DQM<br />daily report</th>
 <th class="small">RATE of<br />Triggers<br />
 for the<br />last Run<br />in DQM</th>
 <th class="small">RATE of<br />Tracks<br />
