@@ -305,7 +305,7 @@ def make_webpage_index(monitorData,
     w.write('<p>&nbsp;</p>')
     # Write table for OLD Telescopes
     #w.write(TABELLA1_P2_HTML)
-    w.write('<table> <tr><th>School</th> <th>Day</th> <th>Time</th> <th class="small">Name of the last<br />trasferred File</th> <th class="small">Name of the last<br />File analyzed<br />by DQM</th> <th>DQM<br />daily<br />report</th> <th class="small">RATE of<br />Triggers<br /> for the<br />last Run<br />in DQM</th> <th class="small">RATE of<br />Tracks<br /> for the<br />last Run<br />in DQM</th> <th>Link DQM</th></tr>')
+    w.write('<table> <tr><th>Telescope</th> <th class="small">Name of the last<br />trasferred File</th> <th class="small">Name of the last<br />File analyzed<br />by DQM</th> <th>DQM<br />daily<br />report</th> <th class="small">RATE of<br />Triggers<br /> for the<br />last Run<br />in DQM</th> <th class="small">RATE of<br />Tracks<br /> for the<br />last Run<br />in DQM</th> <th>Link DQM</th></tr>')
     # Start SECOND loop for OLD school names (sorted)
     for schoolName in sorted(monitorData.get_allData()):
 
@@ -342,27 +342,27 @@ def make_webpage_index(monitorData,
         w.write('</span>')
         w.write('</td>')
 
-        # Print Day of the last transferred file at CNAF
-        w.write('<td>')
-        w.write('<span class=\"' + transfer_time_txt + '">')
-        try:
-            w.write(monitorData.get_transferTs(schoolName).strftime("%a %d"))
-            w.write('<br />')
-            w.write(monitorData.get_transferTs(schoolName).strftime("%B"))
-        except:
-            w.write('')
-        w.write('</span>')
-        w.write('</td>')
+        # # Print Day of the last transferred file at CNAF
+        # w.write('<td>')
+        # w.write('<span class=\"' + transfer_time_txt + '">')
+        # try:
+        #     w.write(monitorData.get_transferTs(schoolName).strftime("%a %d"))
+        #     w.write('<br />')
+        #     w.write(monitorData.get_transferTs(schoolName).strftime("%B"))
+        # except:
+        #     w.write('')
+        # w.write('</span>')
+        # w.write('</td>')
 
-        # Print Hour of the last transferred file at CNAF
-        w.write('<td>')
-        w.write('<span class=\"' + transfer_time_txt + '">')
-        try:
-            w.write(monitorData.get_transferTs(schoolName).strftime("%H:%M"))
-        except:
-            w.write('')
-        w.write('</span>')
-        w.write('</td>')
+        # # Print Hour of the last transferred file at CNAF
+        # w.write('<td>')
+        # w.write('<span class=\"' + transfer_time_txt + '">')
+        # try:
+        #     w.write(monitorData.get_transferTs(schoolName).strftime("%H:%M"))
+        # except:
+        #     w.write('')
+        # w.write('</span>')
+        # w.write('</td>')
 
         # Print "Nome dell'ultimo File trasferito"
         w.write('<td>')
