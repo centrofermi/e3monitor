@@ -56,7 +56,7 @@ def make_webpage_index(monitorData,
 
     # Day of run 
     ### Generic message
-    w.write('<h2 style="margin:0;"><i>[EEE Monitor] RUN 7 - Telescopi con nuova miscela di gas ecosostenibile</i></h2>')
+    w.write('<h2 style="margin:0;"><i>[EEE Monitor] Eco Pilot Run - Telescopi con nuova miscela di gas ecosostenibile</i></h2>')
     ### Enable following line during RUN 5
     ###w.write(day_of_run())
 

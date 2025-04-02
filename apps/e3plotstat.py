@@ -79,8 +79,10 @@ dateRun5End = md.date2num(datetime(2019,5,31))
 dateRun6Start = md.date2num(datetime(2022,10,1))
 dateRun6End = md.date2num(datetime(2023,7,31))
 dateRun7Start = md.date2num(datetime(2023,11,1))
+dateRun7End = md.date2num(datetime(2025,3,31))
+dateEcoPilotRunStart = md.date2num(datetime(2025,4,2))
 dateRunToday = md.date2num(datetime.today())
-dateRun7End = dateRunToday
+dateEcoPilotRunEnd = dateRunToday
 
 # Read pickle
 trackStat = read_pickle(pathWorkDir, pklStatFile)
@@ -169,7 +171,12 @@ ax.annotate('RUN 6', xy=(dateRun6Start-18+(dateRun6End-dateRun6Start)/2, hText+1
 # Run 7
 ax.add_patch(patches.Rectangle((dateRun7Start, yMin), dateRun7End-dateRun7Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed', linewidth=2))
 ax.add_patch(patches.Rectangle((dateRun7Start, yMin), dateRun7End-dateRun7Start, yMax, fill=1, facecolor="#c0392b", alpha=0.1))
-ax.annotate('RUN 7 (active)', xy=(dateRun7Start-18+(dateRun7End-dateRun7Start)/2, hText+10e10), size=12, rotation='vertical', weight='bold', color='#c0392b')
+ax.annotate('RUN 7', xy=(dateRun7Start-18+(dateRun7End-dateRun7Start)/2, hText+10e10), size=12, rotation='vertical', weight='bold', color='#c0392b')
+
+# Eco Pilot Run
+ax.add_patch(patches.Rectangle((dateEcoPilotRunStart, yMin), dateEcoPilotRunEnd-dateEcoPilotRunStart, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed', linewidth=2))
+ax.add_patch(patches.Rectangle((dateEcoPilotRunStart, yMin), dateEcoPilotRunEnd-dateEcoPilotRunStart, yMax, fill=1, facecolor="#c0392b", alpha=0.1))
+ax.annotate('Eco Pilot Run (active)', xy=(dateEcoPilotRunStart-18+(dateEcoPilotRunEnd-dateEcoPilotRunStart)/2, hText+10e10), size=12, rotation='vertical', weight='bold', color='#c0392b')
 
 # FOLLOWING THREE LINES for RUN 8
 #ax.add_patch(patches.Rectangle((dateRun5Start, yMin), dateRunToday-dateRun5Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed',linewidth=2))
