@@ -55,6 +55,7 @@ EEE_ACTIVE_STATIONS = [
     'POLA-02',
     'POLA-03',
     'POLA-04',
+    'RECA-01',
     'REND-01',
     'REND-02',
     'REGG-01',
