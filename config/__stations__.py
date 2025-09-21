@@ -79,7 +79,8 @@ EEE_ACTIVE_STATIONS = [
     'TRIN-01',
     'VIAR-01',
     'VIAR-02',
-    'VICE-01'
+    'VICE-01',
+    'VICE-02'
 ]
 
 """ List of EEE Stations for statistics
@@ -158,5 +159,6 @@ EEE_STATION_DICT = {
     'LNLE-01': 67,
     'SALE-03': 68,
     'MESS-01': 69,
-    'REND-02': 69
+    'REND-02': 70,
+    'VICE-02': 71
 }
