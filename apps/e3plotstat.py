@@ -119,7 +119,7 @@ ax.xaxis.set_major_formatter(monthsFmt)
 ax.set_ylabel("Number of tracks")
 ax.yaxis.set_major_locator(sci)
 ax.yaxis.set_major_formatter(sciFmt)
-ax.set_ylim(0.0, 1.5e11)
+ax.set_ylim(0.0, 1.6e11)
 
 # Print graph
 ax.plot_date(dates, ntracks, color='#0088CC', linestyle='dotted', marker='o')
