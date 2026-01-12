@@ -183,7 +183,7 @@ ax.annotate('Eco Pilot Run', xy=(dateEcoPilotRunStart-18+(dateEcoPilotRunEnd-dat
 # Run 8
 ax.add_patch(patches.Rectangle((dateRun8Start, yMin), dateRun8End-dateRun8Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed', linewidth=2))
 ax.add_patch(patches.Rectangle((dateRun8Start, yMin), dateRun8End-dateRun8Start, yMax, fill=1, facecolor="#c0392b", alpha=0.1))
-ax.annotate('RUN 8 (active)', xy=(dateRun8Start-18+(dateRun8End-dateRun8Start)/2, hText+10e10), size=12, rotation='vertical', weight='bold', color='#c0392b')
+ax.annotate('RUN 8 (active)', xy=(dateRun8Start-18+(dateRun8End-dateRun8Start)/2, hText+10e10), size=10, rotation='vertical', weight='bold', color='#c0392b')
 
 # FOLLOWING THREE LINES for RUN 9
 #ax.add_patch(patches.Rectangle((dateRun5Start, yMin), dateRunToday-dateRun5Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed',linewidth=2))
