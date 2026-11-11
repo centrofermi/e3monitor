@@ -81,7 +81,7 @@ def make_webpage_index(monitorData,
             transferDelay = -1
 
         # Set <tr> class color
-        if schoolName == "BOLO-04" or schoolName == "SAVO-02" \
+        if schoolName == "BOLO-04" or schoolName == "SAVO-02" or schoolName == "CERN-02" \
             or schoolName =="CATA-01" or schoolName == "CATA-02" or schoolName == "LODI-01" \
             or schoolName == "SAVO-03" or schoolName == "TORI-01" or schoolName == "TORI-02" \
             or schoolName == "TORI-04" or schoolName == "CAGL-03" or schoolName == "FRAS-03":
@@ -321,7 +321,7 @@ def make_webpage_index(monitorData,
             transferDelay = -1
 
         # Set <tr> class color
-        if schoolName == "BOLO-04" or schoolName == "SAVO-02" \
+        if schoolName == "BOLO-04" or schoolName == "SAVO-02" or schoolName == "CERN-02" \
             or schoolName == "CATA-01" or schoolName == "CATA-02" or schoolName == "LODI-01" \
             or schoolName == "SAVO-03" or schoolName == "TORI-01" or schoolName == "TORI-02" \
             or schoolName == "TORI-04" or schoolName == "CAGL-03" or schoolName == "FRAS-03":
