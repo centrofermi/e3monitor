@@ -103,7 +103,7 @@ Connectivity Report</a>
 <a href="https://iatw.cnaf.infn.it/eee/elog/Run8/"><b>ELOG RUN8</b></a>
 </div></div>
 </div></div>
-<a href="http://eee.centrofermi.it/elog/Query"><b>DATA REQUEST</b></a>
+<a href="http://iatw.cnaf.infn.it/eee/elog/Query"><b>DATA REQUEST</b></a>
 </div></div>
 </div>
 </tr></table>
