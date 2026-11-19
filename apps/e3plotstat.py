@@ -83,8 +83,10 @@ dateRun7End = md.date2num(datetime(2025,3,31))
 dateEcoPilotRunStart = md.date2num(datetime(2025,4,2))
 dateEcoPilotRunEnd = md.date2num(datetime(2025,11,13))
 dateRun8Start = md.date2num(datetime(2025,11,14))
+dateRun8End = md.date2num(datetime(2026,6,30))
+dateRun9Start = md.date2num(datetime(2026,11,19))
 dateRunToday = md.date2num(datetime.today())
-dateRun8End = dateRunToday
+dateRun9End = dateRunToday
 
 # Read pickle
 trackStat = read_pickle(pathWorkDir, pklStatFile)
@@ -183,12 +185,17 @@ ax.annotate('Eco Pilot Run', xy=(dateEcoPilotRunStart-18+(dateEcoPilotRunEnd-dat
 # Run 8
 ax.add_patch(patches.Rectangle((dateRun8Start, yMin), dateRun8End-dateRun8Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed', linewidth=2))
 ax.add_patch(patches.Rectangle((dateRun8Start, yMin), dateRun8End-dateRun8Start, yMax, fill=1, facecolor="#c0392b", alpha=0.1))
-ax.annotate('RUN 8 (active)', xy=(dateRun8Start-18+(dateRun8End-dateRun8Start)/2, hText+10e10), size=10, rotation='vertical', weight='bold', color='#c0392b')
+ax.annotate('RUN 8', xy=(dateRun8Start-18+(dateRun8End-dateRun8Start)/2, hText+10e10), size=10, rotation='vertical', weight='bold', color='#c0392b')
 
-# FOLLOWING THREE LINES for RUN 9
-#ax.add_patch(patches.Rectangle((dateRun5Start, yMin), dateRunToday-dateRun5Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed',linewidth=2))
-#ax.annotate('', xy=(dateRunToday-2,hText), xytext=(dateRun5Start, hText), arrowprops=dict(arrowstyle='<->',connectionstyle="arc3,rad=0.0",edgecolor='#c0392b',linewidth=2.5))
-#ax.annotate('RUN 5', xy=(dateRun5Start-40+(dateRunToday-dateRun5Start)/2,hText+1e9),size=18,weight='bold',color='#c0392b', backgroundcolor='#87CEFA')
+# RUN 9
+ax.add_patch(patches.Rectangle((dateRun9Start, yMin), dateRun9End-dateRun9Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed',linewidth=2))
+ax.annotate('', xy=(dateRunToday-2,hText), xytext=(dateRun9Start, hText), arrowprops=dict(arrowstyle='<->',connectionstyle="arc3,rad=0.0",edgecolor='#c0392b',linewidth=2.5))
+ax.annotate('RUN 9 (active)', xy=(dateRun9Start-40+(dateRunToday-dateRun9Start)/2,hText+1e10),size=18,weight='bold',color='#c0392b', backgroundcolor='#87CEFA')
+
+# FOLLOWING THREE LINES for RUN 10
+#ax.add_patch(patches.Rectangle((dateRun10Start, yMin), dateRun10End-dateRun10Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed',linewidth=2))
+#ax.annotate('', xy=(dateRunToday-2,hText), xytext=(dateRun10Start, hText), arrowprops=dict(arrowstyle='<->',connectionstyle="arc3,rad=0.0",edgecolor='#c0392b',linewidth=2.5))
+#ax.annotate('RUN 10 (active)', xy=(dateRun10Start-40+(dateRunToday-dateRun10Start)/2,hText+1e10),size=18,weight='bold',color='#c0392b', backgroundcolor='#87CEFA')
 
 # Save plot
 fig.autofmt_xdate()
