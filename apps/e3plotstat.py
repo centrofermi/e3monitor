@@ -189,8 +189,8 @@ ax.annotate('RUN 8', xy=(dateRun8Start-18+(dateRun8End-dateRun8Start)/2, hText+1
 
 # RUN 9
 ax.add_patch(patches.Rectangle((dateRun9Start, yMin), dateRun9End-dateRun9Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed',linewidth=2))
-ax.annotate('', xy=(dateRunToday-2,hText), xytext=(dateRun9Start, hText), arrowprops=dict(arrowstyle='<->',connectionstyle="arc3,rad=0.0",edgecolor='#c0392b',linewidth=2.5))
-ax.annotate('RUN 9 (active)', xy=(dateRun9Start-40+(dateRunToday-dateRun9Start)/2,hText+1e10),size=18,weight='bold',color='#c0392b', backgroundcolor='#87CEFA')
+ax.add_patch(patches.Rectangle((dateRun9Start, yMin), dateRun9End-dateRun9Start, yMax, fill=1, facecolor="#c0392b", alpha=0.1))
+ax.annotate('RUN 9 (active)', xy=(dateRun9Start-18+(dateRun9End-dateRun9Start)/2, hText+10e10), size=10, rotation='vertical', weight='bold', color='#c0392b')
 
 # FOLLOWING THREE LINES for RUN 10
 #ax.add_patch(patches.Rectangle((dateRun10Start, yMin), dateRun10End-dateRun10Start, yMax, fill=0, facecolor="#c0392b", edgecolor="#c0392b", linestyle='dashed',linewidth=2))
