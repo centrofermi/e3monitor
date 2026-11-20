@@ -54,7 +54,7 @@ def make_webpage_index(monitorData,
     w.write(compute_update())
     w.write(TABELLA0_HTML)
 
-    # Day of run 
+    # Day of run
     ### Generic message
     w.write('<h2 style="margin:0;"><i>[EEE Monitor] RUN 8 - November 14, 2025 - May 31, 2026</i></h2>')
     ### Enable following line during RUN 5
